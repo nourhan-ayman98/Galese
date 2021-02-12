@@ -1,0 +1,12 @@
+{
+  "name": "Login_Registration",
+  "displayName": "Login_Registration",
+  "expo": {
+    "name": "Login_Registration",
+    "slug": "Login_Registration",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
