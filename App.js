@@ -1,5 +1,5 @@
 
-import { StatusBar } from 'expo-status-bar';
+/*import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Welcome from './Component/Welcome';
@@ -11,7 +11,8 @@ export default function App() {
         <Welcome/>
 
   );
-}
+}*/
+//yasminn
 /*import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
@@ -47,7 +48,7 @@ const App =()=> {
      <Drawer.Navigator drawerContent= {props => <DrawerContent{... props} />}>
         <Drawer.Screen name="Home" component={MainTabScreen} />
        
-        </Drawer.Navigator>
+      </Drawer.Navigator>
       
         
       
@@ -55,5 +56,4 @@ const App =()=> {
   );
 }
 
-export default App;
-*/
+export default App;*/
