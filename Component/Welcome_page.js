@@ -12,6 +12,8 @@ import  * as Animated from 'react-native-animatable';
 class Welcome_page extends Component {
 
     render() {
+        
+        
         const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>

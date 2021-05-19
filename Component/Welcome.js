@@ -8,6 +8,8 @@ import Signin from './Signin';
 import RegistrationUser from './Registration_User';
 import Registrationchoice from './Registration_choice';
 import RegistrationSeater from './Registration_Seater';
+import App_seater from './Seaterscreen';
+import App_user from './userscreen';
 
 const Stack =createStackNavigator();
 
@@ -23,6 +25,8 @@ class welcome extends Component {
                  <Stack.Screen name="Registration choice" component={Registrationchoice}/>
                  <Stack.Screen name="Registration User" component={RegistrationUser}/>
                  <Stack.Screen name="Registration Seater" component={RegistrationSeater}/>
+                 <Stack.Screen name="Seater Home " component={App_seater}/>
+                 <Stack.Screen name="User Home " component={App_user}/>
              </Stack.Navigator>
          </NavigationContainer>
         );

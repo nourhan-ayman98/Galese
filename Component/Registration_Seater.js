@@ -22,6 +22,7 @@ class RegistrationSeater extends Component {
         data5:{
             confirm_secureTextEntry: true,
         }
+       
     }
     textInputChange = (val) => {
         if (val.trim().length >= 4) {
@@ -81,8 +82,9 @@ class RegistrationSeater extends Component {
             return false;
         }
     }
+    
     render() {
-       
+        const { navigate } = this.props.navigation;
         return (
             <View>
                 <View style={styles.container}>
@@ -186,7 +188,11 @@ class RegistrationSeater extends Component {
                                     borderColor: '#800080',
                                     borderWidth: 1,
                                     marginTop: 15
-                                }]}>
+                                }]}
+                                onPress={()=>{
+                                    navigate("Seater Home ");
+                                }}>
+
                                 <Text
                                     style={[styles.textSign, {
                                         color: '#800080'
