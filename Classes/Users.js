@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import Firebase from "firebase";
 const firebaseConfig = {
     apiKey: "AIzaSyApEFSGhDAQlDgG2sX0rbx_XKLVLoTgArg",
@@ -59,27 +59,6 @@ class users extends Component {
         });
         
     };
-    addUser = (user) => {
-        const users_ = this.state.users;
-        console.log(users_);
-        const index=this.state.Lastindex;
-        console.log(index);
-        /*users_[users_.length]={
-            name: user.name
-            , password: user.password
-            , email: user.email
-        };*/
-        //console.log(users_);
-
-        //this.writeUserData();
-    }
-    DeleteUser = (user) => {
-        const { users } = this.state;
-        const new_users = users.filter(data => {
-            return data.uid !== user.id;
-        });
-        this.setState({ users: new_users });
-    }
 }
 
-export default users;
+export default users;*/

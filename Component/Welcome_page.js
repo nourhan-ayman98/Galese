@@ -4,17 +4,30 @@ import { Platform } from 'react-native';
 import { Constants } from 'react-native-unimodules';
 import { LinearGradient } from 'expo-linear-gradient';
 import MatrialIcon from 'react-native-vector-icons/MaterialIcons';
-import  * as Animated from 'react-native-animatable';
+import * as Animated from 'react-native-animatable';
+import { getUserData } from '../Classes/Data_base';
 
 
 
 
 class Welcome_page extends Component {
 
+
     render() {
-        
-        
         const { navigate } = this.props.navigation;
+        const navigation_ = () => {
+
+            navigate("SignScreen");
+        }
+        const get_read = () => {
+            getUserData();
+        }
+        const functionCombined = () => {
+           navigation_();
+           get_read();
+        }
+
+
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -23,16 +36,16 @@ class Welcome_page extends Component {
                         source={require('../Images/imageedit_9_3561471378.png')}
                         style={styles.logo}
                         resizeMode="stretch"
-                        >
-                  
+                    >
+
                     </Animated.Image>
                 </View>
                 <Animated.View style={styles.footer} animation="fadeInUpBig">
-              
-                  
+
+
                     <Text style={styles.title}> Part of being a person is about helping others </Text>
                     <View>
-                        <TouchableOpacity style={styles.button} onPress={() => navigate("SignScreen")}>
+                        <TouchableOpacity style={styles.button} onPress={functionCombined}>
                             <LinearGradient
                                 colors={['#800080', '#800080']}
                                 style={styles.signIn}>
@@ -45,7 +58,7 @@ class Welcome_page extends Component {
                             </LinearGradient>
                         </TouchableOpacity>
                     </View>
-               
+
                 </Animated.View>
             </View>
 
