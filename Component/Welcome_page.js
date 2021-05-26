@@ -20,7 +20,8 @@ class Welcome_page extends Component {
             navigate("SignScreen");
         }
         const get_read = () => {
-            getUserData();
+            const st=getUserData("/Users/");
+            console.log(st);
         }
         const functionCombined = () => {
            navigation_();
