@@ -46,7 +46,7 @@ export const getUserData=()=>{
             
         }
         console.log(users_state.users);
-        return users_state.users;
+        return users_state;
        
     });
     
