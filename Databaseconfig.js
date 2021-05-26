@@ -1,4 +1,6 @@
-/*import Firebase from "firebase";
+import Firebase from'firebase';
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyApEFSGhDAQlDgG2sX0rbx_XKLVLoTgArg",
     authDomain: "gp-database-c84f7.firebaseapp.com",
@@ -11,4 +13,5 @@ const firebaseConfig = {
 };
 Firebase.initializeApp(firebaseConfig);
 
-export const database =Firebase.database();*/
+export default Firebase;
+
