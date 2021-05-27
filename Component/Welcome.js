@@ -11,10 +11,6 @@ import RegistrationSeater from './Registration_Seater';
 import App_seater from './Seaterscreen';
 import App_user from './userscreen';
 import { Provider } from 'react-redux';
-import official_Store from '../ReduxStores/Store';
-//import {writeUserData} from '../Classes/Data_base';
-import { getUserData } from '../Classes/Data_base';
-import { connect } from 'react-redux';
 
 const Stack = createStackNavigator();
 

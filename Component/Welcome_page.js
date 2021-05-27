@@ -5,16 +5,11 @@ import { Constants } from 'react-native-unimodules';
 import { LinearGradient } from 'expo-linear-gradient';
 import MatrialIcon from 'react-native-vector-icons/MaterialIcons';
 import * as Animated from 'react-native-animatable';
-import { getUserData } from '../Classes/Data_base';
-import { connect } from 'react-redux';
-import { get_User_Data } from '../Actions/DatabaseAction';
 
 
 
 
 class Welcome_page extends Component {
-  
-
     render() {
       
         const { navigate } = this.props.navigation;
@@ -23,9 +18,6 @@ class Welcome_page extends Component {
             navigate("SignScreen");
         }
         const get_read = () => {
-            this.props.getdata();
-            console.log(this.props.users_statte);
-
         }
         const functionCombined = () => {
             navigation_();
@@ -72,23 +64,7 @@ class Welcome_page extends Component {
 }
 
 
-const mapDispatch = (dispatch) => {
-    var states;
-    getUserData("/Users/").then(state => {
-        states = state;
-    });
-    return {
-        getdata: () => dispatch(get_User_Data(states))
-    }
-
-}
-const mapStateToProps = (state) => {
-    return {
-        users_statte: state
-    }
-}
-
-export default connect(mapStateToProps, mapDispatch)(Welcome_page);
+export default Welcome_page;
 
 
 

@@ -75,7 +75,7 @@ const reducers = combineReducers({
 
 });
 
-const official_Store=createStore(User_reducer,applyMiddleware(thunk));
+const official_Store=createStore(reducers,applyMiddleware(thunk));
 
 
 export default official_Store;

@@ -1,4 +1,4 @@
-import Firebase from '../Databaseconfig';
+import Firebase from './Databaseconfig';
 
 
 const state_={
@@ -8,7 +8,7 @@ const state_={
 
 export const  writeUserData=(ref_,data)=> {
     Firebase.database()
-        .ref(ref)
+        .ref(ref_)
         .set(data)
     console.log("DATA SAVED");
 };
