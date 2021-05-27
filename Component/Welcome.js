@@ -15,7 +15,6 @@ import official_Store from '../ReduxStores/Store';
 //import {writeUserData} from '../Classes/Data_base';
 import { getUserData } from '../Classes/Data_base';
 import { connect } from 'react-redux';
-import Return_data from '../Classes/test';
 
 const Stack = createStackNavigator();
 

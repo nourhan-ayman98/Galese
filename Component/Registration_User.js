@@ -4,7 +4,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animated from 'react-native-animatable';
-import users from '../Classes/Users';
 
 class RegistrationUser extends Component {
     state = {
@@ -90,13 +89,12 @@ class RegistrationUser extends Component {
         email: '',
         password: ''
     }
-    on_click_signup=()=>
+    /*on_click_signup=()=>
     {
-       var k =new users();
        k.getUserData();
        k.addUser(this.object);
 
-    }
+    }*/
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -209,7 +207,7 @@ class RegistrationUser extends Component {
                                     marginTop: 15
                                 }]}
                                 onPress={()=>{
-                                    this.on_click_signup();
+                                    //this.on_click_signup();
                                     navigate("User Home ");
                                 }}>
                                 <Text

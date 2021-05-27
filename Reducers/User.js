@@ -1,18 +1,16 @@
 const inintstate = {
     User:[],
-    Lastindex:" "
+    Lastindex:parseInt('')
 };
 
-const User_reducer = (state = inintstate, action) => {
+const User_reducer = (state=inintstate,action) => {
     if(action.type=="DATABASEREAD"){
-        state.User=action.users;
-        state.Lastindex=action.Lastindex;
+        inintstate.User=action.data.users;
+        inintstate.Lastindex=action.data.last_index;
         return state;
     }
     else if(action.type=='DATABASEWRITE'){
-        return state;
     }
-    return state;
 }
 
 export default  User_reducer;

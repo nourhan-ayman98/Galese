@@ -1,4 +1,11 @@
 import Firebase from '../Databaseconfig';
+
+
+const state_={
+    arraykey:[],
+    Lastindex:parseInt('')
+}
+
 export const  writeUserData=(ref_,data)=> {
     Firebase.database()
         .ref(ref)
@@ -7,25 +14,20 @@ export const  writeUserData=(ref_,data)=> {
 };
 
 export async function getUserData(ref_){
-    var arraykey = [];
-    var Lastindex="";
     let ref = await Firebase.database().ref(ref_);
     ref.once("value", snapshot => {
         const state = snapshot.val();
         var keys = Object.keys(state);
         for (var i = 0; i < keys.length; i++) {
             var k = keys[i];
-            arraykey[k] = state[k];
+            state_.arraykey[k] = state[k];
             
             if (i == keys.length - 1) {
-                Lastindex = i;   
+                state_.Lastindex = i;   
             }
             
-        }
-
-
-       
+        }   
     });
-    return arraykey;
+    return state_;
     
 };

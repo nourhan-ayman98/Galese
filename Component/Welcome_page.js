@@ -6,26 +6,30 @@ import { LinearGradient } from 'expo-linear-gradient';
 import MatrialIcon from 'react-native-vector-icons/MaterialIcons';
 import * as Animated from 'react-native-animatable';
 import { getUserData } from '../Classes/Data_base';
+import { connect } from 'react-redux';
+import { get_User_Data } from '../Actions/DatabaseAction';
 
 
 
 
 class Welcome_page extends Component {
-
+  
 
     render() {
+      
         const { navigate } = this.props.navigation;
         const navigation_ = () => {
 
             navigate("SignScreen");
         }
         const get_read = () => {
-            const st=getUserData("/Users/");
-            console.log(st);
+            this.props.getdata();
+            console.log(this.props.users_statte);
+
         }
         const functionCombined = () => {
-           navigation_();
-           get_read();
+            navigation_();
+            get_read();
         }
 
 
@@ -68,7 +72,26 @@ class Welcome_page extends Component {
 }
 
 
-export default Welcome_page;
+const mapDispatch = (dispatch) => {
+    var states;
+    getUserData("/Users/").then(state => {
+        states = state;
+    });
+    return {
+        getdata: () => dispatch(get_User_Data(states))
+    }
+
+}
+const mapStateToProps = (state) => {
+    return {
+        users_statte: state
+    }
+}
+
+export default connect(mapStateToProps, mapDispatch)(Welcome_page);
+
+
+
 const { height } = Dimensions.get("screen");
 const height_logo = height * 0.28;
 const styles = StyleSheet.create({
