@@ -41,10 +41,6 @@ export function Update_employee_Password(Email,newpassword) {
 
 
 //Dispatches
-
-const get_Employee_dispatch = (Email) => {
-   
-}
 const add_Employee_dispatch = (data_) => {
     return ({
         type: "ADDEMPLOYEE",
