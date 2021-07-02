@@ -50,6 +50,7 @@ class Signin extends Component {
                 secureTextEntry: !this.state.data3.secureTextEntry
             }
         })
+       
     }
     render() {
         const { navigate } = this.props.navigation;

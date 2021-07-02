@@ -5,11 +5,15 @@ import { Constants } from 'react-native-unimodules';
 import { LinearGradient } from 'expo-linear-gradient';
 import MatrialIcon from 'react-native-vector-icons/MaterialIcons';
 import * as Animated from 'react-native-animatable';
+import load_data from '../Database/Load';
+import { Add_employee, get_employee } from '../Classes/Employee_class';
+import official_Store from '../ReduxStores/Store';
 
 
 
 
 class Welcome_page extends Component {
+
     render() {
       
         const { navigate } = this.props.navigation;
@@ -18,10 +22,14 @@ class Welcome_page extends Component {
             navigate("SignScreen");
         }
         const get_read = () => {
+            load_data("/Employee/","EMPLOYEELOAD");
+            console.log(official_Store.getState().Employee_reducer);
+            
         }
         const functionCombined = () => {
             navigation_();
             get_read();
+           
         }
 
 
@@ -62,6 +70,7 @@ class Welcome_page extends Component {
         )
     }
 }
+
 
 
 export default Welcome_page;

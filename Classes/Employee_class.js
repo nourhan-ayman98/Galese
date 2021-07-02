@@ -50,6 +50,7 @@ const add_Employee_dispatch = (data_) => {
         type: "ADDEMPLOYEE",
         data: data_
     })
+    
 }
 
 const Delete_Employee_dispatch = (Email) => {

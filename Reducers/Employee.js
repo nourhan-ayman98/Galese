@@ -1,13 +1,14 @@
 const inintstate = {
-    Employees: [],
-    Lastindex: 0
+    Employees: []
 };
 
 const Employee_reducer = (state = inintstate, action) => {
     switch (action.type) {
+        case "EMPLOYEELOAD": {
+            state.Employees = action.state_.arraykey;
+        }
         case "ADDEMPLOYEE": {
-            inintstate.Employees.push(action.data);
-            inintstate.Lastindex = inintstate.Lastindex + 1
+            state.Employees.push(action.data);
             return state;
 
         }
@@ -19,9 +20,9 @@ const Employee_reducer = (state = inintstate, action) => {
         }
         case "UPDATE_EMAIL_EMPLOYEE": {
             for (var i = 0; i < inintstate.Employees.length; i++) {
-               
+
                 if (inintstate.Employees[i].Email == action.oldEmail) {
-                    inintstate.Employees[i].Email=action.Newemail;
+                    inintstate.Employees[i].Email = action.Newemail;
                     break;
                 }
             }
@@ -29,9 +30,9 @@ const Employee_reducer = (state = inintstate, action) => {
         }
         case "UPDATE_Password_EMPLOYEE": {
             for (var i = 0; i < inintstate.Employees.length; i++) {
-               
+
                 if (inintstate.Employees[i].Email == action.Email) {
-                    inintstate.Employees[i].Password=action.newpass;
+                    inintstate.Employees[i].Password = action.newpass;
                     break;
                 }
             }

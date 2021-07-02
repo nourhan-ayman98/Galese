@@ -4,6 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animated from 'react-native-animatable';
+import { Add_employee, get_employee } from '../Classes/Employee_class';
+import official_Store from '../ReduxStores/Store';
 
 class RegistrationUser extends Component {
     state = {
@@ -20,7 +22,7 @@ class RegistrationUser extends Component {
         data4: {
             secureTextEntry: true,
         },
-        data5:{
+        data5: {
             confirm_secureTextEntry: true,
         }
     }
@@ -66,26 +68,23 @@ class RegistrationUser extends Component {
     }
     updateSecureTextEntry_confirm = () => {
         this.setState({
-            data5:{
-                confirm_secureTextEntry:!this.state.data5.confirm_secureTextEntry,
+            data5: {
+                confirm_secureTextEntry: !this.state.data5.confirm_secureTextEntry,
             }
         })
     }
-    check_password(val1,val)
-    {
-        if (val1===val)
-        {
-            this.object.password=this.state.data2.password;
+    check_password(val1, val) {
+        if (val1 === val) {
+            this.object.password = this.state.data2.password;
             return true;
         }
-        else 
-        {
+        else {
             return false;
         }
     }
     object = {
-        id:1,
-        name:'',
+        id: 1,
+        name: '',
         email: '',
         password: ''
     }
@@ -105,7 +104,7 @@ class RegistrationUser extends Component {
                         <Text style={[styles.text_header, { marginTop: 35 }]}> Welcome User </Text>
                     </View>
                     <Animated.View animation="fadeInUpBig" style={styles.footer}>
-                    <Text style={styles.text_footer}> Name  </Text>
+                        <Text style={styles.text_footer}> Name  </Text>
                         <View style={styles.action}>
                             <FontAwesome
                                 name="user-o"
@@ -116,7 +115,7 @@ class RegistrationUser extends Component {
                                 placeholder="Your Name"
                                 style={styles.textInput}
                                 autoCapitalize='none'
-                                onChangeText={(val)=>{this.object.name=val}}
+                                onChangeText={(val) => { this.object.name = val }}
                             />
                         </View>
                         <Text style={[styles.text_footer, { marginTop: 35 }]}> Email  </Text>
@@ -131,11 +130,11 @@ class RegistrationUser extends Component {
                                 style={styles.textInput}
                                 autoCapitalize='none'
                                 onChangeText={(val) => {
-                                this.textInputChange(val)
-                                this.object.email=val;                        
-                            }}
+                                    this.textInputChange(val)
+                                    this.object.email = val;
+                                }}
                             />
-                            
+
                             {this.state.data.check_textInputChange ?
                                 <Animated.View animation="bounceIn">
 
@@ -156,10 +155,10 @@ class RegistrationUser extends Component {
                             />
                             <TextInput
                                 placeholder="Your Password"
-                                secureTextEntry={this.state.data4.secureTextEntry? true : false}
+                                secureTextEntry={this.state.data4.secureTextEntry ? true : false}
                                 style={styles.textInput}
                                 autoCapitalize='none'
-                                onChangeText={(val)=>this.handlePassChange(val)}
+                                onChangeText={(val) => this.handlePassChange(val)}
                             />
                             <TouchableOpacity
                                 onPress={this.updateSecureTextEntry}>
@@ -183,7 +182,7 @@ class RegistrationUser extends Component {
                                 secureTextEntry={this.state.data5.confirm_secureTextEntry ? true : false}
                                 style={styles.textInput}
                                 autoCapitalize='none'
-                                onChangeText={(val)=>this.handlePassChange_Confirm(val)}
+                                onChangeText={(val) => this.handlePassChange_Confirm(val)}
                             />
                             <TouchableOpacity
                                 onPress={this.updateSecureTextEntry_confirm}>
@@ -196,32 +195,34 @@ class RegistrationUser extends Component {
 
                         </View>
                         <View style={styles.button}>
-                        {this.check_password(this.state.data2.password,this.state.data3.confirm_password) ? 
-                            
-                            <TouchableOpacity 
-                           
-                                style={[styles.signIn,
-                                {
-                                    borderColor: '#800080',
-                                    borderWidth: 1,
-                                    marginTop: 15
-                                }]}
-                                onPress={()=>{
-                                    //this.on_click_signup();
-                                    navigate("User Home ");
-                                }}>
-                                <Text
-                                    style={[styles.textSign, {
-                                        color: '#800080'
-                                    }]}
-                                >Sign Up</Text>
-                               
-                            </TouchableOpacity>
+                            {this.check_password(this.state.data2.password, this.state.data3.confirm_password) ?
 
-                            :null}
-                        
+                                <TouchableOpacity
+
+                                    style={[styles.signIn,
+                                    {
+                                        borderColor: '#800080',
+                                        borderWidth: 1,
+                                        marginTop: 15
+                                    }]}
+                                    onPress={() => {
+                                        //this.on_click_signup();
+                                        Add_employee("Mohamed@5050", "555");
+                                        console.log(official_Store.getState().Employee_reducer)
+                                        navigate("User Home ");
+                                    }}>
+                                    <Text
+                                        style={[styles.textSign, {
+                                            color: '#800080'
+                                        }]}
+                                    >Sign Up</Text>
+
+                                </TouchableOpacity>
+
+                                : null}
+
                         </View>
-                        
+
                     </Animated.View>
                 </View>
             </View>

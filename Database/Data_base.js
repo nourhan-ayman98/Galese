@@ -1,33 +1,27 @@
 import Firebase from './Databaseconfig';
+import official_Store from '../ReduxStores/Store';
 
-
-const state_={
-    arraykey:[],
-    Lastindex:parseInt('')
+const state_ = {
+    arraykey: [],
 }
 
-export const  writeUserData=(ref_,data)=> {
+export const writeData = (ref_, data) => {
     Firebase.database()
         .ref(ref_)
         .set(data)
     console.log("DATA SAVED");
 };
 
-export async function getUserData(ref_){
-    let ref = await Firebase.database().ref(ref_);
-    ref.once("value", snapshot => {
+export async function getData(ref_,) {
+    let ref = await  Firebase.database().ref(ref_);
+    ref.on("value", snapshot => {
         const state = snapshot.val();
         var keys = Object.keys(state);
         for (var i = 0; i < keys.length; i++) {
             var k = keys[i];
             state_.arraykey[k] = state[k];
-            
-            if (i == keys.length - 1) {
-                state_.Lastindex = i;   
-            }
-            
-        }   
-    });
-    return state_;
-    
+        }
+       
+    })
+   return state_;
 };
