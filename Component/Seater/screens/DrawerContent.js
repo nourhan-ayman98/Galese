@@ -34,13 +34,15 @@ export function DrawerContent(props) {
                         <View style={{flexDirection:'row',marginTop: 15}}>
                             <Avatar.Image 
                                 source={
-                                    require('../assets/WhatsApp Image 2020-12-07 at 11.08.10 PM.jpeg')
+                                    require('../assets/users/user-7.jpg')
                                 }
                                 size={50}
                             />
                             <View style={{marginLeft:15, flexDirection:'column'}}>
                                 <Title style={styles.title}>Yasmin_Wanas</Title>
+                                
                                 <Caption style={styles.caption}>Seater</Caption>
+                               
                             </View>
                         </View>
 

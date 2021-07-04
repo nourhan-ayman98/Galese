@@ -38,7 +38,7 @@ export default Registrationchoice;
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        backgroundColor: '#800080',
+        backgroundColor: '#694fad',
         flexDirection: 'column'
     },
     button: {

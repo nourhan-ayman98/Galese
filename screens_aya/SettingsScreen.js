@@ -9,7 +9,7 @@ const SettingsScreen = () => {
         <Button
   
           title=" Settings"
-          color="#8E44AD"
+          color="#694fad"
           onPress={() => navigation.navigate('SettingsScreen')}
   
         />

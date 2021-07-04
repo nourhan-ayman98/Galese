@@ -10,12 +10,15 @@ import DetailsScreen from './DetailsScreen';
 import ExploreScreen from './ExploreScreen';
 import ProfileScreen from './ProfileScreen';
 import RootStackScreen from './RootStackScreen';
+import CardItemDetails from './CardItemDetails';
+import ChatsScreen from './ChatsScreen';
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
-const ExploreStack = createStackNavigator();
+
 const RootStack = createStackNavigator();
+const ChatsScreenStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -31,7 +34,7 @@ const MainTabScreen = () => (
           tabBarLabel: 'Home',
           tabBarColor: '#694fad',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-home" color={color} size={26} />
+            <Icon name="home-outline" color={color} size={26} />
           ),
         }}
       />
@@ -42,7 +45,7 @@ const MainTabScreen = () => (
           tabBarLabel: 'Notifications',
           tabBarColor: '#694fad',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-notifications" color={color} size={26} />
+            <Icon name="notifications-outline" color={color} size={26} />
           ),
         }}
       />
@@ -57,18 +60,7 @@ const MainTabScreen = () => (
           ),
         }}
       />
-      <Tab.Screen
-        name="Ratings"
-        component={ExploreStackScreen}
-        options={{
-          tabBarLabel: 'Ratings',
-          tabBarColor: '#694fad',
-          tabBarIcon: ({ color }) => (
-         
-            <Icon name="stats-chart-outline" color={color} size={26}/>
-          ),
-        }}
-      />
+     
        <Tab.Screen
         name="Requests"
         component={RootStacksScreen}
@@ -78,6 +70,18 @@ const MainTabScreen = () => (
           tabBarIcon: ({ color }) => (
          
             <Icon name="people-outline" color={color} size={26}/>
+          ),
+        }}
+      />
+       <Tab.Screen
+        name="Chats"
+        component={ChatsStackScreen}
+        options={{
+          tabBarLabel: 'Chats',
+          tabBarColor: '#694fad',
+          tabBarIcon: ({ color }) => (
+         
+            <Icon name="chatbubble-outline" color={color} size={26}/>
           ),
         }}
       />
@@ -102,8 +106,42 @@ const HomeStackScreen = ({navigation}) => (
             <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
         )
         }} />
+        
 </HomeStack.Navigator>
 );
+
+
+const ChatsStackScreen = ({navigation}) => (
+  <ChatsScreenStack.Navigator screenOptions={{
+          headerStyle: {
+          backgroundColor: '#694fad',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+          fontWeight: 'bold'
+          }
+      }}>
+          <ChatsScreenStack.Screen name="Chat Screen" component={ChatsScreen} options={{
+         
+          headerLeft: () => (
+              <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
+          )
+          }} />
+
+           <ChatsScreenStack.Screen 
+          name="ChatScreen"
+          component={ExploreScreen}
+          options={({route}) => ({
+            title: route.params.title,
+            headerBackTitleVisible: false,
+            headerTitle: false,
+            headerTransparent: true,
+  
+            headerTintColor: '#fff'
+          })}
+        />
+  </ChatsScreenStack.Navigator>
+  );
 
 const DetailsStackScreen = ({navigation}) => (
 <DetailsStack.Navigator screenOptions={{
@@ -120,6 +158,8 @@ const DetailsStackScreen = ({navigation}) => (
             <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
         )
         }} />
+
+
 </DetailsStack.Navigator>
 );
 
@@ -133,7 +173,7 @@ const ProfileStackScreen = ({navigation}) => (
           fontWeight: 'bold'
           }
       }}>
-          <ProfileStack.Screen name="profile" component={ProfileScreen} options={{
+          <ProfileStack.Screen name="Profile" component={ProfileScreen} options={{
          
           headerLeft: () => (
               <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
@@ -141,24 +181,7 @@ const ProfileStackScreen = ({navigation}) => (
           }} />
   </ProfileStack.Navigator>
   );
-  const ExploreStackScreen = ({navigation}) => (
-    <ExploreStack.Navigator screenOptions={{
-            headerStyle: {
-            backgroundColor: '#694fad',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-            fontWeight: 'bold'
-            }
-        }}>
-            <ExploreStack.Screen name="Ratings" component={ExploreScreen} options={{
-           
-            headerLeft: () => (
-                <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
-            )
-            }} />
-    </ExploreStack.Navigator>
-    );
+  
     const RootStacksScreen = ({navigation}) => (
       <RootStack.Navigator screenOptions={{
               headerStyle: {
@@ -175,5 +198,19 @@ const ProfileStackScreen = ({navigation}) => (
                   <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
               )
               }} />
+              
+              <RootStack.Screen 
+        name="CardItemDetails"
+        component={CardItemDetails}
+        options={({route}) => ({
+          title: route.params.title,
+          headerBackTitleVisible: false,
+          headerTitle: false,
+          headerTransparent: true,
+
+          headerTintColor: '#fff'
+        })}
+      />
+       
       </RootStack.Navigator>
       );

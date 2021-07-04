@@ -125,7 +125,7 @@ class RegistrationSeater extends Component {
 
                                     <Feather
                                         name="check-circle"
-                                        color="#800080"
+                                        color="#694fad"
                                         size={20}
                                     />
                                 </Animated.View>
@@ -185,7 +185,7 @@ class RegistrationSeater extends Component {
                            
                                 style={[styles.signIn,
                                 {
-                                    borderColor: '#800080',
+                                    borderColor: '#694fad',
                                     borderWidth: 1,
                                     marginTop: 15
                                 }]}
@@ -195,7 +195,7 @@ class RegistrationSeater extends Component {
 
                                 <Text
                                     style={[styles.textSign, {
-                                        color: '#800080'
+                                        color: '#694fad'
                                     }]}
                                 >Sign Up</Text>
                             </TouchableOpacity>
@@ -217,11 +217,10 @@ export default RegistrationSeater;
 const styles = StyleSheet.create({
     container: {
 
-        backgroundColor: '#800080',
+        backgroundColor: '#694fad',
         flexDirection: 'column'
     },
     header: {
-
 
         justifyContent: 'flex-end',
         paddingHorizontal: 30,

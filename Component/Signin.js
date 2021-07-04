@@ -79,7 +79,7 @@ class Signin extends Component {
 
                                     <Feather
                                         name="check-circle"
-                                        color="#800080"
+                                        color="#694fad"
                                         size={20}
                                     />
                                 </Animated.View>
@@ -111,7 +111,7 @@ class Signin extends Component {
                         <View style={styles.button}>
                             <TouchableOpacity >
                                 <LinearGradient
-                                    colors={['#800080', '#800080']}
+                                    colors={['#694fad', '#694fad']}
                                     style={styles.signIn}>
                                     <Text style={styles.textSign}>Sign In</Text>
                                 </LinearGradient>
@@ -120,13 +120,13 @@ class Signin extends Component {
                                 onPress={() => navigate("Registration choice")}
                                 style={[styles.signIn,
                                 {
-                                    borderColor: '#800080',
+                                    borderColor: '#694fad',
                                     borderWidth: 1,
                                     marginTop: 15
                                 }]}>
                                 <Text
                                     style={[styles.textSign, {
-                                        color: '#800080'
+                                        color: '#694fad'
                                     }]}
                                 >Sign Up</Text>
                             </TouchableOpacity>
@@ -145,7 +145,7 @@ export default Signin;
 const styles = StyleSheet.create({
     container: {
 
-        backgroundColor: '#800080',
+        backgroundColor: '#694fad',
         flexDirection: 'column'
     },
     header: {

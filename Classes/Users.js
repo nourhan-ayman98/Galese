@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import Firebase from "firebase";
 const firebaseConfig = {
     apiKey: "AIzaSyApEFSGhDAQlDgG2sX0rbx_XKLVLoTgArg",
@@ -68,7 +68,7 @@ class users extends Component {
             name: user.name
             , password: user.password
             , email: user.email
-        };*/
+        };
         //console.log(users_);
 
         //this.writeUserData();
@@ -83,3 +83,5 @@ class users extends Component {
 }
 
 export default users;
+
+*/

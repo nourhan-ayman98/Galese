@@ -9,6 +9,7 @@ import HomeScreen from './HomeScreen';
 import NurseScreen from './NurseScreen';
 import SitterScreen from './SitterScreen';
 import ExploreScreen from './ExploreScreen';
+import UserChatScreen from './UserChatScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -18,6 +19,7 @@ import NotificationScreen from './NotificationScreen';
 
 
 const HomeStack = createStackNavigator();
+const ExploreStack = createStackNavigator();
 const NurseStack = createStackNavigator();
 const SitterStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -35,9 +37,9 @@ const MainTabScreen = () => (
             component={HomeStackScreen}
             options={{
                 tabBarLabel: 'Home',
-                tabBarColor: "#8E44AD",
+                tabBarColor: "#694fad",
                 tabBarIcon: ({ color }) => (
-                    <Icon name="ios-home" color={color} size={26} />
+                    <Icon name="home-outline" color={color} size={26} />
                 ),
             }}
         />
@@ -46,9 +48,9 @@ const MainTabScreen = () => (
             component={NotificationScreen}
             options={{
                 tabBarLabel: 'Notifications',
-                tabBarColor: "#8E44AD",
+                tabBarColor: "#694fad",
                 tabBarIcon: ({ color }) => (
-                    <Icon name="ios-notifications" color={color} size={26} />
+                    <Icon name="notifications-outline" color={color} size={26} />
                 ),
             }}
         />
@@ -57,23 +59,25 @@ const MainTabScreen = () => (
             component={ProfileScreen}
             options={{
                 tabBarLabel: 'Profile',
-                tabBarColor: "#8E44AD",
+                tabBarColor: "#694fad",
                 tabBarIcon: ({ color }) => (
                     <Icon name="ios-person" color={color} size={26} />
                 ),
             }}
         />
-        <Tab.Screen
-            name="Explore"
-            component={ExploreScreen}
-            options={{
-                tabBarLabel: 'Explore',
-                tabBarColor: "#8E44AD",
-                tabBarIcon: ({ color }) => (
-                    <Icon name="ios-aperture" color={color} size={26} />
-                ),
-            }}
-        />
+       
+         <Tab.Screen
+        name="Chats"
+        component={ExploreStackk}
+        options={{
+          tabBarLabel: 'Chats',
+          tabBarColor: '#694fad',
+          tabBarIcon: ({ color }) => (
+         
+            <Icon name="chatbubble-outline" color={color} size={26}/>
+          ),
+        }}
+      />
 
     </Tab.Navigator>
 
@@ -83,11 +87,43 @@ const MainTabScreen = () => (
 
 export default MainTabScreen;
 
+const ExploreStackk = ({navigation}) => (
+    <ExploreStack.Navigator screenOptions={{
+            headerStyle: {
+            backgroundColor: '#694fad',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+            fontWeight: 'bold'
+            }
+        }}>
+            <ExploreStack.Screen name="Chat Screen" component={ExploreScreen} options={{
+           
+            headerLeft: () => (
+                <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
+            )
+            }} />
+  
+             <ExploreStack.Screen 
+            name="UChatScreen"
+            component={UserChatScreen}
+            options={({route}) => ({
+              title: route.params.title,
+              headerBackTitleVisible: false,
+              headerTitle: false,
+              headerTransparent: true,
+    
+              headerTintColor: '#fff'
+            })}
+          />
+    </ExploreStack.Navigator>
+    );
+
 const HomeStackScreen = ({ navigation }) => (
 
     <HomeStack.Navigator screenOptions={{
         headerStyle: {
-            backgroundColor: "#8E44AD",
+            backgroundColor: "#694fad",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
@@ -98,7 +134,7 @@ const HomeStackScreen = ({ navigation }) => (
 
             title: "Home",
             headerLeft: () => (
-                <Icon.Button name="ios-menu" size={25} backgroundColor="#8E44AD" onPress={() => { navigation.openDrawer() }} ></Icon.Button>
+                <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => { navigation.openDrawer() }} ></Icon.Button>
             )
         }} />
 

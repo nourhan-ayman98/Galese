@@ -4,9 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animated from 'react-native-animatable';
-import users from '../Classes/Users';
-
-class RegistrationUser extends Component {
+class RegistrationSeater extends Component {
     state = {
         data: {
             email: '',
@@ -24,6 +22,7 @@ class RegistrationUser extends Component {
         data5:{
             confirm_secureTextEntry: true,
         }
+       
     }
     textInputChange = (val) => {
         if (val.trim().length >= 4) {
@@ -76,7 +75,6 @@ class RegistrationUser extends Component {
     {
         if (val1===val)
         {
-            this.object.password=this.state.data2.password;
             return true;
         }
         else 
@@ -84,19 +82,7 @@ class RegistrationUser extends Component {
             return false;
         }
     }
-    object = {
-        id:1,
-        name:'',
-        email: '',
-        password: ''
-    }
-    on_click_signup=()=>
-    {
-       var k =new users();
-       k.getUserData();
-       k.addUser(this.object);
-
-    }
+    
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -104,7 +90,7 @@ class RegistrationUser extends Component {
                 <View style={styles.container}>
                     <StatusBar backgroundColor='#009387' barStyle="light-content" />
                     <View style={styles.header}>
-                        <Text style={[styles.text_header, { marginTop: 35 }]}> Welcome User </Text>
+                        <Text style={[styles.text_header, { marginTop: 35 }]}> Welcome </Text>
                     </View>
                     <Animated.View animation="fadeInUpBig" style={styles.footer}>
                     <Text style={styles.text_footer}> Name  </Text>
@@ -118,7 +104,6 @@ class RegistrationUser extends Component {
                                 placeholder="Your Name"
                                 style={styles.textInput}
                                 autoCapitalize='none'
-                                onChangeText={(val)=>{this.object.name=val}}
                             />
                         </View>
                         <Text style={[styles.text_footer, { marginTop: 35 }]}> Email  </Text>
@@ -132,10 +117,7 @@ class RegistrationUser extends Component {
                                 placeholder="Your Email"
                                 style={styles.textInput}
                                 autoCapitalize='none'
-                                onChangeText={(val) => {
-                                this.textInputChange(val)
-                                this.object.email=val;                        
-                            }}
+                                onChangeText={(val) => this.textInputChange(val)}
                             />
                             
                             {this.state.data.check_textInputChange ?
@@ -143,7 +125,7 @@ class RegistrationUser extends Component {
 
                                     <Feather
                                         name="check-circle"
-                                        color="#800080"
+                                        color="#694fad"
                                         size={20}
                                     />
                                 </Animated.View>
@@ -199,31 +181,28 @@ class RegistrationUser extends Component {
                         </View>
                         <View style={styles.button}>
                         {this.check_password(this.state.data2.password,this.state.data3.confirm_password) ? 
-                            
                             <TouchableOpacity 
                            
                                 style={[styles.signIn,
                                 {
-                                    borderColor: '#800080',
+                                    borderColor: '#694fad',
                                     borderWidth: 1,
                                     marginTop: 15
                                 }]}
                                 onPress={()=>{
-                                    this.on_click_signup();
                                     navigate("User Home ");
                                 }}>
+
                                 <Text
                                     style={[styles.textSign, {
-                                        color: '#800080'
+                                        color: '#694fad'
                                     }]}
                                 >Sign Up</Text>
-                               
                             </TouchableOpacity>
 
                             :null}
-                        
                         </View>
-                        
+                       
                     </Animated.View>
                 </View>
             </View>
@@ -232,15 +211,16 @@ class RegistrationUser extends Component {
 }
 
 
-export default RegistrationUser;
+
+
+export default RegistrationSeater;
 const styles = StyleSheet.create({
     container: {
 
-        backgroundColor: '#800080',
+        backgroundColor: '#694fad',
         flexDirection: 'column'
     },
     header: {
-
 
         justifyContent: 'flex-end',
         paddingHorizontal: 30,

@@ -1,68 +1,104 @@
-import { Dimensions, StyleSheet, Text, View,StatusBar} from 'react-native';
-import React ,{Component} from 'react';
-import {Platform} from 'react-native';
-import { Constants } from 'react-native-unimodules';
+import React, {useState, useEffect, useCallback} from 'react';
+import {View, ScrollView, Text, Button, StyleSheet} from 'react-native';
+import {Bubble, GiftedChat, Send} from 'react-native-gifted-chat';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import Icon from 'react-native-vector-icons/Ionicons';
+const ExploreScreen = ({navigation}) => {
+  const [messages, setMessages] = useState([]);
 
-class ExploreScreen extends Component{
-    render(){
-        return(
-            <View style={styles.container}>
-                <View style={styles.header}>
-                <Text style={[{
-                color:'#000', fontSize:30,  fontWeight: 'bold'
-            }]}>30</Text>
-                    <div>
-                        {[...Array(5)].map(star=>{
-                            return<Icon name="star" size={20} color={'gold'}/>
-                        })}
-                    </div>
-                
-                <Text style={[styles.title, {
-                color:'#000'
-            }]}>5-Star Services</Text>
-                    
-                </View>
+  useEffect(() => {
+    setMessages([
+      {
+        _id: 1,
+        text: 'Hello Doctor',
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'React Native',
+          avatar: 'https://placeimg.com/140/140/any',
+        },
+      },
+      {
+        _id: 2,
+        text: 'Hello',
+        createdAt: new Date(),
+        user: {
+          _id: 1,
+          name: 'React Native',
+          avatar: 'https://placeimg.com/140/140/any',
+        },
+      },
+    ]);
+  }, []);
 
+  const onSend = useCallback((messages = []) => {
+    setMessages((previousMessages) =>
+      GiftedChat.append(previousMessages, messages),
+    );
+  }, []);
 
-                <View style={styles.footer}>
+  const renderSend = (props) => {
+    return (
+      <Send {...props}>
+        <View>
+          <MaterialCommunityIcons
+            name="send-circle"
+            style={{marginBottom: 5, marginRight: 5}}
+            size={32}
+            color="#2e64e5"
+          />
+        </View>
+      </Send>
+    );
+  };
 
-                    
-                    <Text> footer </Text>
-                </View>
+  const renderBubble = (props) => {
+    return (
+      <Bubble
+        {...props}
+        wrapperStyle={{
+          right: {
+            backgroundColor: '#2e64e5',
+          },
+        }}
+        textStyle={{
+          right: {
+            color: '#fff',
+          },
+        }}
+      />
+    );
+  };
 
-            </View>
-            
-        )
-    }
-}
+  const scrollToBottomComponent = () => {
+    return(
+      <FontAwesome name='angle-double-down' size={22} color='#333' />
+    );
+  }
 
+  return (
+    <GiftedChat
+      messages={messages}
+      onSend={(messages) => onSend(messages)}
+      user={{
+        _id: 1,
+      }}
+      renderBubble={renderBubble}
+      alwaysShowSend
+      renderSend={renderSend}
+      scrollToBottom
+      scrollToBottomComponent={scrollToBottomComponent}
+    />
+  );
+};
 
 export default ExploreScreen;
+
 const styles = StyleSheet.create({
-    container: {
-      flex: 1, 
-      backgroundColor: '#694fad',
-    },
-    header: {
-        flex: 2,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    footer: {
-        flex: 1,
-        backgroundColor: '#fff',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        paddingVertical: 150,
-        paddingHorizontal: 30
-    },
-    title: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: '#000',
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

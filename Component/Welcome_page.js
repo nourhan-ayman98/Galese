@@ -16,7 +16,10 @@ class Welcome_page extends Component {
         
         const { navigate } = this.props.navigation;
         return (
+            
             <View style={styles.container}>
+
+                
                 <View style={styles.header}>
                     <Animated.Image animation="bounceIn"
                         duraton="1500"
@@ -34,7 +37,7 @@ class Welcome_page extends Component {
                     <View>
                         <TouchableOpacity style={styles.button} onPress={() => navigate("SignScreen")}>
                             <LinearGradient
-                                colors={['#800080', '#800080']}
+                                colors={['#694fad', '#694fad']}
                                 style={styles.signIn}>
                                 <Text style={styles.textSign}>Get Started</Text>
                                 <MatrialIcon
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flex: 1,
-        backgroundColor: '#800080',
+        backgroundColor: '#694fad',
     },
     header: {
         flex: 2,

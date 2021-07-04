@@ -7,7 +7,7 @@ const SupportScreen = () => {
         <Text style={{ fontWeight: 'bold', fontSize: 25 }}>Our Team is Responsible for helping you</Text>
         <Button
           title="Support Hotline "
-          color="#8E44AD"
+          color="#694fad"
           onPress={() => navigation.navigate('SupportScreen')}
         />
       </View>
