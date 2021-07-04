@@ -1,12 +1,11 @@
 import { Dimensions, StyleSheet, Text, View, StatusBar, Image, TouchableOpacity } from 'react-native';
 import React, { Component } from 'react';
-import { Platform } from 'react-native';
-import { Constants } from 'react-native-unimodules';
 import { LinearGradient } from 'expo-linear-gradient';
 import MatrialIcon from 'react-native-vector-icons/MaterialIcons';
 import * as Animated from 'react-native-animatable';
-import { getUserData } from '../Classes/Data_base';
-
+import load_data from '../Database/Load';
+import official_Store from '../ReduxStores/Store';
+import { Delete_employee, Update_employee_Password } from '../Classes/Employee_class';
 
 
 
@@ -20,7 +19,12 @@ class Welcome_page extends Component {
             navigate("SignScreen");
         }
         const get_read = () => {
-            getUserData("/Users/");
+            load_data("/Employee/","EMPLOYEELOAD");
+            /*load_data("/Admin/","ADMINLOAD");
+            load_data("/CustomerService/","CUSTOMER_SERVICESLOAD");
+            load_data("/ManageRate/","MANAGE_RATELOAD");
+            load_data("/Rate/","RATELOAD");*/
+            //console.log(official_Store.getState().Employee_reducer);
             
         }
         const functionCombined = () => {

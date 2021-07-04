@@ -1,9 +1,7 @@
 import Firebase from './Databaseconfig';
 import official_Store from '../ReduxStores/Store';
 
-const state_ = {
-    arraykey: [],
-}
+
 
 export const writeData = (ref_, data) => {
     Firebase.database()
@@ -13,6 +11,9 @@ export const writeData = (ref_, data) => {
 };
 
 export async function getData(ref_,) {
+    const state_ = {
+        arraykey: [],
+    }
     let ref = await  Firebase.database().ref(ref_);
     ref.on("value", snapshot => {
         const state = snapshot.val();

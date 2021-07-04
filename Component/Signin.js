@@ -4,6 +4,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animated from 'react-native-animatable';
+import official_Store from '../ReduxStores/Store';
+import { Delete_employee, Update_employee_Password } from '../Classes/Employee_class';
+import { writeData } from '../Database/Data_base';
+import write_data from '../Database/close';
 class Signin extends Component {
     state = {
         data: {
@@ -43,6 +47,7 @@ class Signin extends Component {
             }
 
         })
+
     }
     updateSecureTextEntry = () => {
         this.setState({
@@ -118,7 +123,11 @@ class Signin extends Component {
                                 </LinearGradient>
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={() => navigate("Registration choice")}
+                                onPress={() => { 
+                                   Delete_employee("Nour@ayman");
+                                   //write_data();
+                                   navigate("Registration choice")
+                            }}
                                 style={[styles.signIn,
                                 {
                                     borderColor: '#694fad',

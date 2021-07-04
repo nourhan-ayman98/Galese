@@ -5,7 +5,7 @@ export async function get_Admin(Email) {
         type: "GETADMIN",
         email: Email
     });
-    return official_Store.getState().admin;
+    return official_Store.getState().Admin_reducer.admin;
 };
 //Add
 export function Add_admin(Email) {
@@ -14,12 +14,6 @@ export function Add_admin(Email) {
 //Delete
 export function Delete_admin(Email) {
     official_Store.dispatch(Delete_Admin_dispatch(Email));
-};
-
-//Update //Email
-export function Update_admin_Email(Email,newEmail) {
-
-    official_Store.dispatch(Update_Email_Admin_dispatch(Email,newEmail));
 };
 //Dispatches
 
@@ -35,12 +29,5 @@ const Delete_Admin_dispatch = (Email) => {
     return ({
         type: "DELETEADMIN",
         data: Email
-    })
-}
-const Update_Email_Admin_dispatch = (Email,newEmail) => {
-    return ({
-        type: "UPDATE_ADMIN_EMPLOYEE",
-        oldEmail: Email,
-        Newemail:newEmail
     })
 }

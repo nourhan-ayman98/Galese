@@ -3,50 +3,37 @@ const inintstate = {
 };
 
 const Employee_reducer = (state = inintstate, action) => {
-    switch (action.type) {
-        case "EMPLOYEELOAD": {
+    
+        if(action.type=="EMPLOYEELOAD"){ 
             state.Employees = action.state_.arraykey;
         }
-        case "ADDEMPLOYEE": {
+        else if (action.type=="ADDEMPLOYEE"){ 
             state.Employees.push(action.data);
-
         }
-        case "DELETEEMPLOYEE": {
-            const newList = inintstate.Employees.filter((Employee) => Employee.Email !== action.data);
-            inintstate.Employees = newList;
-            
         
+        else if(action.type=="DELETEEMPLOYEE"){ 
+            const newList =state.Employees.filter((Employee)=> Employee.Email!=action.data);
+            state.Employees= newList;
         }
-        case "UPDATE_EMAIL_EMPLOYEE": {
-            for (var i = 0; i < inintstate.Employees.length; i++) {
-
-                if (inintstate.Employees[i].Email == action.oldEmail) {
-                    inintstate.Employees[i].Email = action.Newemail;
-                    break;
+        
+        else if ("UPDATE_Password_EMPLOYEE"){             
+            for (var i = 0; i < state.Employees.length.valueOf(); i++) {
+                if (state.Employees[i].Email== action.Email) {
+                    state.Employees[i].Password = action.newpass;
                 }
             }
-            
-        }
-        case "UPDATE_Password_EMPLOYEE": {
-            for (var i = 0; i < inintstate.Employees.length; i++) {
 
-                if (inintstate.Employees[i].Email == action.Email) {
-                    inintstate.Employees[i].Password = action.newpass;
-                    break;
-                }
-            }
-            
         }
-        case "GETEMPLOYEE": {
+        else if(action.type=="GETEMPLOYEE"){ 
             var index;
-            for (var i = 0; i < inintstate.Employees.length; i++) {
+            for (var i = 0; i < inintstate.Employees.length.valueOf(); i++) {
                 if (inintstate.Employees[i].Email == action.email) {
                     index = i;
                 }
             }
             return { ...state, employee: inintstate.Employees[index] };
         }
-    }
+    
     return state;
 }
 

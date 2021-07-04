@@ -25,11 +25,6 @@ export function Delete_employee(Email) {
     official_Store.dispatch(Delete_Employee_dispatch(Email));
 };
 
-//Update //Email
-export function Update_employee_Email(Email,newEmail) {
-
-    official_Store.dispatch(Update_Email_Employee_dispatch(Email,newEmail));
-};
 
 //Update //Password
 
@@ -55,14 +50,6 @@ const Delete_Employee_dispatch = (Email) => {
         data: Email
     })
 }
-const Update_Email_Employee_dispatch = (Email,newEmail) => {
-    return ({
-        type: "UPDATE_EMAIL_EMPLOYEE",
-        oldEmail: Email,
-        Newemail:newEmail
-    })
-}
-
 const Update_Password_Employee_dispatch = (Email_,newpassword) => {
     return ({
         type: "UPDATE_Password_EMPLOYEE",
