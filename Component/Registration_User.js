@@ -4,14 +4,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animated from 'react-native-animatable';
-<<<<<<< HEAD
-class RegistrationSeater extends Component {
-=======
 import { Add_employee, get_employee } from '../Classes/Employee_class';
 import official_Store from '../ReduxStores/Store';
 
 class RegistrationUser extends Component {
->>>>>>> e5d8295a64672f60987c57e7bec8b01cbfd2f440
     state = {
         data: {
             email: '',
@@ -29,7 +25,6 @@ class RegistrationUser extends Component {
         data5: {
             confirm_secureTextEntry: true,
         }
-       
     }
     textInputChange = (val) => {
         if (val.trim().length >= 4) {
@@ -78,25 +73,15 @@ class RegistrationUser extends Component {
             }
         })
     }
-<<<<<<< HEAD
-    check_password(val1,val)
-    {
-        if (val1===val)
-        {
-=======
     check_password(val1, val) {
         if (val1 === val) {
             this.object.password = this.state.data2.password;
->>>>>>> e5d8295a64672f60987c57e7bec8b01cbfd2f440
             return true;
         }
         else {
             return false;
         }
     }
-<<<<<<< HEAD
-    
-=======
     object = {
         id: 1,
         name: '',
@@ -109,7 +94,6 @@ class RegistrationUser extends Component {
        k.addUser(this.object);
 
     }*/
->>>>>>> e5d8295a64672f60987c57e7bec8b01cbfd2f440
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -117,7 +101,7 @@ class RegistrationUser extends Component {
                 <View style={styles.container}>
                     <StatusBar backgroundColor='#009387' barStyle="light-content" />
                     <View style={styles.header}>
-                        <Text style={[styles.text_header, { marginTop: 35 }]}> Welcome </Text>
+                        <Text style={[styles.text_header, { marginTop: 35 }]}> Welcome User </Text>
                     </View>
                     <Animated.View animation="fadeInUpBig" style={styles.footer}>
                         <Text style={styles.text_footer}> Name  </Text>
@@ -131,10 +115,7 @@ class RegistrationUser extends Component {
                                 placeholder="Your Name"
                                 style={styles.textInput}
                                 autoCapitalize='none'
-<<<<<<< HEAD
-=======
                                 onChangeText={(val) => { this.object.name = val }}
->>>>>>> e5d8295a64672f60987c57e7bec8b01cbfd2f440
                             />
                         </View>
                         <Text style={[styles.text_footer, { marginTop: 35 }]}> Email  </Text>
@@ -148,14 +129,10 @@ class RegistrationUser extends Component {
                                 placeholder="Your Email"
                                 style={styles.textInput}
                                 autoCapitalize='none'
-<<<<<<< HEAD
-                                onChangeText={(val) => this.textInputChange(val)}
-=======
                                 onChangeText={(val) => {
                                     this.textInputChange(val)
                                     this.object.email = val;
                                 }}
->>>>>>> e5d8295a64672f60987c57e7bec8b01cbfd2f440
                             />
 
                             {this.state.data.check_textInputChange ?
@@ -163,7 +140,7 @@ class RegistrationUser extends Component {
 
                                     <Feather
                                         name="check-circle"
-                                        color="#694fad"
+                                        color="#800080"
                                         size={20}
                                     />
                                 </Animated.View>
@@ -218,31 +195,6 @@ class RegistrationUser extends Component {
 
                         </View>
                         <View style={styles.button}>
-<<<<<<< HEAD
-                        {this.check_password(this.state.data2.password,this.state.data3.confirm_password) ? 
-                            <TouchableOpacity 
-                           
-                                style={[styles.signIn,
-                                {
-                                    borderColor: '#694fad',
-                                    borderWidth: 1,
-                                    marginTop: 15
-                                }]}
-                                onPress={()=>{
-                                    navigate("User Home ");
-                                }}>
-
-                                <Text
-                                    style={[styles.textSign, {
-                                        color: '#694fad'
-                                    }]}
-                                >Sign Up</Text>
-                            </TouchableOpacity>
-
-                            :null}
-                        </View>
-                       
-=======
                             {this.check_password(this.state.data2.password, this.state.data3.confirm_password) ?
 
                                 <TouchableOpacity
@@ -271,7 +223,6 @@ class RegistrationUser extends Component {
 
                         </View>
 
->>>>>>> e5d8295a64672f60987c57e7bec8b01cbfd2f440
                     </Animated.View>
                 </View>
             </View>
@@ -280,16 +231,15 @@ class RegistrationUser extends Component {
 }
 
 
-
-
-export default RegistrationSeater;
+export default RegistrationUser;
 const styles = StyleSheet.create({
     container: {
 
-        backgroundColor: '#694fad',
+        backgroundColor: '#800080',
         flexDirection: 'column'
     },
     header: {
+
 
         justifyContent: 'flex-end',
         paddingHorizontal: 30,
