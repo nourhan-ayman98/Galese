@@ -50,6 +50,7 @@ class Signin extends Component {
                 secureTextEntry: !this.state.data3.secureTextEntry
             }
         })
+       
     }
     render() {
         const { navigate } = this.props.navigation;
@@ -142,6 +143,7 @@ class Signin extends Component {
 
 
 export default Signin;
+
 const styles = StyleSheet.create({
     container: {
 
