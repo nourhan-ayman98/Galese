@@ -124,7 +124,7 @@ class Signin extends Component {
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => { 
-                                   Delete_employee("Nour@ayman");
+                                   
                                    //write_data();
                                    navigate("Registration choice")
                             }}

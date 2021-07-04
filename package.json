@@ -34,7 +34,7 @@
     "react-native-gifted-chat": "^0.16.3",
     "react-native-image-header-scroll-view": "^1.0.0",
     "react-native-linear-gradient": "^2.5.6",
-    "react-native-maps": "0.28.0",
+    "react-native-maps": "^0.28.0",
     "react-native-paper": "^4.7.2",
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
@@ -44,17 +44,9 @@
     "react-native-unimodules": "~0.12.0",
     "react-native-vector-icons": "^8.0.0",
     "react-native-web": "~0.13.12",
-<<<<<<< HEAD
-    "react-router-native": "^5.2.0",
-    "styled-components": "5.0.0"
-  },
-  "resolutions": {
-    "styled-components": "^5"
-=======
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0"
->>>>>>> e5d8295a64672f60987c57e7bec8b01cbfd2f440
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
