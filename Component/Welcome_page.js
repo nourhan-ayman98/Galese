@@ -62,7 +62,7 @@ class Welcome_page extends Component {
                 <View style={styles.header}>
                     <Animated.Image animation="bounceIn"
                         duraton="1500"
-                        source={require('../Images/circle-cropped.png')}
+                        source={require('../Images/imageedit_1_7889191522.png')}
                         style={styles.logo}
                         resizeMode="stretch"
                     >

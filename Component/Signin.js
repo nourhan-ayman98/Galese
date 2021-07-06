@@ -47,8 +47,10 @@ class Signin extends Component {
             }
 
         })
+        this.state.data.password=val;
 
     }
+
     updateSecureTextEntry = () => {
         this.setState({
             data3: {
@@ -58,6 +60,20 @@ class Signin extends Component {
 
     }
     render() {
+        const createTwoButtonAlert = () =>
+            Alert.alert(
+                "Invalid Email and Password",
+                "Please Renter the Password and Email",
+                [
+                    {
+                        text: "Cancel",
+                        onPress: () => console.log("Cancel Pressed"),
+                        style: "cancel"
+                    },
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                ],
+                { cancelable: false }
+            );
         const { navigate } = this.props.navigation;
         return (
             <View>
@@ -65,7 +81,8 @@ class Signin extends Component {
                     <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
                         <StatusBar backgroundColor='#009387' barStyle="light-content" />
                         <View style={styles.header}>
-                            <Text style={[styles.text_header, { marginTop: 35 }]}> Welcome in Galese </Text>
+                           
+                            <Text style={[styles.text_header, { marginTop: 60 }]}> Welcome in جليسي </Text>
                         </View>
                         <Animated.View animation="fadeInUpBig" style={styles.footer}>
                             <Text style={styles.text_footer}> Email  </Text>
@@ -102,6 +119,7 @@ class Signin extends Component {
                                 <TextInput
                                     placeholder="Your Password"
                                     secureTextEntry={this.state.data3.secureTextEntry ? true : false}
+                                    onChangeText={(val)=>this.handlePassChange(val)}
                                     style={styles.textInput}
                                     autoCapitalize='none'
                                 />
@@ -118,19 +136,22 @@ class Signin extends Component {
                             <View style={styles.button}>
 
                                 <TouchableOpacity onPress={() => {
-                                    const state = Siginin_user(this.state.data.email, this.state.data.password);
-                                   
+                                    
+                                    const state = Siginin_user(this.state.data.email, Number(this.state.data.password));
+                                    
+                                    if (state === false) {
+                                        
+                                        createTwoButtonAlert();
+                                    }
                                     //navigate("Seater Home");
-                                    if (state.Kind.valueOf() === 1) {
+                                    else if (state.Kind.valueOf() === 1) {
                                         navigate("User Home"); //Client
                                     }
-                                    else if(state.Kind.valueOf()===3)
-                                    {
+                                    else if (state.Kind.valueOf() === 3) {
                                         console.log(state.Kind);
                                         navigate("Seater Home"); //Nurse
                                     }
-                                    else if(state.Kind.valueOf()===2)   
-                                    {
+                                    else if (state.Kind.valueOf() === 2) {
                                         navigate("Seater Home"); //Sitter
                                     }
                                 }}>
@@ -144,7 +165,7 @@ class Signin extends Component {
                                     onPress={() => {
 
 
-                                        navigate("Registration choice")
+                                        navigate("Registration User")
 
                                     }}
                                     style={[styles.signIn,
@@ -182,17 +203,14 @@ const styles = StyleSheet.create({
     header: {
         justifyContent: 'flex-end',
         paddingHorizontal: 30,
-        paddingBottom: 300
+        paddingBottom: 300,
+        marginTop:60
     },
     image: {
-        flex: 1,
         resizeMode: "cover",
         justifyContent: "center"
     },
     footer: {
-
-        display: 'flex',
-        flex: 1,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         paddingVertical: 50,
@@ -214,7 +232,7 @@ const styles = StyleSheet.create({
     text_header: {
         color: '#fff',
         fontWeight: 'bold',
-        fontSize: 60
+        fontSize: 35
     },
     text_footer: {
         color: '#05375a',

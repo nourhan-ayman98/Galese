@@ -10,7 +10,7 @@ export async function get_User(User_ID) {
 };
 //Add
 export function Add_User(National_ID,User_ID,U_ID,Reservation_ID,Email,Password,F_Name,L_Name,Full_Name,
-    Gender,Country,Age,User_Name,Nurse_ID,Admin_ID,sitter_ID) {
+    Gender,Country,Birthdate,User_Name,Nurse_ID,Admin_ID,sitter_ID,Phone) {
     const state_User = {
        National_ID:"",
        User_ID:"",
@@ -23,11 +23,12 @@ export function Add_User(National_ID,User_ID,U_ID,Reservation_ID,Email,Password,
        Full_Name:"",
        Gender:"",
        Country:"",
-       Age:"",
+       Birthdate:"",
        User_Name:"",
        Nurse_ID:"",
        Admin_ID:"",
-       Sitter_ID:""
+       Sitter_ID:"",
+       Phone:""
     }
     state_User.National_ID = National_ID;
     state_User.User_ID = User_ID;
@@ -40,8 +41,9 @@ export function Add_User(National_ID,User_ID,U_ID,Reservation_ID,Email,Password,
     state_User.Full_Name = Full_Name;
     state_User.Gender = Gender;
     state_User.Country =Country;
-    state_User.Age = Age;
+    state_User.Birthdate = Birthdate;
     state_User.User_Name = User_Name;
+    state_User.Phone = Phone;
     state_User.Nurse_ID =Nurse_ID;
     state_User.Admin_ID = Admin_ID;
     state_User.Sitter_ID = sitter_ID

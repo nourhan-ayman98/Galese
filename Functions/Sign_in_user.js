@@ -4,7 +4,14 @@ import { get_User } from "../Classes/User_Class";
 const Siginin_user = (Email, password) => {
     const user = official_Store.getState().User_reducer.User.find(user => user.Email == Email);
     const state = {
-
+    }
+    if(user==undefined)
+    {
+        return false;
+    }
+    if(user.Password!==password)
+    {
+        return false;
     }
     if (user.Admin_ID !== 0) {
         state.Kind = 0             //Admin
