@@ -3,19 +3,19 @@ const inintstate = {
 };
 
 const Rate_reducer = (state = inintstate, action) => {
-    switch (action.type) {
-        case "RATELOAD": {
+    
+        if (action.type=="RATELOAD") {
             state.Rate = action.state_.arraykey;
         }
-        case "ADDRATE": {
+        else if(action.type=="ADDRATE") {
             state.Rate.push(action.data);     
 
         }
-        case "DELETERATE": {
+        else if(action.type=="DELETERATE") {
             const newList = inintstate.Rate.filter((R) => R.Us_ID !== action.data);
-            inintstate.Rate = newList;
+            state.Rate = newList;
         }
-        case "UPDATE_Review_ID_RATE": {
+        else if(action.type=="UPDATE_Review_ID_RATE") {
             for (var i = 0; i < inintstate.Rate.length; i++) {
 
                 if (inintstate.Rate[i].Us_ID == action.USID) {
@@ -25,7 +25,7 @@ const Rate_reducer = (state = inintstate, action) => {
             }
 
         }
-        case "UPDATE_Rate_Percentage_RATE": {
+        else if(action.type=="UPDATE_Rate_Percentage_RATE") {
             for (var i = 0; i < inintstate.Rate.length; i++) {
 
                 if (inintstate.Rate[i].Us_ID == action.USID) {
@@ -35,7 +35,7 @@ const Rate_reducer = (state = inintstate, action) => {
             }
 
         }
-        case "GETRATE": {
+        else if (action.type=="GETRATE"){
             var index;
             for (var i = 0; i < inintstate.Rate.length; i++) {
                 if (inintstate.Rate[i].Us_ID == action.usid) {
@@ -44,7 +44,7 @@ const Rate_reducer = (state = inintstate, action) => {
             }
             return { ...state, rate: inintstate.Rate[index] };
         }
-    }
+    
     return state;
 }
 

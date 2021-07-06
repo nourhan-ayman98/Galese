@@ -3,20 +3,20 @@ const inintstate = {
 };
 
 const Admin_reducer = (state = inintstate, action) => {
-    switch (action.type) {
-        case "ADMINLOAD": {
+   
+        if(action.type=="ADMINLOAD") {
             state.Admin = action.state_.arraykey;
         }
-        case "ADDADMIN": {
+        else if (action.type=="ADDADMIN") {
             state.Admin.push(action.data);
             
 
         }
-        case "DELETEADMIN": {
+        else if(action.type=="DELETEADMIN"){
             const newList = inintstate.Admin.filter((Admin) => Admin.Email !== action.data);
-            inintstate.Admin = newList;
+            state.Admin = newList;
         }
-        case "GETADMIN": {
+        else if(action.type=="GETADMIN"){
             var index;
             for (var i = 0; i < inintstate.Admin.length; i++) {
                 if (inintstate.Admin[i].Email == action.email) {
@@ -25,7 +25,7 @@ const Admin_reducer = (state = inintstate, action) => {
             }
             return { ...state, admin: inintstate.Admin[index] };
         }
-    }
+    
     return state;
 }
 

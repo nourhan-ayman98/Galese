@@ -3,19 +3,19 @@ const inintstate = {
 };
 
 const ManageRate_reducer = (state = inintstate, action) => {
-    switch (action.type) {
-        case "MANAGE_RATELOAD": {
+    
+        if(action.type=="MANAGE_RATELOAD") {
             state.ManageRate = action.state_.arraykey;
         }
-        case "ADDMANAGE_RATE": {
+        else if(action.type=="ADDMANAGE_RATE") {
             state.ManageRate.push(action.data);     
 
         }
-        case "DELETEMANAGE_RATE": {
+        else if (action.type=="DELETEMANAGE_RATE"){
             const newList = inintstate.ManageRate.filter((MR) => MR.Email !== action.data);
-            inintstate.ManageRate = newList;
+            state.ManageRate = newList;
         }
-        case "UPDATE_EMAIL_MANAGE_RATE": {
+        else if (action.type=="UPDATE_EMAIL_MANAGE_RATE") {
             for (var i = 0; i < inintstate.ManageRate.length; i++) {
 
                 if (inintstate.ManageRate[i].Email == action.oldEmail) {
@@ -25,7 +25,7 @@ const ManageRate_reducer = (state = inintstate, action) => {
             }
 
         }
-        case "UPDATE_Review_ID_MANAGE_RATE": {
+        else if (action.type=="UPDATE_Review_ID_MANAGE_RATE") {
             for (var i = 0; i < inintstate.ManageRate.length; i++) {
 
                 if (inintstate.ManageRate[i].Email == action.Email) {
@@ -35,7 +35,7 @@ const ManageRate_reducer = (state = inintstate, action) => {
             }
 
         }
-        case "UPDATE_Us_ID_MANAGE_RATE": {
+        else if (action.type=="UPDATE_Us_ID_MANAGE_RATE") {
             for (var i = 0; i < inintstate.ManageRate.length; i++) {
 
                 if (inintstate.ManageRate[i].Email == action.Email) {
@@ -45,7 +45,7 @@ const ManageRate_reducer = (state = inintstate, action) => {
             }
 
         }
-        case "GETMANAGE_RATE": {
+        else if (action.type=="GETMANAGE_RATE") {
             var index;
             for (var i = 0; i < inintstate.ManageRate.length; i++) {
                 if (inintstate.ManageRate[i].Email == action.email) {
@@ -54,7 +54,7 @@ const ManageRate_reducer = (state = inintstate, action) => {
             }
             return { ...state, manage_rate: inintstate.ManageRate[index] };
         }
-    }
+    
     return state;
 }
 

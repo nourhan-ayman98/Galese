@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet, Text, View, StatusBar, Image, TouchableOpacity } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, StatusBar, ImageBackground, TouchableOpacity } from 'react-native';
 import React, { Component } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import MatrialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -18,12 +18,34 @@ class Welcome_page extends Component {
             navigate("SignScreen");
         }
         const get_read = () => {
-            /*load_data("/Employee/","EMPLOYEELOAD");
+            load_data("/Employee/","EMPLOYEELOAD");
             load_data("/Admin/","ADMINLOAD");
             load_data("/CustomerService/","CUSTOMER_SERVICESLOAD");
             load_data("/ManageRate/","MANAGE_RATELOAD");
             load_data("/Rate/","RATELOAD");
-            console.log(official_Store.getState().Employee_reducer);*/
+
+            load_data("/Comments/","COMMENTSLOAD");
+            load_data("/User_Rate/","USER_RATELOAD");
+            load_data("/Location/","LOCATIONLOAD");
+            load_data("/Loc_Address/","LOC_ADRESSLOAD");
+            load_data("/Track_Location/","TRACK_LOCATIONLOAD");
+            
+            load_data("/User/","USERLOAD");
+            load_data("/U_Address/","UADRESS_LOAD");
+            load_data("/U_Phone/","UPHONE_LOAD");
+
+            load_data("/Patient/","PATIENT_LOAD");
+            load_data("/Health Status/","HEALTH_STATUS_LOAD");
+
+            load_data("/Health Status/","HEALTH_STATUS_LOAD");
+            load_data("/Nurse/","NURSE_LOAD");
+            load_data("/Nurse_Certificates/","NURSE_CERTIFICATES_LOAD");
+            load_data("/Hospital_Address/","HOSPITAL_ADRESS_LOAD");
+
+            load_data("/Sitter/","SITTER_LOAD");
+            load_data("/Sitter_Certificates/","SITTER_CERTIFICATES_LOAD");
+            
+            console.log(official_Store.getState());
             
         }
         const functionCombined = () => {
@@ -35,12 +57,12 @@ class Welcome_page extends Component {
         return (
             
             <View style={styles.container}>
-
+                  <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
                 
                 <View style={styles.header}>
                     <Animated.Image animation="bounceIn"
                         duraton="1500"
-                        source={require('../Images/imageedit_9_3561471378.png')}
+                        source={require('../Images/circle-cropped.png')}
                         style={styles.logo}
                         resizeMode="stretch"
                     >
@@ -54,7 +76,7 @@ class Welcome_page extends Component {
                     <View>
                         <TouchableOpacity style={styles.button} onPress={functionCombined}>
                             <LinearGradient
-                                colors={['#694fad', '#694fad']}
+                                colors={['#87CEFA', '#1E90FF']}
                                 style={styles.signIn}>
                                 <Text style={styles.textSign}>Get Started</Text>
                                 <MatrialIcon
@@ -67,6 +89,7 @@ class Welcome_page extends Component {
                     </View>
 
                 </Animated.View>
+                </ImageBackground>
             </View>
 
         )
@@ -81,7 +104,12 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flex: 1,
-        backgroundColor: '#694fad',
+        
+    },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
     },
     header: {
         flex: 2,
@@ -91,11 +119,11 @@ const styles = StyleSheet.create({
     footer: {
         display: 'flex',
         flex: 1,
-        backgroundColor: '#fff',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         paddingVertical: 50,
-        paddingHorizontal: 30
+        paddingHorizontal: 30,
+        backgroundColor:"#fff"
     },
     logo: {
         width: height_logo,

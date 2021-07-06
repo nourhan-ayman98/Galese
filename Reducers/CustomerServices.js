@@ -3,20 +3,20 @@ const inintstate = {
 };
 
 const CustomerServices_reducer = (state = inintstate, action) => {
-    switch (action.type) {
-        case "CUSTOMER_SERVICESLOAD": {
+   
+        if(action.type=="CUSTOMER_SERVICESLOAD") {
             state.CustomerServices = action.state_.arraykey;
         }
-        case "ADDCUSTOMER_SERVICES": {
+        else if(action.type=="ADDCUSTOMER_SERVICES") {
             state.CustomerServices.push(action.data);
             
 
         }
-        case "DELETECUSTOMER_SERVICES": {
+        else if(action.type== "DELETECUSTOMER_SERVICES") {
             const newList = inintstate.CustomerServices.filter((CS) => CS.Email !== action.data);
-            inintstate.Admin = newList;
+            state.CustomerServices= newList;
         }
-        case "UPDATE_HOTLINE_CUSTOMER_SERVICES": {
+        else if(action.type=="UPDATE_HOTLINE_CUSTOMER_SERVICES") {
             for (var i = 0; i < inintstate.CustomerServices.length; i++) {
 
                 if (inintstate.CustomerServices[i].Email == action.Email) {
@@ -26,7 +26,7 @@ const CustomerServices_reducer = (state = inintstate, action) => {
             }
 
         }
-        case "GETCUSTOMER_SERVICES": {
+       else if(action.type=="GETCUSTOMER_SERVICES") {
             var index;
             for (var i = 0; i < inintstate.CustomerServices.length; i++) {
                 if (inintstate.CustomerServices[i].Email == action.email) {
@@ -35,7 +35,7 @@ const CustomerServices_reducer = (state = inintstate, action) => {
             }
             return { ...state, customer_services: inintstate.CustomerServices[index] };
         }
-    }
+    
     return state;
 }
 
