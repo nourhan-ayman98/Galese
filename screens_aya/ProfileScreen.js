@@ -117,7 +117,7 @@ class ProfileScreen extends Component{
                  
                     <Text style={styles.text_footer}> Name  </Text>
                         <View style={styles.action}>
-                            
+                       
                             <TextInput
                                 placeholder="Your Name"
                                 style={styles.textInput}

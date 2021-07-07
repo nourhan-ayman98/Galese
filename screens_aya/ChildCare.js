@@ -17,7 +17,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { markers, mapDarkStyle, mapStandardStyle } from './mapData';
+import { Childmarkers, mapDarkStyle, mapStandardStyle } from './ChildMap';
 import { useTheme } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get("window");
@@ -25,22 +25,22 @@ const CARD_HEIGHT = 220;
 const CARD_WIDTH = width * 0.8;
 const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
 
-const HomeScreen = (props) => {
+const ChildCare = (props) => {
   const theme = useTheme();
   const initialMapState = {
-    markers,
+    Childmarkers,
     categories: [
 
       // { 
-      //   name: 'Elderly Care', 
+      //   name: 'Customer Service', 
       // //  icon: <MaterialCommunityIcons style={styles.chipsIcon} name="ios-sick" size={18} />,
 
       // },
       // {
-      //   name: 'Home Shift',
+      //   name: 'Help',
       //  // icon: <Ionicons name="ios-restaurant" style={styles.chipsIcon} size={18} />,
       // },
-      // {
+      //{
       //   name: 'Child Care',
       //   //icon: <Ionicons name="md-restaurant" style={styles.chipsIcon} size={18} />,
       // },
@@ -69,8 +69,8 @@ const HomeScreen = (props) => {
   useEffect(() => {
     mapAnimation.addListener(({ value }) => {
       let index = Math.floor(value / CARD_WIDTH + 0.3); // animate 30% away from landing on the next item
-      if (index >= state.markers.length) {
-        index = state.markers.length - 1;
+      if (index >= state.Childmarkers.length) {
+        index = state.Childmarkers.length - 1;
       }
       if (index <= 0) {
         index = 0;
@@ -81,7 +81,7 @@ const HomeScreen = (props) => {
       const regionTimeout = setTimeout(() => {
         if (mapIndex !== index) {
           mapIndex = index;
-          const { coordinate } = state.markers[index];
+          const { coordinate } = state.Childmarkers[index];
           _map.current.animateToRegion(
             {
               ...coordinate,
@@ -95,7 +95,7 @@ const HomeScreen = (props) => {
     });
   });
 
-  const interpolations = state.markers.map((marker, index) => {
+  const interpolations = state.Childmarkers.map((marker, index) => {
     const inputRange = [
       (index - 1) * CARD_WIDTH,
       index * CARD_WIDTH,
@@ -144,7 +144,7 @@ const HomeScreen = (props) => {
         provider={PROVIDER_GOOGLE}
         customMapStyle={theme.dark ? mapDarkStyle : mapStandardStyle}
       >
-        {state.markers.map((marker, index) => {
+        {state.Childmarkers.map((marker, index) => {
           const scaleStyle = {
             transform: [
               {
@@ -224,7 +224,7 @@ const HomeScreen = (props) => {
           { useNativeDriver: true }
         )}
       >
-        {state.markers.map((marker, index) => (
+        {state.Childmarkers.map((marker, index) => (
           <View style={styles.card} key={index}>
             <Image 
               source={marker.image}
@@ -236,11 +236,12 @@ const HomeScreen = (props) => {
               <Text numberOfLines={1} style={styles.cardtitle}>{marker.title}</Text>
 
               <Text numberOfLines={3} style={styles.cardDescription}>{marker.description}</Text>
-              
+              <br></br>
+              <br></br>
               <View style={styles.button}>
                 <TouchableOpacity
                   onPress={() => {
-                    props.navigation.navigate("newPatientRegistration");
+                    props.navigation.navigate("ElderCare");
                   }}
                   style={[styles.signIn, {
                     borderColor: '#800080',
@@ -250,7 +251,7 @@ const HomeScreen = (props) => {
 
                   <Text style={[styles.textSign, {
                     color: '#800080'
-                  }]}> Know More</Text>
+                  }]}>Reserve Now</Text>
 
 
                 </TouchableOpacity>
@@ -264,7 +265,7 @@ const HomeScreen = (props) => {
   );
 };
 
-export default HomeScreen;
+export default ChildCare;
 
 const styles = StyleSheet.create({
   container: {
@@ -329,10 +330,9 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.3,
     shadowOffset: { x: 2, y: -2 },
-    height: 500,
+    height: 400,
     width: 490,
     overflow: "hidden",
-   // marginLeft:190
   },
   cardImage: {
     flex: 3,

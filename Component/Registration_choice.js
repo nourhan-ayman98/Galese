@@ -16,14 +16,14 @@ class Registrationchoice extends Component {
                         <LinearGradient
                             colors={['#fff', '#fff']}
                             style={styles.signIn}>
-                            <Text style={styles.textSign}>user</Text>
+                            <Text style={styles.textSign}>Patient</Text>
                         </LinearGradient>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={() => navigate("Registration Seater")}>
                         <LinearGradient
                             colors={['#fff', '#fff']}
                             style={styles.signIn}>
-                            <Text style={styles.textSign}>Seater</Text>
+                            <Text style={styles.textSign}>Sitter / Nurse </Text>
                         </LinearGradient>
                     </TouchableOpacity>
 

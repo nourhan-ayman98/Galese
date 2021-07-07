@@ -1,18 +1,18 @@
 const Images = [
-    { image: require("../Images/x.jpg") },
-    { image: require("../Images/y.jpg") },
-    { image: require("../Images/qq.png") },
-    { image: require("../Images/p.jpg") },
+    { image: require("../Images/d1.jpg") },
+    { image: require("../Images/d2.jpg") },
+    { image: require("../Images/d5.jpg") },
+    { image: require("../Component/Seater/assets/users/user-1.jpg") },
 ];
 
-export const markers = [
+export const Childmarkers = [
     {
       coordinate: {
         latitude: 22.6293867,
         longitude: 88.4354486,
       },
-      title: "Elder Care",
-      description: "Provide total care (Therapeutic , Personal care ) for seniors by trained Nurses or Sitters",
+      title: "Marie Micheal",
+      description: "Senior Degree Nurse at greece International hospitals.",
       image: Images[0].image,
       rating: 4,
       reviews: 99,
@@ -22,8 +22,8 @@ export const markers = [
         latitude: 22.6345648,
         longitude: 88.4377279,
       },
-      title: "Child Care",
-      description: "Provide Therapeutic, Personal care and hygiene for post-natal mothers or child/ baby by trained Nurses or Sitters",
+      title: "Laila Eissa",
+      description: "Professional Sitter who have ICD Certificate.",
       image: Images[1].image,
       rating: 5,
       reviews: 102,
@@ -33,23 +33,23 @@ export const markers = [
         latitude: 22.6281662,
         longitude: 88.4410113,
       },
-      title: "Home Shifts",
-      description: "Nurse or Sitter Care to provide Therapeutic and Personal care for patients or persons with Special needs to sit with the patient for a period of time ",
+      title: "Jacoub Meshal",
+      description: "Nurse with CCDS Certificates",
       image: Images[2].image,
       rating: 3,
       reviews: 220,
     },
-    {
-      coordinate: {
-        latitude: 22.6341137,
-        longitude: 88.4497463,
-      },
-      title: "Wound Care ",
-      description: "Provide Care for diabetic foot, bet sores, postoperative wounds including Ostomy care for artificial surgical opening by nursing staff",
-      image: Images[3].image,
-      rating: 4,
-      reviews: 48,
-    },
+    // {
+    //   coordinate: {
+    //     latitude: 22.6341137,
+    //     longitude: 88.4497463,
+    //   },
+    //   title: "Fourth Amazing Food Place",
+    //   description: "This is the fourth best food place",
+    //   image: Images[3].image,
+    //   rating: 4,
+    //   reviews: 48,
+    // },
     // {
     //   coordinate: {
     //     latitude: 22.6292757,

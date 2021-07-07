@@ -6,7 +6,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import * as Animated from 'react-native-animatable';
 import { Add_employee, get_employee } from '../Classes/Employee_class';
 import official_Store from '../ReduxStores/Store';
-
+import Fontisto from 'react-native-vector-icons/Fontisto';
 class RegistrationUser extends Component {
     state = {
         data: {
@@ -209,7 +209,11 @@ class RegistrationUser extends Component {
                                         //this.on_click_signup();
                                         Add_employee("Mohamed@5050", "555");
                                         console.log(official_Store.getState().Employee_reducer)
-                                        navigate("User Home ");
+                                       navigate("User Home ");
+                                          //navigate("ElderCare");
+                                       //   navigate("ChildCare");
+                                      // navigate("newPatientRegistration ");
+                                        //navigate("newRegistartion ");
                                     }}>
                                     <Text
                                         style={[styles.textSign, {

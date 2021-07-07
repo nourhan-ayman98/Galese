@@ -126,7 +126,11 @@ class Signin extends Component {
                                 onPress={() => { 
                                    
                                    //write_data();
-                                   navigate("Registration choice")
+                               navigate("Registration choice")
+                               //navigate("newPatientRegistration")
+                               //navigate("ElderCare ");
+                                // navigate("ChildCare ");
+
                             }}
                                 style={[styles.signIn,
                                 {

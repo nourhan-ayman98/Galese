@@ -10,21 +10,20 @@ import NurseScreen from './NurseScreen';
 import SitterScreen from './SitterScreen';
 import ExploreScreen from './ExploreScreen';
 import UserChatScreen from './UserChatScreen';
+import ElderCare from '../screens_aya/ElderCare';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProfileScreen from './ProfileScreen';
 import NotificationScreen from './NotificationScreen';
-
-
-
+import newPatientRegistration from './newPatientRegistration';
+import Payment from './Payment';
 const HomeStack = createStackNavigator();
 const ExploreStack = createStackNavigator();
 const NurseStack = createStackNavigator();
 const SitterStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
-
-
+const newPatientRegistrationStack = createStackNavigator();
 
 
 const MainTabScreen = () => (
@@ -65,7 +64,18 @@ const MainTabScreen = () => (
                 ),
             }}
         />
-       
+        {/* <Tab.Screen
+        name="Requests"
+        component={RequestScreen}
+        options={{
+          tabBarLabel: 'Requests',
+          tabBarColor: '#694fad',
+          tabBarIcon: ({ color }) => (
+         
+            <Icon name="people-outline" color={color} size={26}/>
+          ),
+        }}
+      /> */}
          <Tab.Screen
         name="Chats"
         component={ExploreStackk}
@@ -118,6 +128,7 @@ const ExploreStackk = ({navigation}) => (
           />
     </ExploreStack.Navigator>
     );
+  
 
 const HomeStackScreen = ({ navigation }) => (
 
@@ -138,20 +149,49 @@ const HomeStackScreen = ({ navigation }) => (
             )
         }} />
 
-        <HomeStack.Screen name="Nursescreen" component={NurseScreen} options={{
-
-            title: "Nurse",
-            
-        }} />
-
-        <HomeStack.Screen name="SitterScreen" component={SitterScreen} options={{
-
-            title: "Sitter ",
-           
-        }} />
-
+       
+          <HomeStack.Screen 
+            name="newRegistration"
+            component={newPatientRegistration}
+            options={({route}) => ({
+              //title: route.params.title,
+              headerBackTitleVisible: false,
+              headerTitle: false,
+              headerTransparent: true,
+    
+              headerTintColor: '#fff'
+            })}
+          />
     </HomeStack.Navigator>
+    
+    );
 
+const newPatientRegistrationStackScreen = ({ navigation }) => (
+
+    <newPatientRegistrationStack.Navigator screenOptions={{
+        headerStyle: {
+            backgroundColor: "#694fad",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+            fontWeight: 'bold'
+        }
+    }}>
+       
+       
+          <newPatientRegistrationStack.Screen 
+            name="ElderCare"
+            component={ElderCare}
+            options={({route}) => ({
+              //title: route.params.title,
+              headerBackTitleVisible: false,
+              headerTitle: false,
+              headerTransparent: true,
+    
+              headerTintColor: '#fff'
+            })}
+          />
+    </newPatientRegistrationStack.Navigator>
 
 
 );
