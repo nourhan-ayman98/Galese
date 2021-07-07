@@ -1,13 +1,13 @@
-import { View, Text, TouchableOpacity, TextInput, Platform, StyleSheet, StatusBar, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Platform, StyleSheet,ImageBackground, StatusBar, Alert, ScrollView } from 'react-native';
 import React, { Component } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animated from 'react-native-animatable';
-import { Add_employee, get_employee } from '../Classes/Employee_class';
-import official_Store from '../ReduxStores/Store';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-class RegistrationUser extends Component {
+
+class SignUP extends Component {
     state = {
         data: {
             email: '',
@@ -22,7 +22,7 @@ class RegistrationUser extends Component {
         data4: {
             secureTextEntry: true,
         },
-        data5: {
+        data5:{
             confirm_secureTextEntry: true,
         }
     }
@@ -75,96 +75,185 @@ class RegistrationUser extends Component {
     }
     check_password(val1, val) {
         if (val1 === val) {
-            this.object.password = this.state.data2.password;
+           
             return true;
         }
         else {
             return false;
         }
     }
-    object = {
-        id: 1,
-        name: '',
-        email: '',
-        password: ''
-    }
-    /*on_click_signup=()=>
-    {
-       k.getUserData();
-       k.addUser(this.object);
-
-    }*/
     render() {
+        const state_User = {
+            National_ID:"",
+            User_ID:"",
+            U_ID:"",
+            Reservation_ID:"",
+            Email:"",
+            Password:"",
+            F_Name:"",
+            L_Name:"",
+            Full_Name:"",
+            Gender:"",
+            Country:"",
+            Birthdate:"",
+            User_Name:"",
+            Nurse_ID:"",
+            Admin_ID:"",
+            Sitter_ID:"",
+            Phone:""
+         }
         const { navigate } = this.props.navigation;
         return (
-            <View>
-                <View style={styles.container}>
-                    <StatusBar backgroundColor='#009387' barStyle="light-content" />
+
+            <View style={styles.container}>
+                <ScrollView>
+                <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
                     <View style={styles.header}>
-                        <Text style={[styles.text_header, { marginTop: 35 }]}> Welcome User </Text>
+                        <Text style={[styles.text_header, { marginTop: 35 }]}> Welcome in جليسي! </Text>
                     </View>
-                    <Animated.View animation="fadeInUpBig" style={styles.footer}>
-                        <Text style={styles.text_footer}> Name  </Text>
+                    <View style={styles.footer}>
+                    
+                    <Text style={styles.text_footer}> First Name </Text>
                         <View style={styles.action}>
                             <FontAwesome
                                 name="user-o"
-                                color="#05375a"
+                                color="#fff"
                                 size={20}
                             />
                             <TextInput
-                                placeholder="Your Name"
+                                placeholder="Your First Name"
+                                placeholderTextColor="#D3D3D3"
                                 style={styles.textInput}
                                 autoCapitalize='none'
-                                onChangeText={(val) => { this.object.name = val }}
+                                onChangeText={(value)=>state_User.F_Name=value}
+                             
                             />
                         </View>
-                        <Text style={[styles.text_footer, { marginTop: 35 }]}> Email  </Text>
+                        <Text style={styles.text_footer}> Second Name </Text>
                         <View style={styles.action}>
                             <FontAwesome
                                 name="user-o"
-                                color="#05375a"
+                                color="#fff"
+                                size={20}
+                            />
+                            <TextInput
+                                placeholder="Your Second Name"
+                                placeholderTextColor="#D3D3D3"
+                                style={styles.textInput}
+                                autoCapitalize='none'
+                                onChangeText={(value)=>state_User.L_Name=value}
+                               
+                            />
+                        </View>
+                        <Text style={styles.text_footer}> Full Name </Text>
+                        <View style={styles.action}>
+                            <FontAwesome
+                                name="user-o"
+                                color="#fff"
+                                size={20}
+                            />
+                            <TextInput
+                                placeholder="Your Full Name"
+                                placeholderTextColor="#D3D3D3"
+                                style={styles.textInput}
+                                autoCapitalize='none'
+                                onChangeText={(value)=>state_User.Full_Name=value}
+                               
+                            />
+                        </View>
+                        <Text style={styles.text_footer}> Phone  </Text>
+                        <View style={styles.action}>
+                            <FontAwesome
+                                name="phone-square"
+                                color="#fff"
+                                size={20}
+                            />
+                            <TextInput
+                                placeholder="Your Phone"
+                                placeholderTextColor="#D3D3D3"
+                                style={styles.textInput}
+                                autoCapitalize='none'
+                                onChangeText={(value)=>state_User.Phone=value}  
+                               
+                            />
+                        </View>
+                        <Text style={styles.text_footer}> Address </Text>
+                        <View style={styles.action}>
+                            <EvilIcons
+                                name="location"
+                                color="#fff"
+                                size={20}
+                            />
+                            <TextInput
+                                placeholder="Your Address"
+                                placeholderTextColor="#D3D3D3"
+                                style={styles.textInput}
+                                autoCapitalize='none'
+                                onChangeText={(value)=>state_User.Avalue}  
+                               
+                            />
+                        </View>
+                        <Text style={styles.text_footer}> Email  </Text>
+                        <View style={styles.action}>
+                            <Fontisto
+                                name="email"
+                                color="#fff"
                                 size={20}
                             />
                             <TextInput
                                 placeholder="Your Email"
+                                placeholderTextColor="#D3D3D3"
                                 style={styles.textInput}
                                 autoCapitalize='none'
-                                onChangeText={(val) => {
-                                    this.textInputChange(val)
-                                    this.object.email = val;
-                                }}
+                                onChangeText={(val) => this.textInputChange(val)}
                             />
-
                             {this.state.data.check_textInputChange ?
                                 <Animated.View animation="bounceIn">
 
                                     <Feather
                                         name="check-circle"
-                                        color="#800080"
+                                        color="#1E90FF"
                                         size={20}
                                     />
                                 </Animated.View>
                                 : null}
+
+                        </View>
+                        <Text style={styles.text_footer}> User Name </Text>
+                        <View style={styles.action}>
+                            <FontAwesome
+                                name="user-o"
+                                color="#fff"
+                                size={20}
+                            />
+                            <TextInput
+                                placeholder="Your User Name"
+                                placeholderTextColor="#D3D3D3"
+                                style={styles.textInput}
+                                autoCapitalize='none'
+                               
+                            />
                         </View>
                         <Text style={[styles.text_footer, { marginTop: 35 }]}> Password </Text>
                         <View style={styles.action}>
                             <FontAwesome
                                 name="lock"
-                                color="#05375a"
+                                color="#fff"
                                 size={20}
                             />
                             <TextInput
                                 placeholder="Your Password"
-                                secureTextEntry={this.state.data4.secureTextEntry ? true : false}
+                                placeholderTextColor="#D3D3D3"
+                                secureTextEntry={this.state.data4.secureTextEntry? true : false}
                                 style={styles.textInput}
                                 autoCapitalize='none'
-                                onChangeText={(val) => this.handlePassChange(val)}
+                                onChangeText={(val)=>this.handlePassChange(val)}
                             />
                             <TouchableOpacity
                                 onPress={this.updateSecureTextEntry}>
                                 <Feather
                                     name="eye-off"
-                                    color="grey"
+                                    color="#1E90FF"
                                     size={20}
                                 />
                             </TouchableOpacity>
@@ -174,110 +263,97 @@ class RegistrationUser extends Component {
                         <View style={styles.action}>
                             <FontAwesome
                                 name="lock"
-                                color="#05375a"
+                                color="#fff"
                                 size={20}
                             />
                             <TextInput
                                 placeholder="Confirm Password"
+                                placeholderTextColor="#D3D3D3"
                                 secureTextEntry={this.state.data5.confirm_secureTextEntry ? true : false}
                                 style={styles.textInput}
                                 autoCapitalize='none'
-                                onChangeText={(val) => this.handlePassChange_Confirm(val)}
+                                onChangeText={(val)=>this.handlePassChange_Confirm(val)}
                             />
                             <TouchableOpacity
                                 onPress={this.updateSecureTextEntry_confirm}>
                                 <Feather
                                     name="eye-off"
-                                    color="grey"
+                                    color="#1E90FF"
                                     size={20}
                                 />
                             </TouchableOpacity>
 
                         </View>
+                        
                         <View style={styles.button}>
-                            {this.check_password(this.state.data2.password, this.state.data3.confirm_password) ?
-
-                                <TouchableOpacity
-
-                                    style={[styles.signIn,
-                                    {
-                                        borderColor: '#800080',
-                                        borderWidth: 1,
-                                        marginTop: 15
-                                    }]}
-                                    onPress={() => {
-                                        //this.on_click_signup();
-                                        Add_employee("Mohamed@5050", "555");
-                                        console.log(official_Store.getState().Employee_reducer)
-                                       navigate("User Home ");
-                                          //navigate("ElderCare");
-                                       //   navigate("ChildCare");
-                                      // navigate("newPatientRegistration ");
-                                        //navigate("newRegistartion ");
-                                    }}>
-                                    <Text
-                                        style={[styles.textSign, {
-                                            color: '#800080'
-                                        }]}
-                                    >Sign Up</Text>
-
-                                </TouchableOpacity>
-
-                                : null}
-
+                        {this.check_password(this.state.data2.password,this.state.data3.confirm_password) ? 
+                            <TouchableOpacity
+                                onPress={() => navigate("User Home")}>
+                                <LinearGradient
+                                    colors={['#87CEFA', '#1E90FF']}
+                                    style={styles.signIn}
+                                >
+                                    <Text style={styles.textSign}>Sign In</Text>
+                                </LinearGradient>
+                            </TouchableOpacity>
+                             :null}
                         </View>
-
-                    </Animated.View>
-                </View>
+                        
+                    </View>
+                    
+                </ImageBackground>
+                </ScrollView>
             </View>
         );
     }
 }
 
 
-export default RegistrationUser;
+export default SignUP;
 const styles = StyleSheet.create({
     container: {
-
-        backgroundColor: '#800080',
+        display: 'flex',
+        flex: 1,
         flexDirection: 'column'
     },
     header: {
-
-
         justifyContent: 'flex-end',
         paddingHorizontal: 30,
-        paddingBottom: 60
     },
     footer: {
-
-        backgroundColor: '#fff',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         paddingVertical: 20,
         paddingHorizontal: 30
-    },
-    textInput: {
-        flex: 1,
-        marginTop: Platform.OS === 'ios' ? 0 : -12,
-        paddingLeft: 10,
-        color: '#05375a',
-    },
-    title: {
-        color: 'black',
-        fontSize: 30,
-        fontWeight: 'bold'
     },
     text_header: {
         color: '#fff',
         fontWeight: 'bold',
         fontSize: 40
     },
-    text_footer: {
-        color: '#05375a',
-        fontSize: 18
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
     },
-
+    text_footer: {
+        color: '#fff',
+        fontSize: 18,
+        marginTop:30,
+    },
+    action: {
+        flexDirection: 'row',
+        marginTop: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ffff',
+        paddingBottom: 5
+    },
+    textInput: {
+        flex: 1,
+        marginTop: Platform.OS === 'ios' ? 0 : -12,
+        paddingLeft: 10,
+        color: '#ffff',
+    },
     button: {
 
         alignItems: 'center',
@@ -294,12 +370,5 @@ const styles = StyleSheet.create({
     textSign: {
         color: 'white',
         fontWeight: 'bold',
-    },
-    action: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#f2f2f2',
-        paddingBottom: 5
     },
 });

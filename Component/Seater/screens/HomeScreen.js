@@ -24,7 +24,7 @@ const HomeScreen = ({itemData, onPress}) => {
       
     <ScrollView>
          <TouchableOpacity onPress={onPress}>
-<View style={styles.cardsWrapper}>
+         <View style={styles.cardsWrapper}>
         <Text
           style={{
             alignSelf: 'center',

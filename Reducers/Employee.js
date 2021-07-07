@@ -12,7 +12,7 @@ const Employee_reducer = (state = inintstate, action) => {
         }
         
         else if(action.type=="DELETEEMPLOYEE"){ 
-            const newList =state.Employees.filter((Employee)=> Employee.Email!=action.data);
+            const newList =inintstate.Employees.filter((Employee)=> Employee.Email!=action.data);
             state.Employees= newList;
         }
         

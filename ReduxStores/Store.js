@@ -6,7 +6,7 @@ import ManageRate_reducer from '../Reducers/ManageRate';
 import Rate_reducer from '../Reducers/Rate';
 import Comments_reducer from '../Reducers/Comments';
 import UserRate_reducer from '../Reducers/UserRate';
-
+import Location_reducer from '../Reducers/Location';
 import LocAdress_reducer from '../Reducers/LocAddress';
 import TrackLocation_reducer from '../Reducers/TrackLocation';
 import User_reducer from '../Reducers/User';
@@ -48,6 +48,7 @@ const reducers = combineReducers({
     Rate_reducer,
     Comments_reducer,
     UserRate_reducer,
+    Location_reducer,
     LocAdress_reducer,
     TrackLocation_reducer,
     User_reducer,
