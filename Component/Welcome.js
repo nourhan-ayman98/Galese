@@ -13,6 +13,7 @@ import official_Store from '../ReduxStores/Store';
 import SignUP from './Registration_User';
 
 
+
 const Stack = createStackNavigator();
 
 
@@ -30,8 +31,7 @@ class welcome extends Component {
                     <Stack.Screen name="SignScreen"options={{ headerShown: false }} component={Signin} />
                     <Stack.Screen name="Registration User"options={{ headerShown: false }} component={SignUP} />
                         <Stack.Screen name="Seater Home" component={App_seater} />
-                        <Stack.Screen name="ElderCare" component={ElderCare} />
-                        <Stack.Screen name="ChildCare " component={ChildCare} />
+        
                         <Stack.Screen name="newPatientRegistration" component={newPatientRegistration} />
                         <Stack.Screen name="newRegistration" component={newRegistration} />
                         <Stack.Screen name="HomeScreen" component={HomeScreen} />
