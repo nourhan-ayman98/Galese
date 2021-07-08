@@ -47,7 +47,7 @@ class Signin extends Component {
             }
 
         })
-        this.state.data.password=val;
+        this.state.data.password = val;
 
     }
 
@@ -118,7 +118,7 @@ class Signin extends Component {
                                 <TextInput
                                     placeholder="Your Password"
                                     secureTextEntry={this.state.data3.secureTextEntry ? true : false}
-                                    onChangeText={(val)=>this.handlePassChange(val)}
+                                    onChangeText={(val) => this.handlePassChange(val)}
                                     style={styles.textInput}
                                     autoCapitalize='none'
                                 />
@@ -137,8 +137,7 @@ class Signin extends Component {
                                 <TouchableOpacity onPress={() => {
                                     const state = Siginin_user(this.state.data.email, Number(this.state.data.password.valueOf()));
                                     //navigate("Seater Home");
-                                    if(state==false)
-                                    {
+                                    if (state == false) {
                                         createTwoButtonAlert();
                                     }
                                     else if (state.Kind.valueOf() === 1) {
@@ -148,13 +147,11 @@ class Signin extends Component {
                                         console.log(state.kind);
                                         navigate("User Home"); //Admin
                                     }
-                                    else if(state.Kind.valueOf()===3)
-                                    {
+                                    else if (state.Kind.valueOf() === 3) {
                                         console.log(state.Kind);
                                         navigate("Seater Home"); //Nurse
                                     }
-                                    else if(state.Kind.valueOf()===2)   
-                                    {
+                                    else if (state.Kind.valueOf() === 2) {
                                         navigate("Seater Home"); //Sitter
                                     }
                                 }}>
@@ -183,6 +180,14 @@ class Signin extends Component {
                                         }]}
                                     >Sign Up</Text>
                                 </TouchableOpacity>
+                                <View style={styles.button}>
+                                    <TouchableOpacity onPress={() => navigate("Reset Password")}>
+                                        <Text style={[styles.text_forgot, {
+                                            color: '#87CEFA',
+                                        }]}
+                                        >Forgot Password?</Text>
+                                    </TouchableOpacity>
+                                </View>
                             </View>
                         </Animated.View>
                     </ImageBackground>
@@ -268,5 +273,10 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#f2f2f2',
         paddingBottom: 5
+    },
+    text_forgot: {
+        color: '#87CEFA',
+        fontWeight: 'bold',
+        fontSize: 15
     },
 });

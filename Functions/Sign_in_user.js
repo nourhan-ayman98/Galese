@@ -15,10 +15,10 @@ const Siginin_user = (Email, password) => {
         }
         else if (Employee.Password == password) {
             const ifAdminornot = official_Store.getState().Admin_reducer.Admin.find(Admin => Admin.E_ID == Employee.E_ID);
-            if (ifAdminornot == undefined) {
-                console.log("finaly iam here")
+            if (ifAdminornot != undefined) {
+               
                 state.Kind = 0             //Admin
-                state.Admin_ID = Admin.E_ID;
+                state.Admin_ID = Employee.E_ID;
                 return state;
             }
 
@@ -41,7 +41,7 @@ const Siginin_user = (Email, password) => {
         state.Kind = 3             //Nurse
         state.User_ID = user.User_ID;
         return state;
-    }
+    } 
 }
 
 export default Siginin_user;

@@ -1,40 +1,32 @@
 import official_Store from '../ReduxStores/Store';
 //Get Comments 
-export async function get_UPhone(User_ID) {
+export async function get_Credit_card(C_ID) {
     official_Store.dispatch({
-        type: "GET_UPHONE",
-        User_ID: User_ID
+        type: "GET_CREDIT_CARD",
+        c_ID:C_ID
     });
-    return official_Store.getState().UPhone_reducer.uphone;
+    return official_Store.getState().CreditCard_reducer.credit_card;
 };
 //Add
-<<<<<<< HEAD
-export function Add_UPhone(National_ID,User_ID,Email) {
-=======
-export function Add_UPhone(National_ID,User_ID,Email,Phone) {
->>>>>>> 926ceca (nour)
-    const state_UPhone = {
-       National_ID:"",
-       User_ID:"",
-       Email:"",
-<<<<<<< HEAD
-=======
-       Phone:"",
->>>>>>> 926ceca (nour)
+export function Add_Credit_Card(C_ID,ID, CCV, Expire_Date,Transaction_ID) {
+    const state_Credit_Card = {
+        C_ID:"",
+        ID:"",
+        CCV:"",
+        Expire_Date:"",
+        Transaction_ID:"",
     }
-    state_UPhone.National_ID = National_ID;
-    state_UPhone.User_ID = User_ID;
-    state_UPhone.Email = Email;
-<<<<<<< HEAD
+    state_Credit_Card.C_ID =C_ID;
+    state_Credit_Card.ID = ID;
+    state_Credit_Card.CCV =CCV;
+    state_Credit_Card.Expire_Date= Expire_Date;
+    state_Credit_Card.Transaction_ID =Transaction_ID;
 
-=======
-    state_UPhone.Phone = Phone;
->>>>>>> 926ceca (nour)
-    official_Store.dispatch(add_UPhone_dispatch(state_UPhone));
+    official_Store.dispatch(add_Credit_Card_dispatch(state_Credit_Card));
 };
 //Delete
-export function Delete_UPhone(User_ID) {
-    official_Store.dispatch(Delete_UPhone_dispatch(User_ID));
+export function Delete_Credit_card(C_ID) {
+    official_Store.dispatch(Delete_Credit_Card_dispatch(C_ID));
 };
 
 /*//Update //USID
@@ -59,18 +51,18 @@ export function Update_Email_User_Rate(User_ID,Email) {
 };*/
 //Dispatches
 
-const add_UPhone_dispatch = (data_) => {
+const add_Credit_Card_dispatch = (data_) => {
     return ({
-        type: "UPHONE_ADD",
+        type: "CREDIT_CARD_ADD",
         data: data_
     })
     
 }
 
-const Delete_UPhone_dispatch = (User_ID) => {
+const Delete_Credit_Card_dispatch = (C_ID) => {
     return ({
-        type:"DELETE_UPHONE",
-        data: User_ID
+        type:"DELETE_CREDIT_CARD",
+        data: C_ID
     })
 }
 /*const Update_usid_User_Rate_dispatch = (User_ID,Us_id) => {

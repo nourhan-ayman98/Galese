@@ -11,11 +11,13 @@ export async function get_employee(Email) {
     return official_Store.getState().Employee_reducer.employee;
 };
 //Add
-export function Add_employee(Email, password) {
+export function Add_employee(E_ID,Email, password) {
     const state_Emploiyee = {
+        E_ID:" ",
         Email: " ",
         Password: " "
     }
+    state_Emploiyee.E_ID=E_ID;
     state_Emploiyee.Email = Email;
     state_Emploiyee.Password = password;
     official_Store.dispatch(add_Employee_dispatch(state_Emploiyee));

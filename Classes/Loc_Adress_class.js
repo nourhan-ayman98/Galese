@@ -8,21 +8,23 @@ export async function get_Loc_adress(U_ID) {
     return official_Store.getState().LocAdress_reducer.loc_adress;
 };
 //Add
-export function Add_Loc_Adress(U_ID,Floor_No,Building_No,Street_No,Street_Name,Apartment_No) {
+export function Add_Loc_Adress(U_Loc_adress_ID,U_ID,Floor_No,Building_No,Street_No,Street_Name,Apartment_No) {
     const state_Loc_Adress = {
-       U_ID:"",
+       U_Loc_adress_ID:"",
        Floor_No:"",
        Building_No:"",
        Street_No:"",
        Street_Name:"",
        Apartment_No:"",
+       U_ID:""
     }
-    state_Loc_Adress.U_ID = U_ID;
+    state_Loc_Adress.U_Loc_adress_ID = U_Loc_adress_ID;
     state_Loc_Adress.Floor_No = Floor_No;
     state_Loc_Adress.Building_No= Building_No;
     state_Loc_Adress.Street_No = Street_No;
     state_Loc_Adress.Street_Name = Street_Name;
     state_Loc_Adress.Apartment_No=Apartment_No;
+    state_Loc_Adress.U_ID=U_ID;
    
     official_Store.dispatch(add_Loc_Adress_dispatch(state_Loc_Adress));
 };

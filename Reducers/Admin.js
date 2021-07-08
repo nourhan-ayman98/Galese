@@ -11,10 +11,17 @@ const Admin_reducer = (state = inintstate, action) => {
             state.Admin.push(action.data);
         }
         else if(action.type=="DELETEADMIN") {
+<<<<<<< HEAD
             const newList = inintstate.Admin.filter((Admin) => Admin.Email !== action.data);
             inintstate.Admin = newList;
         }
         else if("UPDATE_ADMIN_EMPLOYEE") {
+=======
+            const newList = inintstate.Admin.filter((Admin) => Admin.A_ID !== action.data);
+            inintstate.Admin = newList;
+        }
+        /*else if("UPDATE_ADMIN_EMPLOYEE") {
+>>>>>>> 926ceca (nour)
             for (var i = 0; i < inintstate.Admin.length; i++) {
 
                 if (inintstate.Admin[i].Email == action.oldEmail) {
@@ -23,11 +30,15 @@ const Admin_reducer = (state = inintstate, action) => {
                 }
             }
 
+<<<<<<< HEAD
         }
+=======
+        }*/
+>>>>>>> 926ceca (nour)
         else if(action.type=="GETADMIN") {
             var index;
             for (var i = 0; i < inintstate.Admin.length; i++) {
-                if (inintstate.Admin[i].Email == action.email) {
+                if (inintstate.Admin[i].A_ID == action.a_ID) {
                     index = i;
                 }
             }

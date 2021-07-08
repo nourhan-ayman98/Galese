@@ -1,40 +1,30 @@
 import official_Store from '../ReduxStores/Store';
 //Get Comments 
-export async function get_UPhone(User_ID) {
+export async function get_Payment(Transaction_ID) {
     official_Store.dispatch({
-        type: "GET_UPHONE",
-        User_ID: User_ID
+        type: "GET_PAYMENT",
+        transaction_ID:Transaction_ID
     });
-    return official_Store.getState().UPhone_reducer.uphone;
+    return official_Store.getState().Payment_reducer.payment;
 };
 //Add
-<<<<<<< HEAD
-export function Add_UPhone(National_ID,User_ID,Email) {
-=======
-export function Add_UPhone(National_ID,User_ID,Email,Phone) {
->>>>>>> 926ceca (nour)
-    const state_UPhone = {
-       National_ID:"",
-       User_ID:"",
-       Email:"",
-<<<<<<< HEAD
-=======
-       Phone:"",
->>>>>>> 926ceca (nour)
+export function Add_Payment(Transaction_ID, Money, Date, Time) {
+    const state_Payment = {
+        Transaction_ID:"",
+        Money:"",
+        Date:"",
+        Time:"",
     }
-    state_UPhone.National_ID = National_ID;
-    state_UPhone.User_ID = User_ID;
-    state_UPhone.Email = Email;
-<<<<<<< HEAD
+    state_Payment.Transaction_ID =Transaction_ID;
+    state_Payment.Money = Money;
+    state_Payment.Date =Date;
+    state_Payment.Time = Time;
 
-=======
-    state_UPhone.Phone = Phone;
->>>>>>> 926ceca (nour)
-    official_Store.dispatch(add_UPhone_dispatch(state_UPhone));
+    official_Store.dispatch(add_Payment_dispatch(state_Payment));
 };
 //Delete
-export function Delete_UPhone(User_ID) {
-    official_Store.dispatch(Delete_UPhone_dispatch(User_ID));
+export function Delete_Payment(Transaction_ID) {
+    official_Store.dispatch(Delete_Payment_dispatch(Transaction_ID));
 };
 
 /*//Update //USID
@@ -59,18 +49,18 @@ export function Update_Email_User_Rate(User_ID,Email) {
 };*/
 //Dispatches
 
-const add_UPhone_dispatch = (data_) => {
+const add_Payment_dispatch = (data_) => {
     return ({
-        type: "UPHONE_ADD",
+        type: "PAYMENT_ADD",
         data: data_
     })
     
 }
 
-const Delete_UPhone_dispatch = (User_ID) => {
+const Delete_Payment_dispatch = (Transaction_ID) => {
     return ({
-        type:"DELETE_UPHONE",
-        data: User_ID
+        type:"DELETE_PAYMENT",
+        data: Transaction_ID
     })
 }
 /*const Update_usid_User_Rate_dispatch = (User_ID,Us_id) => {

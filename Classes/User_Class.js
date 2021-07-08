@@ -9,12 +9,11 @@ export async function get_User(User_ID) {
     return official_Store.getState().User_reducer.user;
 };
 //Add
-export function Add_User(National_ID,User_ID,U_ID,Reservation_ID,Email,Password,F_Name,L_Name,Full_Name,
-    Gender,Country,Birthdate,User_Name,Nurse_ID,Admin_ID,sitter_ID,Phone) {
+export function Add_User(National_ID,User_ID,Reservation_ID,Email,Password,F_Name,L_Name,Full_Name,
+    Gender,Country,Birthdate,User_Name,Nurse_ID,sitter_ID) {
     const state_User = {
        National_ID:"",
        User_ID:"",
-       U_ID:"",
        Reservation_ID:"",
        Email:"",
        Password:"",
@@ -22,17 +21,14 @@ export function Add_User(National_ID,User_ID,U_ID,Reservation_ID,Email,Password,
        L_Name:"",
        Full_Name:"",
        Gender:"",
-       Country:"",
        Birthdate:"",
        User_Name:"",
        Nurse_ID:"",
-       Admin_ID:"",
        Sitter_ID:"",
-       Phone:""
+       Country:""
     }
     state_User.National_ID = National_ID;
     state_User.User_ID = User_ID;
-    state_User.U_ID = U_ID;
     state_User.Reservation_ID = Reservation_ID;
     state_User.Email = Email;
     state_User.Password = Password;
@@ -43,9 +39,7 @@ export function Add_User(National_ID,User_ID,U_ID,Reservation_ID,Email,Password,
     state_User.Country =Country;
     state_User.Birthdate = Birthdate;
     state_User.User_Name = User_Name;
-    state_User.Phone = Phone;
     state_User.Nurse_ID =Nurse_ID;
-    state_User.Admin_ID = Admin_ID;
     state_User.Sitter_ID = sitter_ID
 
     official_Store.dispatch(add_User_dispatch(state_User));
