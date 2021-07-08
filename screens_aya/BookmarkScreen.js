@@ -7,7 +7,7 @@ const BookmarkScreen = () => {
         <Text style={{ fontWeight: 'bold', fontSize: 25 }}>Save and Bookmark Your Important things </Text>
         <Button
           title="BookMark"
-          color="#694fad"
+          color="#87CEFA"
           onPress={() => navigation.navigate('BookmarkScreen')}
         />
       </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet ,ImageBackground} from 'react-native';
 
 import {
     useTheme,
@@ -17,6 +17,7 @@ import {
     DrawerItem
 } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { color } from 'react-native-reanimated';
 
 
 
@@ -26,6 +27,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 // }
 export function DrawerContent(props) {
     return (
+        <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
         <View style={{ flex: 1 }}>
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerContent}>
@@ -60,11 +62,11 @@ export function DrawerContent(props) {
                     </View>
 
                     <Drawer.Section style={styles.drawerSection}>
-                        <DrawerItem
+                        <DrawerItem style={styles.x}
                             icon={({ color, size }) => (
                                 <Icon
                                     name="home-outline"
-                                    color={color}
+                                    color={'#000000'}
                                     size={size}
                                 />
                             )}
@@ -75,7 +77,7 @@ export function DrawerContent(props) {
                             icon={({ color, size }) => (
                                 <Icon
                                     name="person-outline"
-                                    color={color}
+                                    color={'#000000'}
                                     size={size}
                                 />
                             )}
@@ -86,18 +88,18 @@ export function DrawerContent(props) {
                             icon={({ color, size }) => (
                                 <Icon
                                     name="bookmark-outline"
-                                    color={color}
+                                    color={'#000000'}
                                     size={size}
                                 />
                             )}
-                            label="Bookmarks"
+                            label="Scanning"
                         onPress={() => {props.navigation.navigate('Bookmark')}}
                         />
                         <DrawerItem
                             icon={({ color, size }) => (
                                 <Icon
                                     name="settings-outline"
-                                    color={color}
+                                    color={'#000000'}
                                     size={size}
                                 />
                             )}
@@ -108,7 +110,7 @@ export function DrawerContent(props) {
                             icon={({ color, size }) => (
                                 <Icon
                                     name="shield-checkmark-outline"
-                                    color={color}
+                                    color={'#000000'}
                                     size={size}
                                 />
                             )}
@@ -121,7 +123,7 @@ export function DrawerContent(props) {
                     <Drawer.Section title="Preferences">
                         <TouchableRipple >
                             <View style={styles.preference}>
-                                <Text>Dark Theme</Text>
+                                <Text >Dark Theme</Text>
                                 <View >
                                     <Switch />
 
@@ -151,6 +153,7 @@ export function DrawerContent(props) {
             </Drawer.Section>
 
         </View>
+        </ImageBackground>
     )
 }
 
@@ -159,45 +162,59 @@ export function DrawerContent(props) {
 const styles = StyleSheet.create({
     drawerContent: {
         flex: 1,
+        
     },
     userInfoSection: {
         paddingLeft: 20,
+        
     },
     title: {
         fontSize: 16,
         marginTop: 3,
         fontWeight: 'bold',
+     
     },
     caption: {
         fontSize: 14,
         lineHeight: 14,
+        color:'#000000'
     },
     row: {
         marginTop: 20,
         flexDirection: 'row',
         alignItems: 'center',
+        
     },
     section: {
         flexDirection: 'row',
         alignItems: 'center',
         marginRight: 15,
+        
     },
     paragraph: {
         fontWeight: 'bold',
         marginRight: 3,
+        
     },
     drawerSection: {
         marginTop: 15,
+        color:'#000000'
+       
     },
     bottomDrawerSection: {
         marginBottom: 15,
-        borderTopColor: '#f4f4f4',
-        borderTopWidth: 1
+       borderTopColor: '#f4f4f4',
+        borderTopWidth: 1,
+       
     },
     preference: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingVertical: 12,
         paddingHorizontal: 16,
+       
     },
+    x:{
+        color:'#000000',
+    }
 });

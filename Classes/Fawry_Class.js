@@ -1,29 +1,28 @@
 import official_Store from '../ReduxStores/Store';
 //Get Comments 
-export async function get_UPhone(User_ID) {
+export async function get_Fawry(F_ID) {
     official_Store.dispatch({
-        type: "GET_UPHONE",
-        User_ID: User_ID
+        type: "GET_FAWRY",
+        f_ID:F_ID
     });
-    return official_Store.getState().UPhone_reducer.uphone;
+    return official_Store.getState().Fawry_reducer.fawry;
 };
 //Add
-export function Add_UPhone(National_ID,User_ID,Email,Phone) {
-    const state_UPhone = {
-       National_ID:"",
-       User_ID:"",
-       Email:"",
-       Phone:"",
+export function Add_Fawry(F_ID,Fawry_Code,Transaction_ID) {
+    const state_Fawry = {
+        F_ID:"",
+        Fawry_Code:"",
+        Transaction_ID:"",
     }
-    state_UPhone.National_ID = National_ID;
-    state_UPhone.User_ID = User_ID;
-    state_UPhone.Email = Email;
-    state_UPhone.Phone = Phone;
-    official_Store.dispatch(add_UPhone_dispatch(state_UPhone));
+    state_Fawry.F_ID =F_ID;
+    state_Fawry.Fawry_Code =Fawry_Code;
+    state_Fawry.Transaction_ID =Transaction_ID;
+
+    official_Store.dispatch(add_Fawry_dispatch(state_Fawry));
 };
 //Delete
-export function Delete_UPhone(User_ID) {
-    official_Store.dispatch(Delete_UPhone_dispatch(User_ID));
+export function Delete_Fawry(F_ID) {
+    official_Store.dispatch(Delete_Fawry_dispatch(F_ID));
 };
 
 /*//Update //USID
@@ -48,18 +47,18 @@ export function Update_Email_User_Rate(User_ID,Email) {
 };*/
 //Dispatches
 
-const add_UPhone_dispatch = (data_) => {
+const add_Fawry_dispatch = (data_) => {
     return ({
-        type: "UPHONE_ADD",
+        type: "FAWRY_ADD",
         data: data_
     })
     
 }
 
-const Delete_UPhone_dispatch = (User_ID) => {
+const Delete_Fawry_dispatch = (F_ID) => {
     return ({
-        type:"DELETE_UPHONE",
-        data: User_ID
+        type:"DELETE_FAWRY",
+        data: F_ID
     })
 }
 /*const Update_usid_User_Rate_dispatch = (User_ID,Us_id) => {

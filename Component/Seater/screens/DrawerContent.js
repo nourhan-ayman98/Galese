@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet , ImageBackground } from 'react-native';
 import {
     useTheme,
     Avatar,
@@ -23,10 +23,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 export function DrawerContent(props) {
 
     const paperTheme = useTheme();
-
-  
-
     return(
+       // <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
         <View style={{flex:1}}>
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerContent}>
@@ -140,7 +138,9 @@ export function DrawerContent(props) {
                     onPress={() => {signOut()}}
                 />
             </Drawer.Section>
-        </View>
+            
+           </View>
+         //  </ImageBackground>
     );
 }
 

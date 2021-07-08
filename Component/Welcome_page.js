@@ -44,6 +44,12 @@ class Welcome_page extends Component {
 
             load_data("/Sitter/","SITTER_LOAD");
             load_data("/Sitter_Certificates/","SITTER_CERTIFICATES_LOAD");
+
+            load_data("/Payment/","PAYMENT_LOAD");
+            load_data("/CreditCard/","CREDIT_CARD_LOAD");
+            load_data("/Fawry/","FAWRY_LOAD");
+            load_data("/Payment_Method_User/","PAYMENT_METHOD_LOAD");
+            load_data("/Track_Payment/","TRACK_PAYMENT_LOAD");
             
             console.log(official_Store.getState());
             

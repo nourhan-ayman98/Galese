@@ -1,29 +1,29 @@
 import official_Store from '../ReduxStores/Store';
 //Get Comments 
-export async function get_UPhone(User_ID) {
+export async function get_Track_Payment(TP_Id) {
     official_Store.dispatch({
-        type: "GET_UPHONE",
-        User_ID: User_ID
+        type: "GET_TRACK_PAYMENT",
+        tp_Id:TP_Id
     });
-    return official_Store.getState().UPhone_reducer.uphone;
+    return official_Store.getState().TrackPayment_reducer.track_payment;
 };
 //Add
-export function Add_UPhone(National_ID,User_ID,Email,Phone) {
-    const state_UPhone = {
-       National_ID:"",
-       User_ID:"",
-       Email:"",
-       Phone:"",
+export function Add_Track_Payment(TP_Id,E_ID,Transaction_ID) {
+    const state_Payment_Track = {
+        TP_Id:"",
+        E_ID:"",
+        Transaction_ID:""
     }
-    state_UPhone.National_ID = National_ID;
-    state_UPhone.User_ID = User_ID;
-    state_UPhone.Email = Email;
-    state_UPhone.Phone = Phone;
-    official_Store.dispatch(add_UPhone_dispatch(state_UPhone));
+    state_Payment_Track.TP_Id =TP_Id;
+    state_Payment_Track.E_ID =E_ID;
+    state_Payment_Track.Transaction_ID =Transaction_ID;
+   
+
+    official_Store.dispatch(add_Track_Payment_dispatch(state_Payment_Track));
 };
 //Delete
-export function Delete_UPhone(User_ID) {
-    official_Store.dispatch(Delete_UPhone_dispatch(User_ID));
+export function Delete_Track_Payment(TP_Id) {
+    official_Store.dispatch( Delete_Track_Payment_dispatch(TP_Id));
 };
 
 /*//Update //USID
@@ -48,18 +48,18 @@ export function Update_Email_User_Rate(User_ID,Email) {
 };*/
 //Dispatches
 
-const add_UPhone_dispatch = (data_) => {
+const add_Track_Payment_dispatch = (data_) => {
     return ({
-        type: "UPHONE_ADD",
+        type: "TRACK_PAYMENT_ADD",
         data: data_
     })
     
 }
 
-const Delete_UPhone_dispatch = (User_ID) => {
+const Delete_Track_Payment_dispatch = (TP_Id) => {
     return ({
-        type:"DELETE_UPHONE",
-        data: User_ID
+        type:"DELETE_TRACK_PAYMENT",
+        data: TP_Id
     })
 }
 /*const Update_usid_User_Rate_dispatch = (User_ID,Us_id) => {

@@ -1,29 +1,34 @@
 import official_Store from '../ReduxStores/Store';
 //Get Comments 
-export async function get_UPhone(User_ID) {
+export async function get_Payment_Method(PM_ID) {
     official_Store.dispatch({
-        type: "GET_UPHONE",
-        User_ID: User_ID
+        type: "GET_PAYMENT_METHOD",
+        pm_ID:PM_ID
     });
-    return official_Store.getState().UPhone_reducer.uphone;
+    return official_Store.getState().PaymentMethodUser_reducer.paymentMethod;
 };
 //Add
-export function Add_UPhone(National_ID,User_ID,Email,Phone) {
-    const state_UPhone = {
-       National_ID:"",
-       User_ID:"",
-       Email:"",
-       Phone:"",
+export function Add_Payment_Method(PM_ID,National_ID,Email,User_ID,F_ID,C_ID) {
+    const state_Payment_Method = {
+        PM_ID:"",
+        National_ID:"",
+        Email:"",
+        User_ID:"",
+        F_ID:"",
+        C_ID:"",
     }
-    state_UPhone.National_ID = National_ID;
-    state_UPhone.User_ID = User_ID;
-    state_UPhone.Email = Email;
-    state_UPhone.Phone = Phone;
-    official_Store.dispatch(add_UPhone_dispatch(state_UPhone));
+    state_Payment_Method.PM_ID =PM_ID;
+    state_Payment_Method.National_ID =National_ID;
+    state_Payment_Method.Email =Email;
+    state_Payment_Method.User_ID =User_ID;
+    state_Payment_Method.F_ID =F_ID;
+    state_Payment_Method.C_ID =C_ID;
+
+    official_Store.dispatch(add_Payment_Method_dispatch(state_Payment_Method));
 };
 //Delete
-export function Delete_UPhone(User_ID) {
-    official_Store.dispatch(Delete_UPhone_dispatch(User_ID));
+export function Delete_Payment_Method(PM_ID) {
+    official_Store.dispatch(Delete_Payment_Method_dispatch(PM_ID));
 };
 
 /*//Update //USID
@@ -48,18 +53,18 @@ export function Update_Email_User_Rate(User_ID,Email) {
 };*/
 //Dispatches
 
-const add_UPhone_dispatch = (data_) => {
+const add_Payment_Method_dispatch = (data_) => {
     return ({
-        type: "UPHONE_ADD",
+        type: "PAYMENT_METHOD_ADD",
         data: data_
     })
     
 }
 
-const Delete_UPhone_dispatch = (User_ID) => {
+const Delete_Payment_Method_dispatch = (PM_ID) => {
     return ({
-        type:"DELETE_UPHONE",
-        data: User_ID
+        type:"DELETE_PAYMENT_METHOD",
+        data: PM_ID
     })
 }
 /*const Update_usid_User_Rate_dispatch = (User_ID,Us_id) => {

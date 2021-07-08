@@ -96,7 +96,7 @@ class newRegistration extends Component {
         return (
 
             <View style={styles.container}>
-
+ <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
                 <View style={styles.header}>
                     <Text style={[styles.text_header, { marginTop: 35 }]}> Schedule  </Text>
                 </View>
@@ -286,7 +286,7 @@ class newRegistration extends Component {
                     <View style={styles.button}>
                         {this.check_password(this.state.data2.password, this.state.data3.confirm_password) ?
                             <TouchableOpacity
-                                onPress={() => navigate("Payment")}>
+                                onPress={() => navigate("Care Center")}>
                                 <LinearGradient
                                     colors={['#87CEFA', '#1E90FF']}
                                     style={styles.signIn}
@@ -297,7 +297,7 @@ class newRegistration extends Component {
                             : null}
                     </View>
                 </View>
-
+                </ImageBackground>
             </View>
         );
     }

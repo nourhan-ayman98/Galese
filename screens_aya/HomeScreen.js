@@ -240,16 +240,16 @@ const HomeScreen = (props) => {
               <View style={styles.button}>
                 <TouchableOpacity
                   onPress={() => {
-                    props.navigation.navigate("newPatientRegistration");
+                    props.navigation.navigate("Reservation");
                   }}
                   style={[styles.signIn, {
-                    borderColor: '#800080',
+                    borderColor: '#1E90FF',
                     borderWidth: 1
                   }]}
                 >
 
                   <Text style={[styles.textSign, {
-                    color: '#800080'
+                    color:  '#1E90FF',
                   }]}> Know More</Text>
 
 

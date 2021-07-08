@@ -8,28 +8,17 @@ export async function get_UAdress(User_ID) {
     return official_Store.getState().UAdress_reducer.uadress;
 };
 //Add
-export function Add_UAdress(National_ID,User_ID,Email,Floor_No,Building_No,Street_No
-    ,Street_Name,Apartment_No) {
+export function Add_UAdress(National_ID,User_ID,Email, U_Loc_adress_ID) {
     const state_UAdress = {
        National_ID:"",
        User_ID:"",
        Email:"",
-       Floor_No:"",
-       Building_No:"",
-       Street_No:"",
-       Full_Name:"",
-       Street_Name:"",
-       Apartment_No:"",
+       U_Loc_adress_ID:"",
     }
     state_UAdress.National_ID = National_ID;
     state_UAdress.User_ID = User_ID;
     state_UAdress.Email = Email;
-    state_UAdress.Floor_No = Floor_No;
-    state_UAdress.Building_No = Building_No;
-    state_UAdress.Street_No = Street_No;
-    state_UAdress.Street_Name = Street_Name;
-    state_UAdress.Apartment_No = Apartment_No;
-
+    state_UAdress.U_Loc_adress_ID = U_Loc_adress_ID;
     official_Store.dispatch(add_UAdress_dispatch(state_UAdress));
 };
 //Delete

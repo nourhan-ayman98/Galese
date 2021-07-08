@@ -11,6 +11,7 @@ import {
   Dimensions,
   Platform,
   Button,
+  ImageBackground,
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -127,6 +128,7 @@ const ElderCare = (props) => {
 
   return (
     <View style={styles.container}>
+          
        {/* <View style={styles.header}>
         <Animated.Image animation="bounceIn"
           duraton="1500"
@@ -156,6 +158,7 @@ const ElderCare = (props) => {
 
         })}
       </MapView>
+      
       <View style={styles.searchBox}>
         <TextInput
           placeholder="Search here"
@@ -244,13 +247,13 @@ const ElderCare = (props) => {
                     props.navigation.navigate("Payment");
                   }}
                   style={[styles.signIn, {
-                    borderColor: '#800080',
+                    borderColor: '#1E90FF',
                     borderWidth: 1
                   }]}
                 >
 
                   <Text style={[styles.textSign, {
-                    color: '#800080'
+                    color: '#1E90FF'
                   }]}>Reserve Now</Text>
 
 
@@ -261,6 +264,7 @@ const ElderCare = (props) => {
           </View>
         ))}
       </Animated.ScrollView>
+ 
     </View>
   );
 };
