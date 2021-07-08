@@ -106,7 +106,7 @@ class newPatientRegistration extends Component {
     func() {
 
         if (this.state.role === 'Schedule Appointment ') {
-            this.props.navigation.navigate('newRegistration');
+            this.props.navigation.navigate('Schedule');
         }
     }
     render() {
@@ -125,13 +125,14 @@ class newPatientRegistration extends Component {
         return (
 
             <View style={styles.container}>
-<ScrollView>
-                <View style={styles.header}>
-                    <Text style={[styles.text_header, { marginTop: 35 }]}>Reservation </Text>
-                </View>
-                <View style={styles.footer}>
+                <ScrollView>
+                    <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
+                        <View style={styles.header}>
+                            <Text style={[styles.text_header, { marginTop: 35 }]}>Reservation </Text>
+                        </View>
+                        <View style={styles.footer}>
 
-                    {/* <Text style={styles.text_footer}> Patient Name </Text>
+                            {/* <Text style={styles.text_footer}> Patient Name </Text>
                     <br></br>
 
                     <Picker
@@ -150,40 +151,40 @@ class newPatientRegistration extends Component {
                         <Picker.Item label=" Add New Patient" value=" Add New Patient" />
 
                     </Picker> */}
-                    <Text style={styles.text_footer}> Medical Description Status </Text>
-                    <View style={styles.action}>
-                        <Fontisto
-                            name="prescription"
-                            color="#fff"
-                            size={20}
-                        />
-                        <TextInput
-                            placeholder="Insert the patient medical issues"
-                            placeholderTextColor="#D3D3D3"
-                            style={styles.textInput}
-                            autoCapitalize='none'
-                        />
-                    </View>
+                            <Text style={styles.text_footer}> Medical Description Status </Text>
+                            <View style={styles.action}>
+                                <Fontisto
+                                    name="prescription"
+                                    color="#fff"
+                                    size={20}
+                                />
+                                <TextInput
+                                    placeholder="Insert the patient medical issues"
+                                    placeholderTextColor="#D3D3D3"
+                                    style={styles.textInput}
+                                    autoCapitalize='none'
+                                />
+                            </View>
 
 
-                    <Text style={styles.text_footer}> Bills Taken </Text>
-                    <View style={styles.action}>
-                        <Fontisto
-                            name="prescription"
-                            color="#fff"
-                            size={20}
-                        />
-                        <TextInput
-                            placeholder="Insert the Bills Taken before ..."
-                            placeholderTextColor="#D3D3D3"
-                            style={styles.textInput}
-                            autoCapitalize='none'
-                        />
-                    </View>
+                            <Text style={styles.text_footer}> Bills Taken </Text>
+                            <View style={styles.action}>
+                                <Fontisto
+                                    name="prescription"
+                                    color="#fff"
+                                    size={20}
+                                />
+                                <TextInput
+                                    placeholder="Insert the Bills Taken before ..."
+                                    placeholderTextColor="#D3D3D3"
+                                    style={styles.textInput}
+                                    autoCapitalize='none'
+                                />
+                            </View>
 
-                    <Text style={styles.text_footer}> Period of Time </Text>
-                   
-                    {/* <Picker
+                            <Text style={styles.text_footer}> Period of Time </Text>
+
+                            {/* <Picker
                         selectedValue={this.states.Artist}
                         style={{ height: 50, width: 150 }}
                         onValueChange={(itemValue, itemIndex) => this.setState({ Artist: itemValue })
@@ -208,54 +209,54 @@ class newPatientRegistration extends Component {
                         <Picker.Item label="Schedule Appointment " value="p" />
                     </Picker> */}
 
-                    <Picker
-                        selectedValue={this.state.data8}
+                            <Picker
+                                selectedValue={this.state.data8}
 
-                        style={{ height: 50, width: 150 }}
-                        onValueChange={(itemValue, itemPosition) => {
-                            this.state.data8.position = itemPosition.valueOf();
-                            if (this.state.data8.position == 13) {
-                                navigate("newRegistration");
-                            }
-                        }
-                        }
-                    >
-                        <Picker.Item label="30 mins" value="a" />
-                        <Picker.Item label="1 hour" value="b" />
-                        <Picker.Item label="2 hours" value="c" />
-                        <Picker.Item label="3 hours" value="d" />
-                        <Picker.Item label="4 hours" value="e" />
-                        <Picker.Item label="5 hours" value="f" />
-                        <Picker.Item label="6 hours" value="g" />
-                        <Picker.Item label="7 hours" value="h" />
-                        <Picker.Item label="8 hours" value="i" />
-                        <Picker.Item label="9 hours" value="j" />
-                        <Picker.Item label="10 hours" value="k" />
-                        <Picker.Item label="11 hours" value="l" />
-                        <Picker.Item label="Full Day" value="m" />
-                        <Picker.Item label="Schedule Appointment" value="n" />
-                     {/* //   <Picker.Item label=" Add New Patient" value=" Add New Patient" /> */}
+                                style={{ height: 50, width: 150 }}
+                                onValueChange={(itemValue, itemPosition) => {
+                                    this.state.data8.position = itemPosition.valueOf();
+                                    if (this.state.data8.position == 13) {
+                                        navigate("Schedule");
+                                    }
+                                }
+                                }
+                            >
+                                <Picker.Item label="30 mins" value="a" />
+                                <Picker.Item label="1 hour" value="b" />
+                                <Picker.Item label="2 hours" value="c" />
+                                <Picker.Item label="3 hours" value="d" />
+                                <Picker.Item label="4 hours" value="e" />
+                                <Picker.Item label="5 hours" value="f" />
+                                <Picker.Item label="6 hours" value="g" />
+                                <Picker.Item label="7 hours" value="h" />
+                                <Picker.Item label="8 hours" value="i" />
+                                <Picker.Item label="9 hours" value="j" />
+                                <Picker.Item label="10 hours" value="k" />
+                                <Picker.Item label="11 hours" value="l" />
+                                <Picker.Item label="Full Day" value="m" />
+                                <Picker.Item label="Schedule Appointment" value="n" />
+                                {/* //   <Picker.Item label=" Add New Patient" value=" Add New Patient" /> */}
 
-                    </Picker>
+                            </Picker>
 
-                    <Text style={[styles.text_footer, { marginTop: 35 }]}> Budget Range per hour </Text>
-                    <View style={styles.action}>
-                        <FontAwesome
-                            name="money"
-                            color="#fff"
-                            size={20}
-                        />
-                        <TextInput
-                            placeholder=" Insert your budget range .."
-                            placeholderTextColor="#D3D3D3"
-                            style={styles.textInput}
-                            autoCapitalize='none'
+                            <Text style={[styles.text_footer, { marginTop: 35 }]}> Budget Range per hour </Text>
+                            <View style={styles.action}>
+                                <FontAwesome
+                                    name="money"
+                                    color="#fff"
+                                    size={20}
+                                />
+                                <TextInput
+                                    placeholder=" Insert your budget range .."
+                                    placeholderTextColor="#D3D3D3"
+                                    style={styles.textInput}
+                                    autoCapitalize='none'
 
-                        />
+                                />
 
-                    </View>
+                            </View>
 
-                    {/* <Text style={styles.text_footer}> Choose The  Category </Text>
+                            {/* <Text style={styles.text_footer}> Choose The  Category </Text>
                     <br></br>
 
                     <Picker
@@ -275,57 +276,57 @@ class newPatientRegistration extends Component {
 
                     </Picker> */}
 
-                    <Text style={[styles.text_footer, { marginTop: 35 }]}> Type of Service needed </Text>
-                    <View style={styles.action}>
-                        <Picker
-                            selectedValue={this.states.Artist}
-                            // selectedValue={selectedValue}
-                            style={{ height: 50, width: 150 }}
-                            onValueChange={(itemValue, itemIndex) => this.setState({ Artist: itemValue })}
-                        // onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                        >
-                            <Picker.Item label="Sitter" value="Sitter" />
-                            <Picker.Item label="Nurse" value="Nurse" />
+                            <Text style={[styles.text_footer, { marginTop: 35 }]}> Type of Service needed </Text>
+                            <View style={styles.action}>
+                                <Picker
+                                    selectedValue={this.states.Artist}
+                                    // selectedValue={selectedValue}
+                                    style={{ height: 50, width: 150 }}
+                                    onValueChange={(itemValue, itemIndex) => this.setState({ Artist: itemValue })}
+                                // onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                                >
+                                    <Picker.Item label="Sitter" value="Sitter" />
+                                    <Picker.Item label="Nurse" value="Nurse" />
 
-                        </Picker>
+                                </Picker>
 
-                    </View>
+                            </View>
 
-                    <Text style={styles.text_footer}> Enter Age </Text>
-                    <View style={styles.action}>
-                        <Fontisto
-                            name="calendar"
-                            color="#fff"
-                            size={20}
-                        />
-                        <TextInput
-                            placeholder="Insert your Age"
-                            placeholderTextColor="#D3D3D3"
-                            style={styles.textInput}
-                            autoCapitalize='none'
+                            <Text style={styles.text_footer}> Enter Age </Text>
+                            <View style={styles.action}>
+                                <Fontisto
+                                    name="calendar"
+                                    color="#fff"
+                                    size={20}
+                                />
+                                <TextInput
+                                    placeholder="Insert your Age"
+                                    placeholderTextColor="#D3D3D3"
+                                    style={styles.textInput}
+                                    autoCapitalize='none'
 
-                        />
-                    </View>
+                                />
+                            </View>
 
 
-                    <Text style={[styles.text_footer, { marginTop: 35 }]}> Type of Gender needed </Text>
-                    <View style={styles.action}>
-                        <Picker
-                            selectedValue={this.states.Artist}
-                            // selectedValue={selectedValue}
-                            style={{ height: 50, width: 150 }}
-                            onValueChange={(itemValue, itemIndex) => this.setState({ Artist: itemValue })}
-                        // onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                        >
-                            <Picker.Item label="Not necessary" value="Not necessary" />
-                            <Picker.Item label="Male" value="Male" />
-                            <Picker.Item label="Female" value="Female" />
+                            <Text style={[styles.text_footer, { marginTop: 35 }]}> Type of Gender needed </Text>
+                            <View style={styles.action}>
+                                <Picker
+                                    selectedValue={this.states.Artist}
+                                    // selectedValue={selectedValue}
+                                    style={{ height: 50, width: 150 }}
+                                    onValueChange={(itemValue, itemIndex) => this.setState({ Artist: itemValue })}
+                                // onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                                >
+                                    <Picker.Item label="Not necessary" value="Not necessary" />
+                                    <Picker.Item label="Male" value="Male" />
+                                    <Picker.Item label="Female" value="Female" />
 
-                        </Picker>
+                                </Picker>
 
-                    </View>
+                            </View>
 
-                    {/* <Text style={styles.text_footer}> Address  </Text>
+                            {/* <Text style={styles.text_footer}> Address  </Text>
                     <View style={styles.action}>
                         <FontAwesome
                             name="home"
@@ -341,7 +342,7 @@ class newPatientRegistration extends Component {
                         />
                     </View> */}
 
-                    {/* <View>
+                            {/* <View>
                         <RadioButton
                             value="first"
                             status={checked === 'first' ? 'checked' : 'unchecked'}
@@ -353,25 +354,26 @@ class newPatientRegistration extends Component {
                             onPress={() => setChecked('second')}
                         />
                     </View> */}
-                    {/* <RadioGroup
+                            {/* <RadioGroup
                         radioButtons={radioButtons}
                         onPress={onPressRadioButton}
                     /> */}
 
-                    <View style={styles.button}>
-                        {this.check_password(this.state.data2.password, this.state.data3.confirm_password) ?
-                            <TouchableOpacity
-                                onPress={() => navigate("ElderCare")}>
-                                <LinearGradient
-                                    colors={['#87CEFA', '#1E90FF']}
-                                    style={styles.signIn}
-                                >
-                                    <Text style={styles.textSign}>Save</Text>
-                                </LinearGradient>
-                            </TouchableOpacity>
-                            : null}
-                    </View>
-                </View>
+                            <View style={styles.button}>
+                                {this.check_password(this.state.data2.password, this.state.data3.confirm_password) ?
+                                    <TouchableOpacity
+                                        onPress={() => navigate("Care Center")}>
+                                        <LinearGradient
+                                            colors={['#87CEFA', '#1E90FF']}
+                                            style={styles.signIn}
+                                        >
+                                            <Text style={styles.textSign}>Save</Text>
+                                        </LinearGradient>
+                                    </TouchableOpacity>
+                                    : null}
+                            </View>
+                        </View>
+                    </ImageBackground>
                 </ScrollView>
             </View >
         );

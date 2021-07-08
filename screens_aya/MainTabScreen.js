@@ -36,7 +36,7 @@ const MainTabScreen = () => (
             component={HomeStackScreen}
             options={{
                 tabBarLabel: 'Home',
-                tabBarColor: "#694fad",
+                tabBarColor: '#1E90FF',
                 tabBarIcon: ({ color }) => (
                     <Icon name="home-outline" color={color} size={26} />
                 ),
@@ -47,7 +47,7 @@ const MainTabScreen = () => (
             component={NotificationScreen}
             options={{
                 tabBarLabel: 'Notifications',
-                tabBarColor: "#694fad",
+                tabBarColor:'#1E90FF',
                 tabBarIcon: ({ color }) => (
                     <Icon name="notifications-outline" color={color} size={26} />
                 ),
@@ -58,7 +58,7 @@ const MainTabScreen = () => (
             component={ProfileScreen}
             options={{
                 tabBarLabel: 'Profile',
-                tabBarColor: "#694fad",
+                tabBarColor: '#1E90FF',
                 tabBarIcon: ({ color }) => (
                     <Icon name="ios-person" color={color} size={26} />
                 ),
@@ -81,7 +81,7 @@ const MainTabScreen = () => (
         component={ExploreStackk}
         options={{
           tabBarLabel: 'Chats',
-          tabBarColor: '#694fad',
+          tabBarColor: '#1E90FF',
           tabBarIcon: ({ color }) => (
          
             <Icon name="chatbubble-outline" color={color} size={26}/>
@@ -100,7 +100,7 @@ export default MainTabScreen;
 const ExploreStackk = ({navigation}) => (
     <ExploreStack.Navigator screenOptions={{
             headerStyle: {
-            backgroundColor: '#694fad',
+            backgroundColor: '#1E90FF',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -110,7 +110,7 @@ const ExploreStackk = ({navigation}) => (
             <ExploreStack.Screen name="Chat Screen" component={ExploreScreen} options={{
            
             headerLeft: () => (
-                <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
+                <Icon.Button name="ios-menu" size={25} backgroundColor="#1E90FF" onPress={() => navigation.openDrawer()}></Icon.Button>
             )
             }} />
   
@@ -134,7 +134,7 @@ const HomeStackScreen = ({ navigation }) => (
 
     <HomeStack.Navigator screenOptions={{
         headerStyle: {
-            backgroundColor: "#694fad",
+            backgroundColor: "#1E90FF",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
@@ -145,7 +145,7 @@ const HomeStackScreen = ({ navigation }) => (
 
             title: "Home",
             headerLeft: () => (
-                <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => { navigation.openDrawer() }} ></Icon.Button>
+                <Icon.Button name="ios-menu" size={25} backgroundColor="#1E90FF" onPress={() => { navigation.openDrawer() }} ></Icon.Button>
             )
         }} />
 
@@ -170,7 +170,7 @@ const newPatientRegistrationStackScreen = ({ navigation }) => (
 
     <newPatientRegistrationStack.Navigator screenOptions={{
         headerStyle: {
-            backgroundColor: "#694fad",
+            backgroundColor: "#1E90FF",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {

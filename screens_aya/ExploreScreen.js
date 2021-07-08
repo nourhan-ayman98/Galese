@@ -17,19 +17,19 @@ import {
 const Messages = [
   {
     id: '1',
-    userName: 'Jenny Doe',
+    userName: 'Marie Micheal',
     userImg: require('../Component/Seater/assets/users/user-3.jpg'),
     messageTime: '4 mins ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'Hi, Please Can we make our Appointment at 6 pm instead of 5 pm.',
   },
   {
     id: '2',
     userName: 'John Doe',
     userImg: require('../Component/Seater/assets/users/user-1.jpg'),
-    messageTime: '2 hours ago',
+    messageTime: 'last week',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'Dont Forget to do the excesises we did .',
   },
   {
     id: '3',
@@ -37,7 +37,7 @@ const Messages = [
     userImg: require('../Component/Seater/assets/users/user-4.jpg'),
     messageTime: '1 hours ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'I Will be there Tomorrow on time',
   },
   {
     id: '4',
@@ -45,7 +45,7 @@ const Messages = [
     userImg: require('../Component/Seater/assets/users/user-6.jpg'),
     messageTime: '1 day ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'Please Check your wallet again',
   },
   {
     id: '5',
@@ -53,7 +53,7 @@ const Messages = [
     userImg: require('../Component/Seater/assets/users/user-7.jpg'),
     messageTime: '2 days ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'I will call you .',
   },
   {
     id: '1',
@@ -61,7 +61,7 @@ const Messages = [
     userImg: require('../Component/Seater/assets/users/user-3.jpg'),
     messageTime: '4 mins ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'Have a nice Weekend.',
   },
   {
     id: '2',
@@ -69,7 +69,7 @@ const Messages = [
     userImg: require('../Component/Seater/assets/users/user-1.jpg'),
     messageTime: '2 hours ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'I will call the Support to help us',
   },
   {
     id: '3',

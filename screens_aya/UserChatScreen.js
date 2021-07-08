@@ -9,19 +9,10 @@ const UserChatScreen = ({navigation}) => {
 
   useEffect(() => {
     setMessages([
-      {
-        _id: 1,
-        text: 'Hello Doctor',
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: 'React Native',
-          avatar: 'https://placeimg.com/140/140/any',
-        },
-      },
+     
       {
         _id: 2,
-        text: 'Hello',
+        text: 'Hello , Yes ofcourse no problem :)',
         createdAt: new Date(),
         user: {
           _id: 1,
@@ -29,7 +20,18 @@ const UserChatScreen = ({navigation}) => {
           avatar: 'https://placeimg.com/140/140/any',
         },
       },
+      {
+        _id: 1,
+        text: 'Hi, Please Can we make our Appointment at 6 pm instead of 5 pm.',
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'React Native',
+          avatar: 'https://placeimg.com/140/140/any',
+        },
+      },
     ]);
+    
   }, []);
 
   const onSend = useCallback((messages = []) => {

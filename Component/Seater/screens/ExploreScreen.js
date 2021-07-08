@@ -59,7 +59,7 @@ const ExploreScreen = ({navigation}) => {
         {...props}
         wrapperStyle={{
           right: {
-            backgroundColor: '#2e64e5',
+            backgroundColor: '#1E90FF',
           },
         }}
         textStyle={{

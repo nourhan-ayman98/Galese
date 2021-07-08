@@ -30,17 +30,6 @@ export const markers = [
     },
     {
       coordinate: {
-        latitude: 22.6281662,
-        longitude: 88.4410113,
-      },
-      title: "Home Shifts",
-      description: "Nurse or Sitter Care to provide Therapeutic and Personal care for patients or persons with Special needs to sit with the patient for a period of time ",
-      image: Images[2].image,
-      rating: 3,
-      reviews: 220,
-    },
-    {
-      coordinate: {
         latitude: 22.6341137,
         longitude: 88.4497463,
       },
@@ -50,6 +39,18 @@ export const markers = [
       rating: 4,
       reviews: 48,
     },
+    {
+      coordinate: {
+        latitude: 22.6281662,
+        longitude: 88.4410113,
+      },
+      title: "Home Shifts",
+      description: "Nurse or Sitter Care to provide Therapeutic and Personal care for patients or persons with Special needs to sit with the patient for a period of time ",
+      image: Images[2].image,
+      rating: 3,
+      reviews: 220,
+    },
+   
     // {
     //   coordinate: {
     //     latitude: 22.6292757,
