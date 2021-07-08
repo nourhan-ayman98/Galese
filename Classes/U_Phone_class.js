@@ -8,28 +8,17 @@ export async function get_UPhone(User_ID) {
     return official_Store.getState().UPhone_reducer.uphone;
 };
 //Add
-<<<<<<< HEAD
-export function Add_UPhone(National_ID,User_ID,Email) {
-=======
 export function Add_UPhone(National_ID,User_ID,Email,Phone) {
->>>>>>> 926ceca (nour)
     const state_UPhone = {
        National_ID:"",
        User_ID:"",
        Email:"",
-<<<<<<< HEAD
-=======
        Phone:"",
->>>>>>> 926ceca (nour)
     }
     state_UPhone.National_ID = National_ID;
     state_UPhone.User_ID = User_ID;
     state_UPhone.Email = Email;
-<<<<<<< HEAD
-
-=======
     state_UPhone.Phone = Phone;
->>>>>>> 926ceca (nour)
     official_Store.dispatch(add_UPhone_dispatch(state_UPhone));
 };
 //Delete
