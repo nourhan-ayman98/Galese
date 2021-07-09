@@ -31,13 +31,17 @@ export default class Sigin_up_sitter extends React.Component {
 
     render() {
         let { image } = this.state;
+       
+        const { navigate } = this.props.navigation;
+        
         return (
 
             <View style={styles.container}>
                 <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
                     <View style={styles.footer}>
                         <View style={styles.button}>
-                            <TouchableOpacity style={styles.button} onPress={this._pickDocument}>
+                            <TouchableOpacity style={styles.button} onPress={()=>{this._pickDocument}}>
+                            
                                 <LinearGradient
                                     colors={['#87CEFA', '#1E90FF']}
                                     style={styles.signIn}>
@@ -52,7 +56,8 @@ export default class Sigin_up_sitter extends React.Component {
 
 
 
-                            <TouchableOpacity style={styles.button} onPress={this._pickImage}>
+                            <TouchableOpacity style={styles.button} onPress={()=>{this._pickImage
+                            navigate("Congrats_waiting_")}}>
                                 <LinearGradient
                                     colors={['#87CEFA', '#1E90FF']}
                                     style={styles.signIn}>

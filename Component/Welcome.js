@@ -23,6 +23,7 @@ import ResetPass from './ReasetPassword';
 import Congrats_reset_pass from './Congrats_reset_pass';
 import ResetPass2 from './Resetpass2';
 import Sigin_up_sitter from './Sigin_up_sitter';
+import Congrats_waiting from './waiting';
 
 
 
@@ -58,6 +59,8 @@ class welcome extends Component {
                         <Stack.Screen name="Congratulations" options={{ headerShown: false }} component={Congrats_reset_pass} />
                         <Stack.Screen name="Change Password" component={ResetPass2} />
                         <Stack.Screen name="Regestration Galese" component={Sigin_up_sitter} />
+                        <Stack.Screen name="Congrats_waiting_" options={{ headerShown: false }} component={Congrats_waiting} />
+                        
                     </Stack.Navigator>
                 </NavigationContainer>
 
