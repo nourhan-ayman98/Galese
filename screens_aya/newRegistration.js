@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, TextInput, Platform, StyleSheet, ImageBackground, StatusBar, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Platform, StyleSheet, ImageBackground, StatusBar, Alert, ScrollView } from 'react-native';
 import React, { Component } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -96,6 +96,7 @@ class newRegistration extends Component {
         return (
 
             <View style={styles.container}>
+                <ScrollView>
  <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
                 <View style={styles.header}>
                     <Text style={[styles.text_header, { marginTop: 35 }]}> Schedule  </Text>
@@ -298,6 +299,7 @@ class newRegistration extends Component {
                     </View>
                 </View>
                 </ImageBackground>
+                </ScrollView>
             </View>
         );
     }

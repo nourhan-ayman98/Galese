@@ -5,6 +5,7 @@ const Siginin_user = (Email, password) => {
     const user = official_Store.getState().User_reducer.User.find(user => user.Email == Email);
     const state = {
     }
+   
     if (user == undefined) {
         const Employee = official_Store.getState().Employee_reducer.Employees.find(Employee => Employee.Email == Email);
         if (Employee == undefined) {
@@ -24,10 +25,10 @@ const Siginin_user = (Email, password) => {
 
         }
     }
-    else if (user.Password !== password) {
+    else if (Number(user.Password) !== password) {
         return false;
     }
-    else if (user.Nurse_ID === 0 && user.Sitter_ID === 0) {
+    if (user.Nurse_ID === 0 && user.Sitter_ID === 0) {
         state.Kind = 1             //Client
         state.User_ID = user.User_ID;
         return state;

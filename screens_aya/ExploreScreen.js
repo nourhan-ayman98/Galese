@@ -134,4 +134,9 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center'
   },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+},
 });

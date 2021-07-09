@@ -239,8 +239,7 @@ const ElderCare = (props) => {
               <Text numberOfLines={1} style={styles.cardtitle}>{marker.title}</Text>
 
               <Text numberOfLines={3} style={styles.cardDescription}>{marker.description}</Text>
-              <br></br>
-              <br></br>
+              
               <View style={styles.button}>
                 <TouchableOpacity
                   onPress={() => {

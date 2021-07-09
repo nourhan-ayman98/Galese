@@ -161,7 +161,6 @@ export function DrawerContent(props) {
 
 const styles = StyleSheet.create({
     drawerContent: {
-        flex: 1,
         
     },
     userInfoSection: {
@@ -184,6 +183,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         
+    },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
     },
     section: {
         flexDirection: 'row',

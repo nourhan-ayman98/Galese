@@ -14,7 +14,7 @@
 //     Caption,
 //     Paragraph,
 //     Drawer,
-  
+
 //     TouchableRipple,
 //     Switch
 // } from 'react-native-paper';
@@ -38,7 +38,7 @@
 //         data5:{
 //             confirm_secureTextEntry: true,
 //         }
-       
+
 //     }
 //     textInputChange = (val) => {
 //         if (val.trim().length >= 4) {
@@ -116,7 +116,7 @@
 //                             />
 //                  </View>
 //                  <Animated.View animation="fadeInUpBig" style={styles.footer}>
-                 
+
 //                     <Text style={styles.text_footer}> Name  </Text>
 //                         <View style={styles.action}>
 //                         <FontAwesome
@@ -129,9 +129,9 @@
 //                                 style={styles.textInput}
 //                                 autoCapitalize='none'
 //                             />
-                           
+
 //                         </View>
-                        
+
 //                         <Text style={[styles.text_footer, { marginTop: 30 }]}> Phone Number  </Text>
 //                         <View style={styles.action}>
 //                         <FontAwesome
@@ -158,7 +158,7 @@
 //                                 style={styles.textInput}
 //                                 autoCapitalize= 'sentences'
 //                             />
-                           
+
 //                         </View>
 //                         <Text style={[styles.text_footer, { marginTop: 30 }]}> Email  </Text>
 //                         <View style={styles.action}>
@@ -173,10 +173,10 @@
 //                                 autoCapitalize='none'
 //                                 onChangeText={(val) => this.textInputChange(val)}
 //                             />
-                           
-                          
-                            
-                            
+
+
+
+
 //                             {this.state.data.check_textInputChange ?
 //                                 <Animated.View animation="bounceIn">
 
@@ -239,7 +239,7 @@
 //                         <View style={styles.button}>
 //                         {this.check_password(this.state.data2.password,this.state.data3.confirm_password) ? 
 //                             <TouchableOpacity 
-                           
+
 //                                 style={[styles.signIn,
 //                                 {
 //                                     borderColor: '#87CEFA',
@@ -259,7 +259,7 @@
 
 //                             :null}
 //                         </View>
-                      
+
 //                       </Animated.View>
 //                       </ImageBackground>
 //                       </ScrollView>
@@ -279,7 +279,7 @@
 //       flexDirection: 'column'
 //     },
 //     header: {
-        
+
 //         flex:1.75,
 //         justifyContent: 'center',
 //         alignItems: 'center',
@@ -344,15 +344,15 @@
 //         borderBottomColor: '#87CEFA',
 //         paddingBottom: 5
 //     },
-    
+
 // });
 
 
 
-import { Dimensions, View, Text, TouchableOpacity, TextInput, StyleSheet, StatusBar, Alert,ImageBackground,ScrollView} from 'react-native';
-import React ,{Component} from 'react';
+import { Dimensions, View, Text, TouchableOpacity, TextInput, StyleSheet, StatusBar, Alert, ImageBackground, ScrollView } from 'react-native';
+import React, { Component } from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {Platform,FlatList} from 'react-native';
+import { Platform, FlatList } from 'react-native';
 import { Constants } from 'react-native-unimodules';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animated from 'react-native-animatable';
@@ -366,13 +366,13 @@ import {
     Caption,
     Paragraph,
     Drawer,
-  
+
     TouchableRipple,
     Switch
 } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
 
-class ProfileScreen extends Component{
+class ProfileScreen extends Component {
     state = {
         data: {
             email: '',
@@ -387,10 +387,10 @@ class ProfileScreen extends Component{
         data4: {
             secureTextEntry: true,
         },
-        data5:{
+        data5: {
             confirm_secureTextEntry: true,
         }
-       
+
     }
     textInputChange = (val) => {
         if (val.trim().length >= 4) {
@@ -434,280 +434,283 @@ class ProfileScreen extends Component{
     }
     updateSecureTextEntry_confirm = () => {
         this.setState({
-            data5:{
-                confirm_secureTextEntry:!this.state.data5.confirm_secureTextEntry,
+            data5: {
+                confirm_secureTextEntry: !this.state.data5.confirm_secureTextEntry,
             }
         })
     }
-    check_password(val1,val)
-    {
-        if (val1===val)
-        {
+    check_password(val1, val) {
+        if (val1 === val) {
             return true;
         }
-        else 
-        {
+        else {
             return false;
         }
     }
-    render(){
+    render() {
         const { navigate } = this.props.navigation;
-        return(
-
-            <Animated.View style={styles.container}>
+        return (
+            <View>
+                <Animated.View style={styles.container}>
                 <ScrollView>
-                <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
-                 <StatusBar backgroundColor='#87CEFA' barStyle="light-content" />
+                    <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
+                        
 
-             
-               <View style={styles.header}>
-                 <ImageBackground
-                                source={
-                                    require('../Component/Seater/assets/users/user-7.jpg')
-                                }
-                               style={{height:100,width: 100}}
-                               imageStyle={{borderRadius:15}}
-                                
-                            >
-                                <View style={{
-                                    flex:1,
-                                    justifyContent:'center',
-                                    alignItems: 'center',
-                                 } }>
-                                     <Icon name="camera" size={35} color="#fff" style={{
-                                         opacity:0.7,
-                                         alignItems:'center',
-                                         justifyContent:'center',
-                                         borderWidth:1,
-                                         borderColor:'#fff',
-                                         borderRadius:10,
-                                     }}/>
-                                 </View>
+                            <StatusBar backgroundColor='#87CEFA' barStyle="light-content" />
+
+
+                            <View style={styles.header}>
+
+                                <ImageBackground
+                                    source={
+                                        require('../Component/Seater/assets/users/user-7.jpg')
+                                    }
+                                    style={{ height: 100, width: 100 }}
+                                    imageStyle={{ borderRadius: 15 }}
+
+                                >
+                                    <View style={{
+                                        flex: 1,
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                    }}>
+                                        <Icon name="camera" size={35} color="#fff" style={{
+                                            opacity: 0.7,
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            borderWidth: 1,
+                                            borderColor: '#fff',
+                                            borderRadius: 10,
+                                        }} />
+                                    </View>
 
                                 </ImageBackground>
-                 </View>
-                 <Animated.View animation="fadeInUpBig" style={styles.footer}>
-                 <Text style={[styles.text_footer, { marginTop: 30 }]}> First Name  </Text>
-                 <View style={styles.action}>
-         <FontAwesome name="user-o" color="#05375a" size={20} />
-         
-         <TextInput
-           placeholder="First Name"
-           placeholderTextColor="#666666"
-           autoCorrect={false}
-           //value={userData ? userData.fname : ''}
-           onChangeText={(txt) => setUserData({...userData, fname: txt})}
-           style={styles.textInput}
-         />
-       </View>
+                            </View>
+                            <Animated.View animation="fadeInUpBig" style={styles.footer}>
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> First Name  </Text>
+                                <View style={styles.action}>
+                                    <FontAwesome name="user-o" color="#05375a" size={20} />
 
-       <Text style={[styles.text_footer, { marginTop: 30 }]}> Last Name  </Text>
-       <View style={styles.action}>
-         <FontAwesome name="user-o" color="#05375a" size={20} />
-         <TextInput
-           placeholder="Last Name"
-           placeholderTextColor="#666666"
-           //value={userData ? userData.lname : ''}
-           onChangeText={(txt) => setUserData({...userData, lname: txt})}
-           autoCorrect={false}
-           style={styles.textInput}
-         />
-       </View>
+                                    <TextInput
+                                        placeholder="First Name"
+                                        placeholderTextColor="#666666"
+                                        autoCorrect={false}
+                                        //value={userData ? userData.fname : ''}
+                                        onChangeText={(txt) => setUserData({ ...userData, fname: txt })}
+                                        style={styles.textInput}
+                                    />
+                                </View>
 
-       <Text style={[styles.text_footer, { marginTop: 30 }]}> About Me </Text>
-       <View style={styles.action}>
-         <Ionicons name="ios-clipboard-outline" color="#05375a" size={20} />
-         <TextInput
-           //multiline
-           //numberOfLines={3}
-           placeholder="About Me"
-           placeholderTextColor="#666666"
-          // value={userData ? userData.about : ''}
-           onChangeText={(txt) => setUserData({...userData, about: txt})}
-           autoCorrect={true}
-           style={[styles.textInput, {height: 40}]}
-         />
-       </View>
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> Last Name  </Text>
+                                <View style={styles.action}>
+                                    <FontAwesome name="user-o" color="#05375a" size={20} />
+                                    <TextInput
+                                        placeholder="Last Name"
+                                        placeholderTextColor="#666666"
+                                        //value={userData ? userData.lname : ''}
+                                        onChangeText={(txt) => setUserData({ ...userData, lname: txt })}
+                                        autoCorrect={false}
+                                        style={styles.textInput}
+                                    />
+                                </View>
 
-       <Text style={[styles.text_footer, { marginTop: 30 }]}> Phone Number  </Text>
-       <View style={styles.action}>
-         <Feather name="phone" color="#05375a" size={20} />
-         <TextInput
-           placeholder="Phone"
-           placeholderTextColor="#666666"
-           keyboardType="number-pad"
-           autoCorrect={false}
-           //value={userData ? userData.phone : ''}
-           onChangeText={(txt) => setUserData({...userData, phone: txt})}
-           style={styles.textInput}
-         />
-       </View>
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> About Me </Text>
+                                <View style={styles.action}>
+                                    <Ionicons name="ios-clipboard-outline" color="#05375a" size={20} />
+                                    <TextInput
+                                        //multiline
+                                        //numberOfLines={3}
+                                        placeholder="About Me"
+                                        placeholderTextColor="#666666"
+                                        // value={userData ? userData.about : ''}
+                                        onChangeText={(txt) => setUserData({ ...userData, about: txt })}
+                                        autoCorrect={true}
+                                        style={[styles.textInput, { height: 40 }]}
+                                    />
+                                </View>
 
-       <Text style={[styles.text_footer, { marginTop: 30 }]}> Country  </Text>
-       <View style={styles.action}>
-         <FontAwesome name="globe" color="#05375a" size={20} />
-         <TextInput
-           placeholder="Country"
-           placeholderTextColor="#666666"
-           autoCorrect={false}
-           //value={userData ? userData.country : ''}
-           onChangeText={(txt) => setUserData({...userData, country: txt})}
-           style={styles.textInput}
-         />
-       </View>
-       <Text style={[styles.text_footer, { marginTop: 30 }]}> City  </Text>
-       <View style={styles.action}>
-         <MaterialCommunityIcons
-           name="map-marker-outline"
-           color="#05375a"
-           size={20}
-         />
-         <TextInput
-           placeholder="City"
-           placeholderTextColor="#666666"
-           autoCorrect={false}
-           //value={userData ? userData.city : ''}
-           onChangeText={(txt) => setUserData({...userData, city: txt})}
-           style={styles.textInput}
-         />
-       </View>
-                   
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> Phone Number  </Text>
+                                <View style={styles.action}>
+                                    <Feather name="phone" color="#05375a" size={20} />
+                                    <TextInput
+                                        placeholder="Phone"
+                                        placeholderTextColor="#666666"
+                                        keyboardType="number-pad"
+                                        autoCorrect={false}
+                                        //value={userData ? userData.phone : ''}
+                                        onChangeText={(txt) => setUserData({ ...userData, phone: txt })}
+                                        style={styles.textInput}
+                                    />
+                                </View>
 
-                        <Text style={[styles.text_footer, { marginTop: 30 }]}> Medical Description  </Text>
-                        <View style={styles.action}>
-                        <FontAwesome
-                                name="file"
-                                color="#05375a"
-                                size={20}
-                            />
-                            <TextInput
-                                placeholder="Your Job Description"
-                                style={styles.textInput}
-                                autoCapitalize= 'sentences'
-                            />
-                           
-                        </View>
-                        <Text style={[styles.text_footer, { marginTop: 30 }]}> Email  </Text>
-                        <View style={styles.action}>
-                        <FontAwesome
-                                name="envelope"
-                                color="#05375a"
-                                size={20}
-                            />
-                            <TextInput
-                                placeholder="Your Email"
-                                style={styles.textInput}
-                                autoCapitalize='none'
-                                onChangeText={(val) => this.textInputChange(val)}
-                            />
-                           
-                          
-                            
-                            
-                            {this.state.data.check_textInputChange ?
-                                <Animated.View animation="bounceIn">
-
-                                    <Feather
-                                        name="check-circle"
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> Country  </Text>
+                                <View style={styles.action}>
+                                    <FontAwesome name="globe" color="#05375a" size={20} />
+                                    <TextInput
+                                        placeholder="Country"
+                                        placeholderTextColor="#666666"
+                                        autoCorrect={false}
+                                        //value={userData ? userData.country : ''}
+                                        onChangeText={(txt) => setUserData({ ...userData, country: txt })}
+                                        style={styles.textInput}
+                                    />
+                                </View>
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> City  </Text>
+                                <View style={styles.action}>
+                                    <MaterialCommunityIcons
+                                        name="map-marker-outline"
                                         color="#05375a"
                                         size={20}
                                     />
-                                </Animated.View>
-                                : null}
-                        </View>
-                        <Text style={[styles.text_footer, { marginTop: 30 }]}> Password </Text>
-                        <View style={styles.action}>
-                            <FontAwesome
-                                name="lock"
-                                color="#05375a"
-                                size={20}
-                            />
-                            <TextInput
-                                placeholder="Your Password"
-                                secureTextEntry={this.state.data4.secureTextEntry? true : false}
-                                style={styles.textInput}
-                                autoCapitalize='none'
-                                onChangeText={(val)=>this.handlePassChange(val)}
-                            />
-                            <TouchableOpacity
-                                onPress={this.updateSecureTextEntry}>
-                                <Feather
-                                    name="eye-off"
-                                    color="#05375a"
-                                    size={20}
-                                />
-                            </TouchableOpacity>
+                                    <TextInput
+                                        placeholder="City"
+                                        placeholderTextColor="#666666"
+                                        autoCorrect={false}
+                                        //value={userData ? userData.city : ''}
+                                        onChangeText={(txt) => setUserData({ ...userData, city: txt })}
+                                        style={styles.textInput}
+                                    />
+                                </View>
 
-                        </View>
-                        <Text style={[styles.text_footer, { marginTop: 30 }]}> Confirm Password </Text>
-                        <View style={styles.action}>
-                            <FontAwesome
-                                name="lock"
-                                color="#05375a"
-                                size={20}
-                            />
-                            <TextInput
-                                placeholder="Confirm Password"
-                                secureTextEntry={this.state.data5.confirm_secureTextEntry ? true : false}
-                                style={styles.textInput}
-                                autoCapitalize='none'
-                                onChangeText={(val)=>this.handlePassChange_Confirm(val)}
-                            />
-                            <TouchableOpacity
-                                onPress={this.updateSecureTextEntry_confirm}>
-                                <Feather
-                                    name="eye-off"
-                                    color="#05375a"
-                                    size={20}
-                                />
-                            </TouchableOpacity>
 
-                        </View>
-                        <View style={styles.button}>
-                        {this.check_password(this.state.data2.password,this.state.data3.confirm_password) ? 
-                            <TouchableOpacity 
-                           
-                                style={[styles.signIn,
-                                {
-                                    borderColor: '#87CEFA',
-                                    borderWidth: 1,
-                                    marginTop: 15
-                                }]}
-                                onPress={()=>{
-                                    navigate("Seater Home ");
-                                }}>
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> Medical Description  </Text>
+                                <View style={styles.action}>
+                                    <FontAwesome
+                                        name="file"
+                                        color="#05375a"
+                                        size={20}
+                                    />
+                                    <TextInput
+                                        placeholder="Your Job Description"
+                                        style={styles.textInput}
+                                        autoCapitalize='sentences'
+                                    />
 
-                                <Text
-                                    style={[styles.textSign, {
-                                        color: '#1E90FF'
-                                    }]}
-                                >Edit Profile</Text>
-                            </TouchableOpacity>
+                                </View>
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> Email  </Text>
+                                <View style={styles.action}>
+                                    <FontAwesome
+                                        name="envelope"
+                                        color="#05375a"
+                                        size={20}
+                                    />
+                                    <TextInput
+                                        placeholder="Your Email"
+                                        style={styles.textInput}
+                                        autoCapitalize='none'
+                                        onChangeText={(val) => this.textInputChange(val)}
+                                    />
 
-                            :null}
-                        </View>
-                      
-                      </Animated.View>
-                      </ImageBackground>
-                      </ScrollView>
-            </Animated.View>
+
+
+
+                                    {this.state.data.check_textInputChange ?
+                                        <Animated.View animation="bounceIn">
+
+                                            <Feather
+                                                name="check-circle"
+                                                color="#05375a"
+                                                size={20}
+                                            />
+                                        </Animated.View>
+                                        : null}
+                                </View>
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> Password </Text>
+                                <View style={styles.action}>
+                                    <FontAwesome
+                                        name="lock"
+                                        color="#05375a"
+                                        size={20}
+                                    />
+                                    <TextInput
+                                        placeholder="Your Password"
+                                        secureTextEntry={this.state.data4.secureTextEntry ? true : false}
+                                        style={styles.textInput}
+                                        autoCapitalize='none'
+                                        onChangeText={(val) => this.handlePassChange(val)}
+                                    />
+                                    <TouchableOpacity
+                                        onPress={this.updateSecureTextEntry}>
+                                        <Feather
+                                            name="eye-off"
+                                            color="#05375a"
+                                            size={20}
+                                        />
+                                    </TouchableOpacity>
+
+                                </View>
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> Confirm Password </Text>
+                                <View style={styles.action}>
+                                    <FontAwesome
+                                        name="lock"
+                                        color="#05375a"
+                                        size={20}
+                                    />
+                                    <TextInput
+                                        placeholder="Confirm Password"
+                                        secureTextEntry={this.state.data5.confirm_secureTextEntry ? true : false}
+                                        style={styles.textInput}
+                                        autoCapitalize='none'
+                                        onChangeText={(val) => this.handlePassChange_Confirm(val)}
+                                    />
+                                    <TouchableOpacity
+                                        onPress={this.updateSecureTextEntry_confirm}>
+                                        <Feather
+                                            name="eye-off"
+                                            color="#05375a"
+                                            size={20}
+                                        />
+                                    </TouchableOpacity>
+
+                                </View>
+                                <View style={styles.button}>
+                                    {this.check_password(this.state.data2.password, this.state.data3.confirm_password) ?
+                                        <TouchableOpacity
+
+                                            style={[styles.signIn,
+                                            {
+                                                borderColor: '#87CEFA',
+                                                borderWidth: 1,
+                                                marginTop: 15
+                                            }]}
+                                            onPress={() => {
+                                                navigate("Seater Home ");
+                                            }}>
+
+                                            <Text
+                                                style={[styles.textSign, {
+                                                    color: '#1E90FF'
+                                                }]}
+                                            >Edit Profile</Text>
+                                        </TouchableOpacity>
+
+                                        : null}
+                                </View>
+
+                            </Animated.View>
+                            </ImageBackground>
+                        </ScrollView>
+                    
+                </Animated.View>
+
+            </View>
         );
     }
 }
 
 
 export default ProfileScreen;
-const {height} = Dimensions.get("screen");
+const { height } = Dimensions.get("screen");
 const height_logo = height * 0.28;
 const styles = StyleSheet.create({
     container: {
-      flex: 1, 
-      backgroundColor: '#87CEFA',
-      flexDirection: 'column'
+        
+        backgroundColor: '#87CEFA',
+        flexDirection: 'column'
     },
     header: {
-        
-        flex:1.75,
+
+        flex: 1.75,
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 30,
@@ -726,7 +729,7 @@ const styles = StyleSheet.create({
         width: height_logo,
         height: height_logo
     },
-     textInput: {
+    textInput: {
         flex: 1,
         marginTop: Platform.OS === 'ios' ? 0 : -12,
         paddingLeft: 10,
@@ -736,6 +739,11 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 30,
         fontWeight: 'bold'
+    },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
     },
     text_header: {
         color: '#fff',
@@ -771,5 +779,5 @@ const styles = StyleSheet.create({
         borderBottomColor: '#87CEFA',
         paddingBottom: 5
     },
-    
+
 });

@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 
     },
     signIn: {
-        width: 800,
+        width:400,
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',

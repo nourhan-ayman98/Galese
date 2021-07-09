@@ -369,4 +369,9 @@ const styles = StyleSheet.create({
       fontSize: 12,
       color: '#999',
     },
+    image: {
+      flex: 1,
+      resizeMode: "cover",
+      justifyContent: "center"
+  },
   });

@@ -22,6 +22,7 @@ import Congrats_signup from './Congrats_sigin_up';
 import ResetPass from './ReasetPassword';
 import Congrats_reset_pass from './Congrats_reset_pass';
 import ResetPass2 from './Resetpass2';
+import Sigin_up_sitter from './Sigin_up_sitter';
 
 
 const Stack = createStackNavigator();
@@ -55,6 +56,7 @@ class welcome extends Component {
                         <Stack.Screen name="Reset Password" component={ResetPass} />
                         <Stack.Screen name="Congratulations" options={{ headerShown: false }} component={Congrats_reset_pass} />
                         <Stack.Screen name="Change Password" component={ResetPass2} />
+                        <Stack.Screen name="Regestration Galese" component={Sigin_up_sitter} />
                     </Stack.Navigator>
                 </NavigationContainer>
 

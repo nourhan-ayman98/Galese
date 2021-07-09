@@ -1,10 +1,5 @@
 import official_Store from "../ReduxStores/Store";
 import { Add_User } from "../Classes/User_Class";
-import { Add_Location } from "../Classes/Location_Class";
-import write_data from "../Database/close";
-import { Add_Loc_Adress } from "../Classes/Loc_Adress_class";
-import { Add_UAdress } from "../Classes/U_Address_Class";
-import { Add_UPhone } from "../Classes/U_Phone_class";
 
 const Siginup_user = (state_User,state_loc,state_loc_address,state_phone) => {
     // Add Location

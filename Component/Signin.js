@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, TextInput, Platform, StyleSheet, ImageBackground, StatusBar, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Platform, StyleSheet, ImageBackground, StatusBar, Alert, ScrollView } from 'react-native';
 import React, { Component } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -78,6 +78,7 @@ class Signin extends Component {
         return (
             <View>
                 <View style={styles.container}>
+                    <ScrollView>
                     <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
                         <StatusBar backgroundColor='#009387' barStyle="light-content" />
                         <View style={styles.header}>
@@ -135,24 +136,25 @@ class Signin extends Component {
                             <View style={styles.button}>
 
                                 <TouchableOpacity onPress={() => {
-                                    const state = Siginin_user(this.state.data.email, Number(this.state.data.password.valueOf()));
+                                    const state = Siginin_user(this.state.data.email, Number(this.state.data.password));
                                     //navigate("Seater Home");
                                     if (state == false) {
                                         createTwoButtonAlert();
                                     }
                                     else if (state.Kind.valueOf() === 1) {
-                                        navigate("User Home"); //Client
+                                        console.log(state.User_ID);
+                                        navigate("User Home",{data:state.User_ID}); //Client
                                     }
                                     else if (state.Kind.valueOf() === 0) {
-                                        console.log(state.kind);
-                                        navigate("User Home"); //Admin
+                                        
+                                        navigate("User Home",{data:state.Admin_ID}); //Admin
                                     }
                                     else if (state.Kind.valueOf() === 3) {
                                         console.log(state.Kind);
-                                        navigate("Seater Home"); //Nurse
+                                        navigate("Seater Home",state.User_ID); //Nurse
                                     }
                                     else if (state.Kind.valueOf() === 2) {
-                                        navigate("Seater Home"); //Sitter
+                                        navigate("Seater Home",state.User_ID); //Sitter
                                     }
                                 }}>
                                     <LinearGradient
@@ -188,9 +190,18 @@ class Signin extends Component {
                                         >Forgot Password?</Text>
                                     </TouchableOpacity>
                                 </View>
+                                <View style={styles.button}>
+                                    <TouchableOpacity onPress={() => navigate("Regestration Galese")}>
+                                        <Text style={[styles.text_forgot, {
+                                            color: '#fff    ',
+                                        }]}
+                                        >Is New Galesi?</Text>
+                                    </TouchableOpacity>
+                                </View>
                             </View>
                         </Animated.View>
                     </ImageBackground>
+                    </ScrollView>
                 </View>
 
             </View>
@@ -214,14 +225,12 @@ const styles = StyleSheet.create({
         paddingBottom: 300
     },
     image: {
-        flex: 1,
         resizeMode: "cover",
         justifyContent: "center"
     },
     footer: {
 
         display: 'flex',
-        flex: 1,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         paddingVertical: 50,

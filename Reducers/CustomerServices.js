@@ -13,17 +13,10 @@ const CustomerServices_reducer = (state = inintstate, action) => {
 
         }
         else if(action.type== "DELETECUSTOMER_SERVICES") {
-<<<<<<< HEAD
-            const newList = inintstate.CustomerServices.filter((CS) => CS.Email !== action.data);
-            state.CustomerServices= newList;
-        }
-        else if(action.type=="UPDATE_HOTLINE_CUSTOMER_SERVICES") {
-=======
             const newList = inintstate.CustomerServices.filter((CS) => CS.C_ID !== action.data);
             state.CustomerServices= newList;
         }
         /*else if(action.type=="UPDATE_HOTLINE_CUSTOMER_SERVICES") {
->>>>>>> 926ceca (nour)
             for (var i = 0; i < inintstate.CustomerServices.length; i++) {
 
                 if (inintstate.CustomerServices[i].Email == action.Email) {
@@ -32,11 +25,7 @@ const CustomerServices_reducer = (state = inintstate, action) => {
                 }
             }
 
-<<<<<<< HEAD
-        }
-=======
         }*/
->>>>>>> 926ceca (nour)
        else if(action.type=="GETCUSTOMER_SERVICES") {
             var index;
             for (var i = 0; i < inintstate.CustomerServices.length; i++) {

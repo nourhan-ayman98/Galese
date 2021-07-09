@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
         resizeMode: "cover",
         justifyContent: "center"
     },
+    
     header: {
         flex: 2,
         justifyContent: 'center',
