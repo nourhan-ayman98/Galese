@@ -18,6 +18,7 @@ import {
 } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { color } from 'react-native-reanimated';
+import official_Store from '../ReduxStores/Store';
 
 
 
@@ -43,7 +44,7 @@ export function DrawerContent(props) {
                         </View>
 
                         <View style={{ marginLeft: 10, flexDirection: 'column' }}>
-                            <Title style={styles.title}>Aya Tawfik</Title>
+                            <Title style={styles.title}>{official_Store.getState().Current_user_reducer.CurrrentUser.Full_Name}</Title>
                             <Caption style={styles.Caption}> Patient </Caption>
                         </View>
 
@@ -56,7 +57,7 @@ export function DrawerContent(props) {
                             </View>
                             <View style={styles.section}>
                                 <Paragraph style={[styles.paragraph, styles.caption]}>ID</Paragraph>
-                                <Caption style={styles.caption}>2458</Caption>
+                                <Caption style={styles.caption}>{official_Store.getState().Current_user_reducer.CurrrentUser.User_ID}</Caption>
                             </View>
                         </View>
                     </View>

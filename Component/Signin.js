@@ -142,8 +142,9 @@ class Signin extends Component {
                                         createTwoButtonAlert();
                                     }
                                     else if (state.Kind.valueOf() === 1) {
-                                        console.log(state.User_ID);
-                                        navigate("User Home",{data:state.User_ID}); //Client
+                                        official_Store.dispatch({type: "ADDCURRENTUSER",
+                                        data: state.user});
+                                        navigate("User Home"); //Client
                                     }
                                     else if (state.Kind.valueOf() === 0) {
                                         

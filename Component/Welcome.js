@@ -43,7 +43,7 @@ class welcome extends Component {
                     <Stack.Screen name="Welcome" options={{ headerShown: false }} component={Welcome_page} />
                     <Stack.Screen name="SignScreen" component={Signin} />
                     <Stack.Screen name="Registration User" component={SignUP} />
-                        <Stack.Screen name="Seater Home" component={App_seater} />
+                        <Stack.Screen name="Seater Home" options={{ headerShown: false }} component={App_seater} />
                         <Stack.Screen name="Care Center" component={ElderCare} />
                         <Stack.Screen name="ChildCare " component={ChildCare} />
                         <Stack.Screen name="Reservation" component={newPatientRegistration} />

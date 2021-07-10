@@ -24,7 +24,7 @@ const HomeScreen = ({itemData, onPress}) => {
       
     <ScrollView>
          <TouchableOpacity onPress={onPress}>
-         <View style={styles.cardsWrapper}>
+<View style={styles.cardsWrapper}>
         <Text
           style={{
             alignSelf: 'center',
@@ -37,17 +37,38 @@ const HomeScreen = ({itemData, onPress}) => {
         <View style={styles.card}>
           <View style={styles.cardImgWrapper}>
             <Image
-              source={require('../assets/users/user-1.jpg')}
+              source={require('../assets/users/user-6.jpg')}
               resizeMode="cover"
               style={styles.cardImg}
             />
           </View>
           <View style={styles.cardInfo}>
-            <Text style={styles.cardTitle}>Excellent Nurses</Text>
-          
+            <Text style={styles.cardTitle}>Name</Text>
             <Text style={styles.cardDetails}>
-            description for this
+             Nada Ahmed mahmoud
+            
             </Text>
+           
+            <Text style={styles.cardTitle}>Status</Text>
+            <Text style={styles.cardDetails}>
+            Her 65 years old Mother is the Patient who suffers from Al Zhayamer .
+          
+            </Text>
+            <Text style={styles.cardTitle}>Phone Number</Text>
+            <Text style={styles.cardDetails}>
+            
+            01285738292</Text>
+            <Text style={styles.cardTitle}>Address</Text>
+            <Text style={styles.cardDetails}>
+           
+            9th Waha Street, Nasr City
+
+          </Text>
+          <Text style={styles.cardTitle}>Last visit</Text>
+            <Text style={styles.cardDetails}>
+           2 Days ago
+
+          </Text>
           </View>
         </View>
 
@@ -60,12 +81,32 @@ const HomeScreen = ({itemData, onPress}) => {
             />
           </View>
           <View style={styles.cardInfo}>
-            <Text style={styles.cardTitle}>
-            Caring for an Elderly Parent</Text>
-          
+          <Text style={styles.cardTitle}>Name</Text>
             <Text style={styles.cardDetails}>
-              description for this
+             Muhammed Abdelhamid
+            
             </Text>
+           
+            <Text style={styles.cardTitle}>Status</Text>
+            <Text style={styles.cardDetails}>
+             29 years male patient who suffers from a great accident which reuslted from it a huge injuries in his leg, hands.
+          
+            </Text>
+            <Text style={styles.cardTitle}>Phone Number</Text>
+            <Text style={styles.cardDetails}>
+            
+            01285856587</Text>
+            <Text style={styles.cardTitle}>Address</Text>
+            <Text style={styles.cardDetails}>
+           
+            9th El Badr Street, Heliopolis
+
+          </Text>
+          <Text style={styles.cardTitle}>Last visit</Text>
+            <Text style={styles.cardDetails}>
+           3 Days ago
+
+          </Text>
           </View>
         </View>
        <View style={styles.card}>
@@ -77,13 +118,32 @@ const HomeScreen = ({itemData, onPress}) => {
             />
           </View>
           <View style={styles.cardInfo}>
-            <Text style={styles.cardTitle}> 
-
-Babysitting and Child Care</Text>
-          
+          <Text style={styles.cardTitle}>Name</Text>
             <Text style={styles.cardDetails}>
-               description for this 
+             Omnia Mohamed Nasr
+            
             </Text>
+           
+            <Text style={styles.cardTitle}>Status</Text>
+            <Text style={styles.cardDetails}>
+             Her 13 son is the Patient who suffers from muscle atrophy.
+          
+            </Text>
+            <Text style={styles.cardTitle}>Phone Number</Text>
+            <Text style={styles.cardDetails}>
+            
+            01285856587</Text>
+            <Text style={styles.cardTitle}>Address</Text>
+            <Text style={styles.cardDetails}>
+           
+            9th El Badr Street, New Cairo
+
+          </Text>
+          <Text style={styles.cardTitle}>Last visit</Text>
+            <Text style={styles.cardDetails}>
+           3 Days
+
+          </Text>
           </View>
         </View>
         </View>
@@ -156,7 +216,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   card: {
-    height: 300,
+    height: 230,
     marginVertical: 10,
     flexDirection: 'row',
     shadowColor: '#999',
@@ -188,9 +248,10 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontWeight: 'bold',
+    fontSize:16
   },
   cardDetails: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#444',
   },
 });

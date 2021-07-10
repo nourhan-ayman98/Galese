@@ -1,19 +1,19 @@
 const inintstate = {
-    Reservation:[]
+    Elder_Patient:[]
 };
 
-const Reservation_reducer = (state = inintstate, action) => {
-    if(action.type=="RESERVATION_LOAD") {
-        state.Reservation = action.state_.arraykey;
+const Elder_Patient_reducer = (state = inintstate, action) => {
+    if(action.type=="ELDER_PATIENT_LOAD") {
+        state.Elder_Patient = action.state_.arraykey;
     }
-    else if(action.type=="ADD_RESERVATION") {
-        state.Reservation.push(action.data);
+    else if(action.type=="ELDER_PATIENT_ADD") {
+        state.Elder_Patient.push(action.data);
         
 
     }
-    else if(action.type== "DELETE_RESERVATION") {
-        const newList = inintstate.User.filter((R) => R.Reservation_ID !== action.data);
-        state.Reservation= newList;
+    else if(action.type== "DELETE_ELDER_PATIENT") {
+        const newList = inintstate.Elder_Patient.filter((EP) => EP.Elder_ID !== action.data);
+        state.Elder_Patient= newList;
     }
     /*else if(action.type=="UPDATE_COUNTRY_LOCATION") {
         for (var i = 0; i < inintstate.Location.length.valueOf(); i++) {
@@ -55,16 +55,16 @@ const Reservation_reducer = (state = inintstate, action) => {
         }
 
     }*/
-   else if(action.type=="GET_RESERVATION") {
+   else if(action.type=="GET_ELDER_PATIENT") {
         var index;
-        for (var i = 0; i < inintstate.Reservation.length.valueOf(); i++) {
-            if (inintstate.Reservation[i].Reservation_ID == action.reservation_ID) {
+        for (var i = 0; i < inintstate.Elder_Patient.length.valueOf(); i++) {
+            if (inintstate.Elder_Patient[i].Elder_ID == action.elder_ID) {
                 index = i;
             }
         }
-        return { ...state, reservation: inintstate.Reservation[index] };
+        return { ...state, Elder: inintstate.Elder_Patient[index] };
     }
     return state;
 }
 
-export default  Reservation_reducer;
+export default  Elder_Patient_reducer;

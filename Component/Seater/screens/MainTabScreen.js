@@ -32,7 +32,7 @@ const MainTabScreen = () => (
         component={HomeStackScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarColor: '#694fad',
+          tabBarColor: '#1E90FF',
           tabBarIcon: ({ color }) => (
             <Icon name="home-outline" color={color} size={26} />
           ),
@@ -43,7 +43,7 @@ const MainTabScreen = () => (
         component={DetailsStackScreen}
         options={{
           tabBarLabel: 'Notifications',
-          tabBarColor: '#694fad',
+          tabBarColor: '#1E90FF',
           tabBarIcon: ({ color }) => (
             <Icon name="notifications-outline" color={color} size={26} />
           ),
@@ -54,7 +54,7 @@ const MainTabScreen = () => (
         component={ProfileStackScreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarColor: '#694fad',
+          tabBarColor: '#1E90FF',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-person" color={color} size={26} />
           ),
@@ -66,7 +66,7 @@ const MainTabScreen = () => (
         component={RootStacksScreen}
         options={{
           tabBarLabel: 'Requests',
-          tabBarColor: '#694fad',
+          tabBarColor: '#1E90FF',
           tabBarIcon: ({ color }) => (
          
             <Icon name="people-outline" color={color} size={26}/>
@@ -78,7 +78,7 @@ const MainTabScreen = () => (
         component={ChatsStackScreen}
         options={{
           tabBarLabel: 'Chats',
-          tabBarColor: '#694fad',
+          tabBarColor: '#1E90FF',
           tabBarIcon: ({ color }) => (
          
             <Icon name="chatbubble-outline" color={color} size={26}/>
@@ -93,7 +93,7 @@ export default MainTabScreen;
 const HomeStackScreen = ({navigation}) => (
 <HomeStack.Navigator screenOptions={{
         headerStyle: {
-        backgroundColor: '#694fad',
+        backgroundColor: '#1E90FF',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -103,7 +103,7 @@ const HomeStackScreen = ({navigation}) => (
         <HomeStack.Screen name="Home" component={HomeScreen} options={{
         
         headerLeft: () => (
-            <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
+            <Icon.Button name="ios-menu" size={25} backgroundColor="#1E90FF" onPress={() => navigation.openDrawer()}></Icon.Button>
         )
         }} />
         
@@ -114,7 +114,7 @@ const HomeStackScreen = ({navigation}) => (
 const ChatsStackScreen = ({navigation}) => (
   <ChatsScreenStack.Navigator screenOptions={{
           headerStyle: {
-          backgroundColor: '#694fad',
+          backgroundColor: '#1E90FF',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -124,7 +124,7 @@ const ChatsStackScreen = ({navigation}) => (
           <ChatsScreenStack.Screen name="Chat Screen" component={ChatsScreen} options={{
          
           headerLeft: () => (
-              <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
+              <Icon.Button name="ios-menu" size={25} backgroundColor="#1E90FF" onPress={() => navigation.openDrawer()}></Icon.Button>
           )
           }} />
 
@@ -146,7 +146,7 @@ const ChatsStackScreen = ({navigation}) => (
 const DetailsStackScreen = ({navigation}) => (
 <DetailsStack.Navigator screenOptions={{
         headerStyle: {
-        backgroundColor: '#694fad',
+        backgroundColor: '#1E90FF',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -155,7 +155,7 @@ const DetailsStackScreen = ({navigation}) => (
     }}>
         <DetailsStack.Screen name="Notifications" component={DetailsScreen} options={{
         headerLeft: () => (
-            <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
+            <Icon.Button name="ios-menu" size={25} backgroundColor="#1E90FF" onPress={() => navigation.openDrawer()}></Icon.Button>
         )
         }} />
 
@@ -166,7 +166,7 @@ const DetailsStackScreen = ({navigation}) => (
 const ProfileStackScreen = ({navigation}) => (
   <ProfileStack.Navigator screenOptions={{
           headerStyle: {
-          backgroundColor: '#694fad',
+          backgroundColor: '#1E90FF',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -176,7 +176,7 @@ const ProfileStackScreen = ({navigation}) => (
           <ProfileStack.Screen name="Profile" component={ProfileScreen} options={{
          
           headerLeft: () => (
-              <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
+              <Icon.Button name="ios-menu" size={25} backgroundColor="#1E90FF" onPress={() => navigation.openDrawer()}></Icon.Button>
           )
           }} />
   </ProfileStack.Navigator>
@@ -185,7 +185,7 @@ const ProfileStackScreen = ({navigation}) => (
     const RootStacksScreen = ({navigation}) => (
       <RootStack.Navigator screenOptions={{
               headerStyle: {
-              backgroundColor: '#694fad',
+              backgroundColor: '#1E90FF',
               },
               headerTintColor: '#fff',
               headerTitleStyle: {
@@ -195,7 +195,7 @@ const ProfileStackScreen = ({navigation}) => (
               <RootStack.Screen name="Requests" component={RootStackScreen} options={{
              
               headerLeft: () => (
-                  <Icon.Button name="ios-menu" size={25} backgroundColor="#694fad" onPress={() => navigation.openDrawer()}></Icon.Button>
+                  <Icon.Button name="ios-menu" size={25} backgroundColor="#1E90FF" onPress={() => navigation.openDrawer()}></Icon.Button>
               )
               }} />
               

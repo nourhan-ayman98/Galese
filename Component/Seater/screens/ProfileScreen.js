@@ -1,11 +1,14 @@
 
-import { Dimensions, View, Text, TouchableOpacity, TextInput, StyleSheet, StatusBar, Alert} from 'react-native';
+import { Dimensions, View, Text, TouchableOpacity, TextInput, StyleSheet, StatusBar, Alert,ImageBackground,ScrollView} from 'react-native';
 import React ,{Component} from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Platform,FlatList} from 'react-native';
 import { Constants } from 'react-native-unimodules';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animated from 'react-native-animatable';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
     useTheme,
     Avatar,
@@ -102,57 +105,153 @@ class ProfileScreen extends Component{
         return(
 
             <Animated.View style={styles.container}>
-                
-                 <StatusBar backgroundColor='#009387' barStyle="light-content" />
+                <ScrollView>
+                 <ImageBackground source={require('../assets/445660-blue-art-background-blue-wallpaper.jpg')}style={styles.image}>
+                 <StatusBar backgroundColor='#87CEFA' barStyle="light-content" />
 
+             
                <View style={styles.header}>
-                 <Avatar.Image 
+                 <ImageBackground
                                 source={
                                     require('../assets/users/user-7.jpg')
                                 }
-                                size={100}
-                            />
+                               style={{height:100,width: 100}}
+                               imageStyle={{borderRadius:15}}
+                                
+                            >
+                                <View style={{
+                                    flex:1,
+                                    justifyContent:'center',
+                                    alignItems: 'center',
+                                 } }>
+                                     <Icon name="camera" size={35} color="#fff" style={{
+                                         opacity:0.7,
+                                         alignItems:'center',
+                                         justifyContent:'center',
+                                         borderWidth:1,
+                                         borderColor:'#fff',
+                                         borderRadius:10,
+                                     }}/>
+                                 </View>
+
+                                </ImageBackground>
                  </View>
                  <Animated.View animation="fadeInUpBig" style={styles.footer}>
-                 
-                    <Text style={styles.text_footer}> Name  </Text>
-                        <View style={styles.action}>
-                            
-                            <TextInput
-                                placeholder="Your Name"
-                                style={styles.textInput}
-                                autoCapitalize='none'
-                            />
-                        </View>
-                        
-                        <Text style={[styles.text_footer, { marginTop: 30 }]}> Phone Number  </Text>
-                        <View style={styles.action}>
-                           
-                            <TextInput
-                                placeholder="Your Phone Number"
-                                style={styles.textInput}
-                                autoCapitalize='none'
-                            />
-                        </View>
+                 <Text style={[styles.text_footer, { marginTop: 30 }]}> First Name  </Text>
+                 <View style={styles.action}>
+         <FontAwesome name="user-o" color="#05375a" size={20} />
+         
+         <TextInput
+           placeholder="First Name"
+           placeholderTextColor="#666666"
+           autoCorrect={false}
+           //value={userData ? userData.fname : ''}
+           onChangeText={(txt) => setUserData({...userData, fname: txt})}
+           style={styles.textInput}
+         />
+       </View>
 
-                        <Text style={[styles.text_footer, { marginTop: 30 }]}> Description  </Text>
+       <Text style={[styles.text_footer, { marginTop: 30 }]}> Last Name  </Text>
+       <View style={styles.action}>
+         <FontAwesome name="user-o" color="#05375a" size={20} />
+         <TextInput
+           placeholder="Last Name"
+           placeholderTextColor="#666666"
+           //value={userData ? userData.lname : ''}
+           onChangeText={(txt) => setUserData({...userData, lname: txt})}
+           autoCorrect={false}
+           style={styles.textInput}
+         />
+       </View>
+
+       <Text style={[styles.text_footer, { marginTop: 30 }]}> About Me </Text>
+       <View style={styles.action}>
+         <Ionicons name="ios-clipboard-outline" color="#05375a" size={20} />
+         <TextInput
+           //multiline
+           //numberOfLines={3}
+           placeholder="About Me"
+           placeholderTextColor="#666666"
+          // value={userData ? userData.about : ''}
+           onChangeText={(txt) => setUserData({...userData, about: txt})}
+           autoCorrect={true}
+           style={[styles.textInput, {height: 40}]}
+         />
+       </View>
+
+       <Text style={[styles.text_footer, { marginTop: 30 }]}> Phone Number  </Text>
+       <View style={styles.action}>
+         <Feather name="phone" color="#05375a" size={20} />
+         <TextInput
+           placeholder="Phone"
+           placeholderTextColor="#666666"
+           keyboardType="number-pad"
+           autoCorrect={false}
+           //value={userData ? userData.phone : ''}
+           onChangeText={(txt) => setUserData({...userData, phone: txt})}
+           style={styles.textInput}
+         />
+       </View>
+
+       <Text style={[styles.text_footer, { marginTop: 30 }]}> Country  </Text>
+       <View style={styles.action}>
+         <FontAwesome name="globe" color="#05375a" size={20} />
+         <TextInput
+           placeholder="Country"
+           placeholderTextColor="#666666"
+           autoCorrect={false}
+           //value={userData ? userData.country : ''}
+           onChangeText={(txt) => setUserData({...userData, country: txt})}
+           style={styles.textInput}
+         />
+       </View>
+       <Text style={[styles.text_footer, { marginTop: 30 }]}> City  </Text>
+       <View style={styles.action}>
+         <MaterialCommunityIcons
+           name="map-marker-outline"
+           color="#05375a"
+           size={20}
+         />
+         <TextInput
+           placeholder="City"
+           placeholderTextColor="#666666"
+           autoCorrect={false}
+           //value={userData ? userData.city : ''}
+           onChangeText={(txt) => setUserData({...userData, city: txt})}
+           style={styles.textInput}
+         />
+       </View>
+                   
+
+                        <Text style={[styles.text_footer, { marginTop: 30 }]}> Medical Description  </Text>
                         <View style={styles.action}>
-                          
+                        <FontAwesome
+                                name="file"
+                                color="#05375a"
+                                size={20}
+                            />
                             <TextInput
                                 placeholder="Your Job Description"
                                 style={styles.textInput}
                                 autoCapitalize= 'sentences'
                             />
+                           
                         </View>
                         <Text style={[styles.text_footer, { marginTop: 30 }]}> Email  </Text>
                         <View style={styles.action}>
-                           
+                        <FontAwesome
+                                name="envelope"
+                                color="#05375a"
+                                size={20}
+                            />
                             <TextInput
                                 placeholder="Your Email"
                                 style={styles.textInput}
                                 autoCapitalize='none'
                                 onChangeText={(val) => this.textInputChange(val)}
                             />
+                           
+                          
                             
                             
                             {this.state.data.check_textInputChange ?
@@ -160,7 +259,7 @@ class ProfileScreen extends Component{
 
                                     <Feather
                                         name="check-circle"
-                                        color="#800080"
+                                        color="#05375a"
                                         size={20}
                                     />
                                 </Animated.View>
@@ -184,7 +283,7 @@ class ProfileScreen extends Component{
                                 onPress={this.updateSecureTextEntry}>
                                 <Feather
                                     name="eye-off"
-                                    color="grey"
+                                    color="#05375a"
                                     size={20}
                                 />
                             </TouchableOpacity>
@@ -208,7 +307,7 @@ class ProfileScreen extends Component{
                                 onPress={this.updateSecureTextEntry_confirm}>
                                 <Feather
                                     name="eye-off"
-                                    color="grey"
+                                    color="#05375a"
                                     size={20}
                                 />
                             </TouchableOpacity>
@@ -220,7 +319,7 @@ class ProfileScreen extends Component{
                            
                                 style={[styles.signIn,
                                 {
-                                    borderColor: '#800080',
+                                    borderColor: '#87CEFA',
                                     borderWidth: 1,
                                     marginTop: 15
                                 }]}
@@ -230,7 +329,7 @@ class ProfileScreen extends Component{
 
                                 <Text
                                     style={[styles.textSign, {
-                                        color: '#800080'
+                                        color: '#1E90FF'
                                     }]}
                                 >Edit Profile</Text>
                             </TouchableOpacity>
@@ -239,8 +338,8 @@ class ProfileScreen extends Component{
                         </View>
                       
                       </Animated.View>
-                
-                
+                      </ImageBackground>
+                      </ScrollView>
             </Animated.View>
         );
     }
@@ -253,7 +352,7 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
     container: {
       flex: 1, 
-      backgroundColor: '#694fad',
+      backgroundColor: '#87CEFA',
       flexDirection: 'column'
     },
     header: {
@@ -295,7 +394,7 @@ const styles = StyleSheet.create({
     },
     text_footer: {
         color: '#05375a',
-        fontSize: 10
+        fontSize: 19
     },
 
     button: {
@@ -319,8 +418,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 10,
         borderBottomWidth: 1,
-        borderBottomColor: '#f2f2f2',
+        borderBottomColor: '#87CEFA',
         paddingBottom: 5
+    },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
     },
     
 });

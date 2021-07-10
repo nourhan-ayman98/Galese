@@ -13,6 +13,8 @@ import User_reducer from '../Reducers/User';
 import UAdress_reducer from '../Reducers/UAdress';
 import UPhone_reducer from '../Reducers/UPhone';
 import Patient_reducer from '../Reducers/Patient';
+import Child_Patient_reducer from '../Reducers/Child_Patient';
+import Elder_Patient_reducer from '../Reducers/Elder_Patient';
 import HealthStatus_reducer from '../Reducers/HealthStatus';
 
 import Nurse_reducer from '../Reducers/Nurse';
@@ -30,9 +32,9 @@ import Disease_reducer from '../Reducers/Disease';
 import DiseaseConditions_reducer from '../Reducers/DiseaseConditions';
 import DiseaseName_reducer from '../Reducers/DiseaseName';
 import DiseaseSymptoms_reducer from '../Reducers/DiseaseSymptoms';
-import SetDisease_reducer from '../Reducers/SetDisease';
 import PaymentMethodUser_reducer from '../Reducers/PaymentMethodUser';
 import TrackPayment_reducer from '../Reducers/TrackPayment';
+import Current_user_reducer from '../Reducers/Current_user';
 //Store create
 import { combineReducers } from 'redux';
 import {createStore,applyMiddleware} from 'redux';
@@ -55,6 +57,8 @@ const reducers = combineReducers({
     UAdress_reducer,
     UPhone_reducer,
     Patient_reducer,
+    Child_Patient_reducer,
+    Elder_Patient_reducer,
     HealthStatus_reducer,
     Nurse_reducer,
     NurseCertificates_reducer,
@@ -70,10 +74,9 @@ const reducers = combineReducers({
     DiseaseConditions_reducer,
     DiseaseName_reducer,
     DiseaseSymptoms_reducer,
-    SetDisease_reducer,
     PaymentMethodUser_reducer,
     TrackPayment_reducer,
-
+    Current_user_reducer,
 });
 
 const official_Store=createStore(reducers,applyMiddleware(thunk));

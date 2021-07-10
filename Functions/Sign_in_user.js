@@ -30,7 +30,7 @@ const Siginin_user = (Email, password) => {
     }
     if (user.Nurse_ID === 0 && user.Sitter_ID === 0) {
         state.Kind = 1             //Client
-        state.User_ID = user.User_ID;
+        state.user = user;
         return state;
     }
     else if (user.Sitter_ID !== 0) {

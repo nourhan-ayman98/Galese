@@ -35,9 +35,10 @@ class Welcome_page extends Component {
             load_data("/U_Phone/","UPHONE_LOAD");
 
             load_data("/Patient/","PATIENT_LOAD");
+            load_data("/Child_Patient/","CHILD_PATIENT_LOAD");
+            load_data("/Elder_Patient/","ELDER_PATIENT_LOAD");
             load_data("/Health Status/","HEALTH_STATUS_LOAD");
 
-            load_data("/Health Status/","HEALTH_STATUS_LOAD");
             load_data("/Nurse/","NURSE_LOAD");
             load_data("/Nurse_Certificates/","NURSE_CERTIFICATES_LOAD");
             load_data("/Hospital_Address/","HOSPITAL_ADRESS_LOAD");
@@ -50,8 +51,14 @@ class Welcome_page extends Component {
             load_data("/Fawry/","FAWRY_LOAD");
             load_data("/Payment_Method_User/","PAYMENT_METHOD_LOAD");
             load_data("/Track_Payment/","TRACK_PAYMENT_LOAD");
+
+            load_data("/Reservation/","RESERVATION_LOAD");
+            load_data("/Track_Reservation/","TRACK_RESERVATION_LOAD");
             
-            console.log(official_Store.getState());
+            load_data("/Disease/","DISEASE_LOAD");
+            load_data("/Disease_Conditions/","DISEASE_CONDITIONS_LOAD");
+            load_data("/Disease_Symptoms/","DISEASE_SYMPT_LOAD");
+            load_data("/Disease_Name/","DISEASE_NAME_LOAD");
             
         }
         const functionCombined = () => {

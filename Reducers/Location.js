@@ -36,23 +36,16 @@ const Location_reducer = (state = inintstate, action) => {
 
     }
     else if(action.type=="UPDATE_LONGITUDE_LOCATION") {
-        for (var i = 0; i < inintstate.Location.length.valueOf(); i++) {
-
-            if (inintstate.Location[i].U_ID == action.u_id) {
-                inintstate.Location[i].Longitude = action.longitude;
-                break;
-            }
-        }
+        inintstate.Location.find((u)=>{if(u.U_ID==action.U_ID){
+            u.Longitude=action.Longitude
+        }})
 
     }
     else if(action.type=="UPDATE_LATITUDE_LOCATION") {
-        for (var i = 0; i < inintstate.Location.length.valueOf(); i++) {
-
-            if (inintstate.Location[i].U_ID == action.u_id) {
-                inintstate.Location[i].Latitude = action.latitude;
-                break;
-            }
-        }
+       
+        inintstate.Location.find((u)=>{if(u.U_ID==action.U_ID){
+            u.Latitude=action.Latitude
+        }})
 
     }
    else if(action.type=="GETLOCATION") {

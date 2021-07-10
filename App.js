@@ -1,4 +1,3 @@
-//Nada
 /*import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import Drawer_main from "../Gp_user/Admin/Drawer_main/Drawer_main";
@@ -10,7 +9,6 @@ export default function App() {
     </NavigationContainer>
   );
 }*/
-
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';

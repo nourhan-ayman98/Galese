@@ -371,6 +371,8 @@ import {
     Switch
 } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
+import official_Store from '../ReduxStores/Store';
+import write_data from '../Database/close';
 
 class ProfileScreen extends Component {
     state = {
@@ -441,6 +443,14 @@ class ProfileScreen extends Component {
     }
     check_password(val1, val) {
         if (val1 === val) {
+
+            official_Store.dispatch({
+                type: "UPDATE_USER_PASSWORD",
+                User_ID: official_Store.getState().Current_user_reducer.User_ID,
+                Password: val
+            })
+
+
             return true;
         }
         else {
@@ -452,9 +462,9 @@ class ProfileScreen extends Component {
         return (
             <View>
                 <Animated.View style={styles.container}>
-                <ScrollView>
-                    <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
-                        
+                    <ScrollView>
+                        <ImageBackground source={require('../Images/445660-blue-art-background-blue-wallpaper.jpg')} style={styles.image}>
+
 
                             <StatusBar backgroundColor='#87CEFA' barStyle="light-content" />
 
@@ -495,8 +505,14 @@ class ProfileScreen extends Component {
                                         placeholder="First Name"
                                         placeholderTextColor="#666666"
                                         autoCorrect={false}
-                                        //value={userData ? userData.fname : ''}
-                                        onChangeText={(txt) => setUserData({ ...userData, fname: txt })}
+                                        value={official_Store.getState().Current_user_reducer.CurrrentUser.F_Name}
+                                        onChangeText={(value) => {
+                                            official_Store.dispatch({
+                                                type: "UPDATE_USER_FIRST_NAME",
+                                                User_ID: official_Store.getState().Current_user_reducer.User_ID,
+                                                F_Name: value
+                                            })
+                                        }}
                                         style={styles.textInput}
                                     />
                                 </View>
@@ -507,14 +523,20 @@ class ProfileScreen extends Component {
                                     <TextInput
                                         placeholder="Last Name"
                                         placeholderTextColor="#666666"
-                                        //value={userData ? userData.lname : ''}
-                                        onChangeText={(txt) => setUserData({ ...userData, lname: txt })}
+                                        value={official_Store.getState().Current_user_reducer.CurrrentUser.L_Name}
+                                        onChangeText={(value) => {
+                                            official_Store.dispatch({
+                                                type: "UPDATE_USER_LAST_NAME",
+                                                User_ID: official_Store.getState().Current_user_reducer.User_ID,
+                                                L_Name: value
+                                            })
+                                        }}
                                         autoCorrect={false}
                                         style={styles.textInput}
                                     />
                                 </View>
 
-                                <Text style={[styles.text_footer, { marginTop: 30 }]}> About Me </Text>
+                                {/* <Text style={[styles.text_footer, { marginTop: 30 }]}> About Me </Text>
                                 <View style={styles.action}>
                                     <Ionicons name="ios-clipboard-outline" color="#05375a" size={20} />
                                     <TextInput
@@ -522,12 +544,12 @@ class ProfileScreen extends Component {
                                         //numberOfLines={3}
                                         placeholder="About Me"
                                         placeholderTextColor="#666666"
-                                        // value={userData ? userData.about : ''}
+                                        //value={userData ? userData.about : ''}
                                         onChangeText={(txt) => setUserData({ ...userData, about: txt })}
                                         autoCorrect={true}
                                         style={[styles.textInput, { height: 40 }]}
                                     />
-                                </View>
+                                </View> */}
 
                                 <Text style={[styles.text_footer, { marginTop: 30 }]}> Phone Number  </Text>
                                 <View style={styles.action}>
@@ -537,7 +559,7 @@ class ProfileScreen extends Component {
                                         placeholderTextColor="#666666"
                                         keyboardType="number-pad"
                                         autoCorrect={false}
-                                        //value={userData ? userData.phone : ''}
+                                        value={official_Store.getState().UPhone_reducer.UPhone.find(u => u.User_ID == official_Store.getState().Current_user_reducer.CurrrentUser.User_ID)}
                                         onChangeText={(txt) => setUserData({ ...userData, phone: txt })}
                                         style={styles.textInput}
                                     />
@@ -550,12 +572,12 @@ class ProfileScreen extends Component {
                                         placeholder="Country"
                                         placeholderTextColor="#666666"
                                         autoCorrect={false}
-                                        //value={userData ? userData.country : ''}
+                                        value={official_Store.getState().Current_user_reducer.CurrrentUser.Country}
                                         onChangeText={(txt) => setUserData({ ...userData, country: txt })}
                                         style={styles.textInput}
                                     />
                                 </View>
-                                <Text style={[styles.text_footer, { marginTop: 30 }]}> City  </Text>
+                                <Text style={[styles.text_footer, { marginTop: 30 }]}> Area  </Text>
                                 <View style={styles.action}>
                                     <MaterialCommunityIcons
                                         name="map-marker-outline"
@@ -563,30 +585,27 @@ class ProfileScreen extends Component {
                                         size={20}
                                     />
                                     <TextInput
-                                        placeholder="City"
+                                        placeholder="Area"
                                         placeholderTextColor="#666666"
                                         autoCorrect={false}
-                                        //value={userData ? userData.city : ''}
+                                        value={() => {
+                                            const state_ = [];
+                                            s = official_Store.getState().UAdress_reducer.UAdress.find(a => official_Store.getState().Current_user_reducer.User_ID == a.User_ID);
+                                            for (var i = 0; i < s.length; i++) {
+                                                state_.push(official_Store.getState().Location_reducer.Location.find(l => l.U_ID == s[i].U_ID).Area)
+                                            }
+
+                                            return state_
+
+                                        }
+                                        }
                                         onChangeText={(txt) => setUserData({ ...userData, city: txt })}
                                         style={styles.textInput}
                                     />
                                 </View>
 
 
-                                <Text style={[styles.text_footer, { marginTop: 30 }]}> Medical Description  </Text>
-                                <View style={styles.action}>
-                                    <FontAwesome
-                                        name="file"
-                                        color="#05375a"
-                                        size={20}
-                                    />
-                                    <TextInput
-                                        placeholder="Your Job Description"
-                                        style={styles.textInput}
-                                        autoCapitalize='sentences'
-                                    />
 
-                                </View>
                                 <Text style={[styles.text_footer, { marginTop: 30 }]}> Email  </Text>
                                 <View style={styles.action}>
                                     <FontAwesome
@@ -598,6 +617,7 @@ class ProfileScreen extends Component {
                                         placeholder="Your Email"
                                         style={styles.textInput}
                                         autoCapitalize='none'
+                                        value={official_Store.getState().Current_user_reducer.CurrrentUser.Email}
                                         onChangeText={(val) => this.textInputChange(val)}
                                     />
 
@@ -627,6 +647,7 @@ class ProfileScreen extends Component {
                                         secureTextEntry={this.state.data4.secureTextEntry ? true : false}
                                         style={styles.textInput}
                                         autoCapitalize='none'
+                                        value={official_Store.getState().Current_user_reducer.CurrrentUser.Password}
                                         onChangeText={(val) => this.handlePassChange(val)}
                                     />
                                     <TouchableOpacity
@@ -674,6 +695,7 @@ class ProfileScreen extends Component {
                                                 marginTop: 15
                                             }]}
                                             onPress={() => {
+                                                write_data("User",official_Store.getState().User_reducer.User);
                                                 navigate("Seater Home ");
                                             }}>
 
@@ -688,9 +710,9 @@ class ProfileScreen extends Component {
                                 </View>
 
                             </Animated.View>
-                            </ImageBackground>
-                        </ScrollView>
-                    
+                        </ImageBackground>
+                    </ScrollView>
+
                 </Animated.View>
 
             </View>
@@ -704,7 +726,7 @@ const { height } = Dimensions.get("screen");
 const height_logo = height * 0.28;
 const styles = StyleSheet.create({
     container: {
-        
+
         backgroundColor: '#87CEFA',
         flexDirection: 'column'
     },

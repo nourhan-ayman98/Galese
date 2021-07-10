@@ -1,9 +1,11 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 //import StarRating from './StarRating';
 
 const Card = ({itemData, onPress}) => {
+  const [shouldShow, setshouldShow]= useState(true);
+
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.card}>
@@ -23,8 +25,8 @@ const Card = ({itemData, onPress}) => {
         <View style={styles.button}>
                             <TouchableOpacity >
                                 <LinearGradient
-                                onPress={() => navigate("Ratings")}
-                                    colors={['#694fad', '#694fad']}
+                                onPress={() => setshouldShow(!shouldShow)}
+                                    colors={['#1E90FF', '#1E90FF']}
                                     style={styles.signIn}>
                                     <Text style={styles.textSign}>Accept</Text>
                                 </LinearGradient>
@@ -33,13 +35,13 @@ const Card = ({itemData, onPress}) => {
                                 
                                 style={[styles.signIn,
                                 {
-                                    borderColor: '#694fad',
+                                    borderColor: '#1E90FF',
                                     borderWidth: 1,
                                     marginTop: 15
                                 }]}>
                                 <Text
                                     style={[styles.textSign, {
-                                        color: '#694fad'
+                                        color: '#1E90FF'
                                     }]}
                                 >Decline</Text>
                             </TouchableOpacity>

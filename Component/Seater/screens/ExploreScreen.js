@@ -9,27 +9,29 @@ const ExploreScreen = ({navigation}) => {
 
   useEffect(() => {
     setMessages([
+     
       {
         _id: 1,
-        text: 'Hello Doctor',
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: 'React Native',
-          avatar: 'https://placeimg.com/140/140/any',
-        },
-      },
-      {
-        _id: 2,
-        text: 'Hello',
-        createdAt: new Date(),
+        //text: 'Hello , Yes ofcourse no problem :)',
+        //createdAt: new Date(),
         user: {
           _id: 1,
           name: 'React Native',
           avatar: 'https://placeimg.com/140/140/any',
         },
       },
+      {
+        _id: 2,
+        text: 'Hi doctor, Please Can we make our Appointment at 6 pm instead of 5 pm.',
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'React Native',
+          avatar:  require('../assets/users/user-3.jpg'),
+        },
+      },
     ]);
+    
   }, []);
 
   const onSend = useCallback((messages = []) => {
@@ -59,7 +61,7 @@ const ExploreScreen = ({navigation}) => {
         {...props}
         wrapperStyle={{
           right: {
-            backgroundColor: '#1E90FF',
+            backgroundColor: '#2e64e5',
           },
         }}
         textStyle={{

@@ -1,30 +1,27 @@
 import official_Store from '../ReduxStores/Store';
-//Get Patients 
-export async function get_Patient(Case_ID) {
+//Get Disease conditions
+export async function get_Disease_conditions(Disease_ID) {
     official_Store.dispatch({
-        type: "GET_PATIENT",
-        case_ID: Case_ID
+        type: "GET_CONDITIONS_DISEASE",
+        disease_ID: Disease_ID
     });
-    return official_Store.getState().Patient_reducer.patient;
+    return official_Store.getState().DiseaseConditions_reducer.DC;
 };
 //Add
-export function Add_Patient(Case_ID,National_ID,Budget_Range,User_ID) {
-    const state_Patient = {
-       Case_ID:"",
-       National_ID:"",
-       Budget_Range:"",
-       User_ID:""
+export function Add_Disease_conditions(Disease_ID,Disease_Conditions) {
+    const state_Disease_Cond = {
+       Disease_ID:"",
+       Disease_Conditions:"",
     }
-    state_Patient.Case_ID = Case_ID;
-    state_Patient.National_ID = National_ID;
-    state_Patient.Budget_Range = Budget_Range;
-    state_Patient.User_ID = User_ID;
+    
+    state_Disease_Cond.Disease_ID=Disease_ID;
+    state_Disease_Cond.Disease_Conditions =Disease_Conditions;
 
-    official_Store.dispatch(add_Patient_dispatch(state_Patient));
+    official_Store.dispatch( add_Disease_conditions_dispatch(state_Disease_Cond));
 };
 //Delete
-export function Delete_Patient(Case_ID) {
-    official_Store.dispatch(Delete_Patient_dispatch(Case_ID));
+export function Delete_Disease_conditions(Disease_ID) {
+    official_Store.dispatch(Delete_Disease_conditions_dispatch(Disease_ID));
 };
 
 /*//Update //USID
@@ -49,18 +46,18 @@ export function Update_Email_User_Rate(User_ID,Email) {
 };*/
 //Dispatches
 
-const add_Patient_dispatch = (data_) => {
+const add_Disease_conditions_dispatch= (data_) => {
     return ({
-        type: "PATIENT_ADD",
+        type:"DISEASE_CONDITIONS_ADD",
         data: data_
     })
     
 }
 
-const Delete_Patient_dispatch = (Case_ID) => {
+const Delete_Disease_conditions_dispatch = (Disease_ID) => {
     return ({
-        type:"DELETE_PATIENT",
-        data: Case_ID
+        type: "DELETE_CONDITIONS_DISEASE",
+        data: Disease_ID
     })
 }
 /*const Update_usid_User_Rate_dispatch = (User_ID,Us_id) => {

@@ -8,11 +8,13 @@ export async function get_Health_Status(Case_ID) {
     return official_Store.getState().HealthStatus_reducer.healthstatus;
 };
 //Add
-export function Add_Health_Status(Case_ID) {
+export function Add_Health_Status(Case_ID,Health_status) {
     const state_Health_S = {
        Case_ID:"",
+       Health_status:"",
     }
     state_Health_S.Case_ID = Case_ID;
+    state_Health_S.Health_status = Health_status;
     official_Store.dispatch(add_Health_Status_dispatch(state_Health_S));
 };
 //Delete

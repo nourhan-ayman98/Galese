@@ -1,30 +1,29 @@
 import official_Store from '../ReduxStores/Store';
-//Get Patients 
-export async function get_Patient(Case_ID) {
+//Get Child Patients 
+export async function get_Child_Patient(C_ID) {
     official_Store.dispatch({
-        type: "GET_PATIENT",
-        case_ID: Case_ID
+        type: "GET_CHILD_PATIENT",
+        c_ID:C_ID
     });
-    return official_Store.getState().Patient_reducer.patient;
+    return official_Store.getState().Child_Patient_reducer.Child;
 };
 //Add
-export function Add_Patient(Case_ID,National_ID,Budget_Range,User_ID) {
-    const state_Patient = {
+export function Add_Child_Patient(C_ID,Age,Case_ID) {
+    const state_Child_Patient = {
+       C_ID:"",
+       Age:"",
        Case_ID:"",
-       National_ID:"",
-       Budget_Range:"",
-       User_ID:""
+      
     }
-    state_Patient.Case_ID = Case_ID;
-    state_Patient.National_ID = National_ID;
-    state_Patient.Budget_Range = Budget_Range;
-    state_Patient.User_ID = User_ID;
+    state_Child_Patient.C_ID = C_ID;
+    state_Child_Patient.Age = Age;
+    state_Child_Patient.Case_ID = Case_ID;
 
-    official_Store.dispatch(add_Patient_dispatch(state_Patient));
+    official_Store.dispatch(add_Child_Patient_dispatch(state_Child_Patient));
 };
 //Delete
-export function Delete_Patient(Case_ID) {
-    official_Store.dispatch(Delete_Patient_dispatch(Case_ID));
+export function Delete_Child_Patient(C_ID) {
+    official_Store.dispatch(Delete_Child_Patient_dispatch(C_ID));
 };
 
 /*//Update //USID
@@ -49,18 +48,18 @@ export function Update_Email_User_Rate(User_ID,Email) {
 };*/
 //Dispatches
 
-const add_Patient_dispatch = (data_) => {
+const add_Child_Patient_dispatch = (data_) => {
     return ({
-        type: "PATIENT_ADD",
+        type: "CHILD_PATIENT_ADD",
         data: data_
     })
     
 }
 
-const Delete_Patient_dispatch = (Case_ID) => {
+const Delete_Child_Patient_dispatch = (C_ID) => {
     return ({
-        type:"DELETE_PATIENT",
-        data: Case_ID
+        type:"DELETE_CHILD_PATIENT",
+        data: C_ID
     })
 }
 /*const Update_usid_User_Rate_dispatch = (User_ID,Us_id) => {

@@ -19,11 +19,17 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { markers, mapDarkStyle, mapStandardStyle } from './mapData';
 import { useTheme } from '@react-navigation/native';
+import * as Location from 'expo-location';
+import official_Store from '../ReduxStores/Store';
+import { add } from 'react-native-reanimated';
+import write_data from '../Database/close';
 
 const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = 220;
 const CARD_WIDTH = width * 0.8;
 const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
+
+
 
 const HomeScreen = (props) => {
   const theme = useTheme();
@@ -65,6 +71,36 @@ const HomeScreen = (props) => {
 
   let mapIndex = 0;
   let mapAnimation = new Animated.Value(0);
+
+  const [ErrorMessage, setErrorMsg] = React.useState('');
+  const [location, setLocation] = React.useState('');
+  const [Lang, setLang] = React.useState('');
+  const [lat, setlat] = React.useState('');
+
+  /*get_current_location =async () => {
+    const { status } = await Location.requestPermissionsAsync();
+    if (status !== 'granted') {
+      setErrorMsg('Permission to access location was denied');
+      console.log("Location is not Granted");
+    }
+    let location = await Location.getCurrentPositionAsync({});
+    setLocation(location);
+    setLang(location.coords.longitude);
+    setlat(location.coords.latitude);
+    const l = official_Store.getState().UAdress_reducer.UAdress.find((u) => u.User_ID == official_Store.getState().Current_user_reducer.CurrrentUser.User_ID).U_ID;
+    official_Store.dispatch({
+      type: "UPDATE_LONGITUDE_LOCATION",
+      U_ID: l.U_ID,
+      Longitude: location.coords.longitude
+    })
+    official_Store.dispatch({
+      type: "UPDATE_LATITUDE_LOCATION",
+      U_ID: l.U_ID,
+      Longitude: location.coords.latitude
+    })
+    write_data("Location",official_Store.getState().Location_reducer.Location);
+  }*/
+
 
   useEffect(() => {
     mapAnimation.addListener(({ value }) => {
@@ -124,10 +160,11 @@ const HomeScreen = (props) => {
 
   const _map = React.useRef(null);
   const _scrollView = React.useRef(null);
-
+  
   return (
+   
     <View style={styles.container}>
-       {/* <View style={styles.header}>
+      {/* <View style={styles.header}>
         <Animated.Image animation="bounceIn"
           duraton="1500"
           source={require('../Images/imageedit_9_3561471378.png')}
@@ -137,8 +174,11 @@ const HomeScreen = (props) => {
 
         </Animated.Image>
       </View> */}
+      
+     
       <MapView
         ref={_map}
+
         initialRegion={state.region}
         style={styles.container}
         provider={PROVIDER_GOOGLE}
@@ -155,6 +195,8 @@ const HomeScreen = (props) => {
           //el web bydrab hna
 
         })}
+       
+        
       </MapView>
       <View style={styles.searchBox}>
         <TextInput
@@ -167,7 +209,7 @@ const HomeScreen = (props) => {
         <Ionicons name="ios-search" size={20} />
       </View>
 
-      
+
       <ScrollView
         horizontal
         scrollEventThrottle={1}
@@ -192,7 +234,7 @@ const HomeScreen = (props) => {
         ))}
       </ScrollView>
 
-     
+
       <Animated.ScrollView
         ref={_scrollView}
         horizontal
@@ -226,7 +268,7 @@ const HomeScreen = (props) => {
       >
         {state.markers.map((marker, index) => (
           <View style={styles.card} key={index}>
-            <Image 
+            <Image
               source={marker.image}
               style={styles.cardImage}
               resizeMode="cover"
@@ -236,7 +278,7 @@ const HomeScreen = (props) => {
               <Text numberOfLines={1} style={styles.cardtitle}>{marker.title}</Text>
 
               <Text numberOfLines={3} style={styles.cardDescription}>{marker.description}</Text>
-              
+
               <View style={styles.button}>
                 <TouchableOpacity
                   onPress={() => {
@@ -249,7 +291,7 @@ const HomeScreen = (props) => {
                 >
 
                   <Text style={[styles.textSign, {
-                    color:  '#1E90FF',
+                    color: '#1E90FF',
                   }]}> Know More</Text>
 
 
@@ -332,7 +374,7 @@ const styles = StyleSheet.create({
     height: 500,
     width: 490,
     overflow: "hidden",
-   // marginLeft:190
+    // marginLeft:190
   },
   cardImage: {
     flex: 3,
@@ -380,10 +422,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   logo: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 250,
-        height: 250,
-        paddingBottom:250
-},
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 250,
+    height: 250,
+    paddingBottom: 250
+  },
 });
