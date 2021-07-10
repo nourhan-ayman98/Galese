@@ -16,5 +16,5 @@ N=3
 url.svg(''.join(choices(string.ascii_uppercase +string.digits, k = N))+".svg", scale = 8)
 
 # Create and save the png file
-url.png(''.join(choices(string.ascii_uppercase +string.digits, k = N))+".png", scale = 6)
+a=url.png(''.join(choices(string.ascii_uppercase +string.digits, k = N))+".png", scale = 6)
 
